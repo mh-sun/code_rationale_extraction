@@ -80,7 +80,8 @@ def get_commit_info(file, commit_hash, repo_path):
     if java_files_count != 1:
         return None
 
-    commitMessage, commitDescription = run_command(f'git log -n 1 --pretty=format:"%s<<<SEP>>>%b" {commit_hash}', repo_path).split("<<<SEP>>>")
+    commitMessage, commitDescription = run_command(f'git log -n 1 --pretty=format:"%s<<<SEP>>>%b" {commit_hash}',
+                                                   repo_path).split("<<<SEP>>>")
 
     commit_info = run_command(f'git show --stat --patch --format=fuller {commit_hash}', repo_path)
 
@@ -89,11 +90,11 @@ def get_commit_info(file, commit_hash, repo_path):
         'commit_hash': re.search(r'^commit (\w+)', commit_info).group(1),
         'author': re.search(r'Author:\s*(.+)', commit_info).group(1).strip(),
         'date': re.search(r'CommitDate:\s*(.+)', commit_info).group(1).strip(),
-        'diff': run_command(f"git show --unified=0 --no-color {commit_hash} {file} | grep '^[+-]' | grep -Ev '^(---|\+\+\+)'")
+        'diff': run_command(
+            f"git show --unified=0 --no-color {commit_hash} {file} | grep '^[+-]' | grep -Ev '^(---|\+\+\+)'")
     }
 
     return commit_dict
-
 
 
 def process_file(commit_limit, file, repo_path, output_path):
@@ -108,7 +109,6 @@ def process_file(commit_limit, file, repo_path, output_path):
 
 
 def process_files(rationale_dataset_path, commit_limit, repo_path):
-
     print(f"Rationale Dataset Path: {rationale_dataset_path}")
     print(f"Commit Limit: {commit_limit}")
     print(f"Repository Path: {repo_path}")
@@ -123,6 +123,7 @@ def process_files(rationale_dataset_path, commit_limit, repo_path):
 
         for future in tqdm(futures):
             future.result()
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process Java files in a repository.")
