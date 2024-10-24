@@ -1,1 +1,8 @@
-tqdm @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_24zjwympsr/croot/tqdm_1724853942429/work
+anyascii==0.3.2
+beautifulsoup4==4.12.3
+contractions==0.1.73
+pyahocorasick==2.1.0
+soupsieve==2.6
+stopwordsiso==0.6.1
+textsearch==0.0.24
+tqdm==4.66.5

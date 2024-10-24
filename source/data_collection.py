@@ -1,3 +1,5 @@
+import argparse
+from concurrent.futures import ThreadPoolExecutor
 import csv
 import subprocess
 import re
@@ -15,8 +17,8 @@ def get_java_files(repo_path):
     return run_command(command, repo_path).splitlines()
 
 
-def get_last_commits(file, repo_path):
-    command = f'git log -n 10 --pretty=format:"%H" --follow -- {file}'
+def get_last_commits(commit_limit, file, repo_path):
+    command = f'git log -n {commit_limit} --pretty=format:"%H" --follow -- {file}'
     return run_command(command, repo_path).splitlines()
 
 
@@ -64,23 +66,35 @@ def check_n_save_changes(diff, file, commit, repo_path, output_path):
         save_changes(diff, change_type, file, commit, repo_path, output_path)
 
 
-def process_files():
-    rationale_dataset_path = "dataset/code_rationale_list.csv"
+def process_file(commit_limit, file, repo_path, output_path):
+    commits = get_last_commits(commit_limit, file, repo_path)
+    for commit in commits:
+        diff = get_diff(file, commit, repo_path)
+        check_n_save_changes(diff, file, commit, repo_path, output_path)
 
-    repo_path = 'dataset/spring-framework'
+def process_files(rationale_dataset_path, commit_limit, repo_path):
+
+    print(f"Rationale Dataset Path: {rationale_dataset_path}")
+    print(f"Commit Limit: {commit_limit}")
+    print(f"Repository Path: {repo_path}")
 
     java_files = get_java_files(repo_path)
 
-    for file in tqdm(java_files):
-        # print(f"\nProcessing file: {file}")
+    with ThreadPoolExecutor(max_workers=64) as executor:
+        futures = [
+            executor.submit(process_file, commit_limit, file, repo_path, rationale_dataset_path)
+            for file in java_files
+        ]
 
-        commits = get_last_commits(file, repo_path)
-        for commit in commits:
-            # print(f"Checking commit: {commit}")
-
-            diff = get_diff(file, commit, repo_path)
-            check_n_save_changes(diff, file, commit, repo_path, rationale_dataset_path)
-
+        for future in tqdm(futures):
+            future.result()
 
 if __name__ == "__main__":
-    process_files()
+    parser = argparse.ArgumentParser(description="Process Java files in a repository.")
+    parser.add_argument('-o', '--OUTPUT', type=str, default="dataset/code_rationale_list.csv", help="output path of the rationale dataset")
+    parser.add_argument('-c', '--COMMITLENGTH', type=int, default=10, help="limit on the number of commits to process")
+    parser.add_argument('-t', '--TARGET', type=str, default='dataset/spring-framework', help="path to the target repository")
+
+    args = parser.parse_args()
+
+    process_files(args.OUTPUT, args.COMMITLENGTH, args.TARGET)
