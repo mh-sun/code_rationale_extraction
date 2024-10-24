@@ -48,30 +48,64 @@ def check_n_save_changes(diff, file, commit, repo_path, output_path):
         change_type = "Condition_Change"
         save_changes(diff, change_type, file, commit, repo_path, output_path)
 
-    #method addition
-    if re.search(r'^\+\s*(public|protected|private)\s+\w+\s+\w+\s*\(', diff, re.MULTILINE):
-        change_type = "Method_Addition"
-        save_changes(diff, change_type, file, commit, repo_path, output_path)
+    # #method addition
+    # if re.search(r'^\+\s*(public|protected|private)\s+\w+\s+\w+\s*\(', diff, re.MULTILINE):
+    #     change_type = "Method_Addition"
+    #     save_changes(diff, change_type, file, commit, repo_path, output_path)
+    #
+    # #return type changes
+    # if re.search(r'^\-.*(public|protected|private)\s+\w+\s+\w+\s*\(', diff, re.MULTILINE):
+    #     change_type = "Return_Type_Change"
+    #     save_changes(diff, change_type, file, commit, repo_path, output_path)
+    #
+    # #parameter changes
+    # removed_params = re.search(r'^\-.*\(.*\).*', diff, re.MULTILINE)
+    # added_params = re.search(r'^\+.*\(.*\).*', diff, re.MULTILINE)
+    # if removed_params and added_params:
+    #     change_type = "Parameter_Change"
+    #     save_changes(diff, change_type, file, commit, repo_path, output_path)
 
-    #return type changes
-    if re.search(r'^\-.*(public|protected|private)\s+\w+\s+\w+\s*\(', diff, re.MULTILINE):
-        change_type = "Return_Type_Change"
-        save_changes(diff, change_type, file, commit, repo_path, output_path)
 
-    #parameter changes
-    removed_params = re.search(r'^\-.*\(.*\).*', diff, re.MULTILINE)
-    added_params = re.search(r'^\+.*\(.*\).*', diff, re.MULTILINE)
-    if removed_params and added_params:
-        change_type = "Parameter_Change"
-        save_changes(diff, change_type, file, commit, repo_path, output_path)
+# def get_commit_info(commit, repo_path):
+#     command = f'git show {commit}'
+#     return run_command(command, repo_path)
+
+
+def get_commit_info(file, commit_hash, repo_path):
+    files_changed = run_command(f'git diff-tree --no-commit-id --name-only -r {commit_hash}', repo_path)
+
+    java_files = [file for file in files_changed.split("\n") if file.endswith('.java')]
+    java_files_count = len(java_files)
+
+    if java_files_count != 1:
+        return None
+
+    commitMessage, commitDescription = run_command(f'git log -n 1 --pretty=format:"%s<<<SEP>>>%b" {commit_hash}', repo_path).split("<<<SEP>>>")
+
+    commit_info = run_command(f'git show --stat --patch --format=fuller {commit_hash}', repo_path)
+
+    commit_dict = {
+        'commit_massage': commitMessage, 'commit_description': commitDescription,
+        'commit_hash': re.search(r'^commit (\w+)', commit_info).group(1),
+        'author': re.search(r'Author:\s*(.+)', commit_info).group(1).strip(),
+        'date': re.search(r'CommitDate:\s*(.+)', commit_info).group(1).strip(),
+        'diff': run_command(f"git show --unified=0 --no-color {commit_hash} {file} | grep '^[+-]' | grep -Ev '^(---|\+\+\+)'")
+    }
+
+    return commit_dict
 
 
 
 def process_file(commit_limit, file, repo_path, output_path):
     commits = get_last_commits(commit_limit, file, repo_path)
     for commit in commits:
-        diff = get_diff(file, commit, repo_path)
-        check_n_save_changes(diff, file, commit, repo_path, output_path)
+        commit_info = get_commit_info(file, commit, repo_path)
+
+        if commit_info is None:
+            continue
+
+        check_n_save_changes(commit_info.diff, file, commit, repo_path, output_path)
+
 
 def process_files(rationale_dataset_path, commit_limit, repo_path):
 
@@ -92,9 +126,11 @@ def process_files(rationale_dataset_path, commit_limit, repo_path):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process Java files in a repository.")
-    parser.add_argument('-o', '--OUTPUT', type=str, default="dataset/code_rationale_list.csv", help="output path of the rationale dataset")
+    parser.add_argument('-o', '--OUTPUT', type=str, default="dataset/code_rationale_list.csv",
+                        help="output path of the rationale dataset")
     parser.add_argument('-c', '--COMMITLENGTH', type=int, default=10, help="limit on the number of commits to process")
-    parser.add_argument('-t', '--TARGET', type=str, default='dataset/spring-framework', help="path to the target repository")
+    parser.add_argument('-t', '--TARGET', type=str, default='dataset/spring-framework',
+                        help="path to the target repository")
 
     args = parser.parse_args()
 
