@@ -66,6 +66,7 @@ def check_n_save_changes(diff, file, commit, repo_path, output_path):
         save_changes(diff, change_type, file, commit, repo_path, output_path)
 
 
+
 def process_file(commit_limit, file, repo_path, output_path):
     commits = get_last_commits(commit_limit, file, repo_path)
     for commit in commits:
