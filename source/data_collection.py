@@ -42,7 +42,9 @@ def save_changes(diff, change_type, file, commit, repo_path, output_path):
         writer.writerow(csv_row)
 
 
-def check_n_save_changes(diff, file, commit, repo_path, output_path):
+def check_n_save_changes(commit_info, file, commit, repo_path, output_path):
+    diff = commit_info['diff']
+
     added_conditions = re.findall(r'^\+.*\s+(if|else)\s+.*', diff, re.MULTILINE)
     removed_conditions = re.findall(r'^-.*\s+(if|else)\s+.*', diff, re.MULTILINE)
 
@@ -70,18 +72,27 @@ def get_commit_info(file, commit_hash, repo_path):
 
     if java_files_count != 1:
         return None
+    
+    if java_files[0] != file:
+        return None
 
     commitMessage, commitDescription = run_command(f'git log -n 1 --pretty=format:"%s<<<SEP>>>%b" {commit_hash}',
                                                    repo_path).split("<<<SEP>>>")
 
     commit_info = run_command(f'git show --stat --patch --format=fuller {commit_hash}', repo_path)
+    diff_output = run_command(f"git show --unified=0 --no-color {commit_hash} {file} | grep '^[+-]' | grep -Ev '^(---|\+\+\+)'", repo_path)
+
+    added_lines = sum(1 for line in diff_output.splitlines() if line.startswith('+') and not line.startswith('++'))
+    removed_lines = sum(1 for line in diff_output.splitlines() if line.startswith('-') and not line.startswith('--'))
 
     commit_dict = {
         'commit_massage': commitMessage, 'commit_description': commitDescription,
         'commit_hash': re.search(r'^commit (\w+)', commit_info).group(1),
         'author': re.search(r'Author:\s*(.+)', commit_info).group(1).strip(),
         'date': re.search(r'CommitDate:\s*(.+)', commit_info).group(1).strip(),
-        'diff': run_command(f"git show --unified=0 --no-color {commit_hash} {file} | grep '^[+-]' | grep -Ev '^(---|\+\+\+)'", repo_path)
+        'diff': diff_output,
+        'added_line': added_lines,
+        'removed_line': removed_lines
     }
 
     return commit_dict
@@ -95,7 +106,7 @@ def process_file(commit_limit, file, repo_path, output_path):
         if commit_info is None:
             continue
 
-        check_n_save_changes(commit_info['diff'], file, commit, repo_path, output_path)
+        check_n_save_changes(commit_info, file, commit, repo_path, output_path)
 
 
 def process_files(rationale_dataset_path, commit_limit, repo_path):
