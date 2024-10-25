@@ -93,7 +93,7 @@ def get_commit_info(file, commit_hash, repo_path):
     pattern1 = r'^[+-]\s+\*\s*.*$'
     pattern2 = r'^[+-]\s+\/\*\*\s*.*\*\/$'
     diff_output = '\n'.join(line for line in diff_output.splitlines() if
-                            not re.match(pattern1, line.strip()) and re.match(pattern2, line.strip()))
+                            not re.match(pattern1, line.strip()) and not re.match(pattern2, line.strip()))
 
     added_lines = sum(1 for line in diff_output.splitlines() if line.startswith('+') and not line.startswith('++'))
     removed_lines = sum(1 for line in diff_output.splitlines() if line.startswith('-') and not line.startswith('--'))
