@@ -43,32 +43,23 @@ def save_changes(diff, change_type, file, commit, repo_path, output_path):
 
 
 def check_n_save_changes(diff, file, commit, repo_path, output_path):
-    #condition change
-    if re.search(r'^\+.*(if|else|for|while)\s*\(', diff, re.MULTILINE):
+    added_conditions = re.findall(r'^\+.*\s+(if|else)\s+.*', diff, re.MULTILINE)
+    removed_conditions = re.findall(r'^-.*\s+(if|else)\s+.*', diff, re.MULTILINE)
+
+    added_count = len(added_conditions)
+    removed_count = len(removed_conditions)
+
+    if added_count == 1 and removed_count == 1:
         change_type = "Condition_Change"
         save_changes(diff, change_type, file, commit, repo_path, output_path)
-
-    # #method addition
-    # if re.search(r'^\+\s*(public|protected|private)\s+\w+\s+\w+\s*\(', diff, re.MULTILINE):
-    #     change_type = "Method_Addition"
-    #     save_changes(diff, change_type, file, commit, repo_path, output_path)
-    #
-    # #return type changes
-    # if re.search(r'^\-.*(public|protected|private)\s+\w+\s+\w+\s*\(', diff, re.MULTILINE):
-    #     change_type = "Return_Type_Change"
-    #     save_changes(diff, change_type, file, commit, repo_path, output_path)
-    #
-    # #parameter changes
-    # removed_params = re.search(r'^\-.*\(.*\).*', diff, re.MULTILINE)
-    # added_params = re.search(r'^\+.*\(.*\).*', diff, re.MULTILINE)
-    # if removed_params and added_params:
-    #     change_type = "Parameter_Change"
-    #     save_changes(diff, change_type, file, commit, repo_path, output_path)
-
-
-# def get_commit_info(commit, repo_path):
-#     command = f'git show {commit}'
-#     return run_command(command, repo_path)
+    elif added_count == 1:
+        change_type = "Add_Change"
+        save_changes(diff, change_type, file, commit, repo_path, output_path)
+    elif removed_count == 1:
+        change_type = "Remove_Change"
+        save_changes(diff, change_type, file, commit, repo_path, output_path)
+    else:
+        pass
 
 
 def get_commit_info(file, commit_hash, repo_path):
@@ -90,8 +81,7 @@ def get_commit_info(file, commit_hash, repo_path):
         'commit_hash': re.search(r'^commit (\w+)', commit_info).group(1),
         'author': re.search(r'Author:\s*(.+)', commit_info).group(1).strip(),
         'date': re.search(r'CommitDate:\s*(.+)', commit_info).group(1).strip(),
-        'diff': run_command(
-            f"git show --unified=0 --no-color {commit_hash} {file} | grep '^[+-]' | grep -Ev '^(---|\+\+\+)'")
+        'diff': run_command(f"git show --unified=0 --no-color {commit_hash} {file} | grep '^[+-]' | grep -Ev '^(---|\+\+\+)'", repo_path)
     }
 
     return commit_dict
@@ -105,7 +95,7 @@ def process_file(commit_limit, file, repo_path, output_path):
         if commit_info is None:
             continue
 
-        check_n_save_changes(commit_info.diff, file, commit, repo_path, output_path)
+        check_n_save_changes(commit_info['diff'], file, commit, repo_path, output_path)
 
 
 def process_files(rationale_dataset_path, commit_limit, repo_path):
