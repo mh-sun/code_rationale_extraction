@@ -27,14 +27,14 @@ def get_diff(file, commit, repo_path):
     return run_command(command, repo_path)
 
 
-def save_changes(commit_info, change_type, file, commit, repo_path, output_path):
+def save_changes(commit_info, change_type, file, commit, repo_path, output_path, cond_type):
     try:
         diff = commit_info['diff']
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
         csv_row = [
             os.path.basename(repo_path), file, commit, change_type, str(diff),
-            commit_info['added_line'] + commit_info['removed_line'],
+            commit_info['added_line'] + commit_info['removed_line'], cond_type,
             commit_info['commit_massage'], commit_info['commit_description'], commit_info['notes']
         ]
 
@@ -42,32 +42,42 @@ def save_changes(commit_info, change_type, file, commit, repo_path, output_path)
         with open(output_path, 'a') as f:
             writer = csv.writer(f)
             if not file_exists:
-                writer.writerow(['repo', 'file', 'commit', 'change_type', 'diff', 'change_count', 'commit_message', 'description', 'note'])
+                writer.writerow(
+                    ['repo', 'file', 'commit', 'change_type', 'diff', 'change_count', 'condition_type', 'commit_message', 'description',
+                     'note'])
             writer.writerow(csv_row)
     except Exception as e:
         print(e)
 
 
 def check_n_save_changes(commit_info, file, commit, repo_path, output_path):
+    add_pattern = r'^\+.*\s+(if|else)\s+.*'
+    remove_pattern = r'^-.*\s+(if|else)\s+.*'
+
+    check_(add_pattern, remove_pattern, commit_info, file, output_path, repo_path, "condition")
+
+    add_pattern = r'^\+.*\s+(for|while)\s+.*'
+    remove_pattern = r'^-.*\s+(for|while)\s+.*'
+
+    check_(add_pattern, remove_pattern, commit_info, file, output_path, repo_path, "iteration")
+
+
+def check_(add_pattern, remove_pattern, commit_info, file, output_path, repo_path, cond_type):
     diff = commit_info['diff']
-
-    added_conditions = re.findall(r'^\+.*\s+(if|else)\s+.*', diff, re.MULTILINE)
-    removed_conditions = re.findall(r'^-.*\s+(if|else)\s+.*', diff, re.MULTILINE)
-
+    commit = commit_info['commit_hash']
+    added_conditions = re.findall(add_pattern, diff, re.MULTILINE)
+    removed_conditions = re.findall(remove_pattern, diff, re.MULTILINE)
     added_count = len(added_conditions)
     removed_count = len(removed_conditions)
-
     if added_count == 1 and removed_count == 1:
         change_type = "Condition_Change"
-        save_changes(commit_info, change_type, file, commit, repo_path, output_path)
+        save_changes(commit_info, change_type, file, commit, repo_path, output_path, cond_type)
     elif added_count == 1 and removed_count == 0:
-        change_type = "Add_Change"
-        save_changes(commit_info, change_type, file, commit, repo_path, output_path)
+        change_type = "Add_Condition"
+        save_changes(commit_info, change_type, file, commit, repo_path, output_path, cond_type)
     elif added_count == 0 and removed_count == 1:
-        change_type = "Remove_Change"
-        save_changes(commit_info, change_type, file, commit, repo_path, output_path)
-    else:
-        pass
+        change_type = "Remove_Condition"
+        save_changes(commit_info, change_type, file, commit, repo_path, output_path, cond_type)
 
 
 def get_commit_info(file, commit_hash, repo_path):
@@ -96,7 +106,9 @@ def get_commit_info(file, commit_hash, repo_path):
     pattern3 = r'^[+-]\s+\/\/.*$'
 
     diff_output = '\n'.join(line for line in diff_output.splitlines() if
-                            not re.match(pattern1, line.strip()) and not re.match(pattern2, line.strip()) and not re.match(pattern3, line.strip()))
+                            not re.match(pattern1, line.strip()) and not re.match(pattern2,
+                                                                                  line.strip()) and not re.match(
+                                pattern3, line.strip()))
 
     added_lines = sum(1 for line in diff_output.splitlines() if line.startswith('+') and not line.startswith('++'))
     removed_lines = sum(1 for line in diff_output.splitlines() if line.startswith('-') and not line.startswith('--'))
