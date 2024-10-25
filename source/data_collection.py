@@ -34,14 +34,15 @@ def save_changes(commit_info, change_type, file, commit, repo_path, output_path)
 
         csv_row = [
             os.path.basename(repo_path), file, commit, change_type, str(diff),
-            commit_info['added_line'] + commit_info['removed_line']
+            commit_info['added_line'] + commit_info['removed_line'],
+            commit_info['commit_massage'], commit_info['commit_description'], commit_info['notes']
         ]
 
         file_exists = os.path.isfile(output_path)
         with open(output_path, 'a') as f:
             writer = csv.writer(f)
             if not file_exists:
-                writer.writerow(['repo', 'file', 'commit', 'change_type', 'diff', 'change_count'])
+                writer.writerow(['repo', 'file', 'commit', 'change_type', 'diff', 'change_count', 'commit_message', 'description', 'note'])
             writer.writerow(csv_row)
     except Exception as e:
         print(e)
@@ -113,14 +114,17 @@ def get_commit_info(file, commit_hash, repo_path):
 
 
 def process_file(commit_limit, file, repo_path, output_path):
-    commits = get_last_commits(commit_limit, file, repo_path)
-    for commit in commits:
-        commit_info = get_commit_info(file, commit, repo_path)
+    try:
+        commits = get_last_commits(commit_limit, file, repo_path)
+        for commit in commits:
+            commit_info = get_commit_info(file, commit, repo_path)
 
-        if commit_info is None:
-            continue
+            if commit_info is None:
+                continue
 
-        check_n_save_changes(commit_info, file, commit, repo_path, output_path)
+            check_n_save_changes(commit_info, file, commit, repo_path, output_path)
+    except Exception as e:
+        print(e)
 
 
 def process_files(rationale_dataset_path, commit_limit, repo_path):
