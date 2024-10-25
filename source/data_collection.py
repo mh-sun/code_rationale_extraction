@@ -4,6 +4,8 @@ import csv
 import subprocess
 import re
 import os
+
+import pandas as pd
 from tqdm import tqdm
 
 
@@ -43,7 +45,8 @@ def save_changes(commit_info, change_type, file, commit, repo_path, output_path,
             writer = csv.writer(f)
             if not file_exists:
                 writer.writerow(
-                    ['repo', 'file', 'commit', 'change_type', 'diff', 'change_count', 'condition_type', 'commit_message', 'description',
+                    ['repo', 'file', 'commit', 'change_type', 'diff', 'change_count', 'condition_type',
+                     'commit_message', 'description',
                      'note'])
             writer.writerow(csv_row)
     except Exception as e:
@@ -77,6 +80,9 @@ def check_(add_pattern, remove_pattern, commit_info, file, output_path, repo_pat
         save_changes(commit_info, change_type, file, commit, repo_path, output_path, cond_type)
     elif added_count == 0 and removed_count == 1:
         change_type = "Remove_Condition"
+        save_changes(commit_info, change_type, file, commit, repo_path, output_path, cond_type)
+    else:
+        change_type = "Unlabeled"
         save_changes(commit_info, change_type, file, commit, repo_path, output_path, cond_type)
 
 
