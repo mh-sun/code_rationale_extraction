@@ -27,19 +27,24 @@ def get_diff(file, commit, repo_path):
     return run_command(command, repo_path)
 
 
-def save_changes(diff, change_type, file, commit, repo_path, output_path):
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+def save_changes(commit_info, change_type, file, commit, repo_path, output_path):
+    try:
+        diff = commit_info['diff']
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
-    csv_row = [
-        os.path.basename(repo_path), file, commit, change_type, str(diff)
-    ]
+        csv_row = [
+            os.path.basename(repo_path), file, commit, change_type, str(diff),
+            commit_info['added_line'] + commit_info['removed_line']
+        ]
 
-    file_exists = os.path.isfile(output_path)
-    with open(output_path, 'a') as f:
-        writer = csv.writer(f)
-        if not file_exists:
-            writer.writerow(['repo', 'file', 'commit', 'change_type', 'diff'])
-        writer.writerow(csv_row)
+        file_exists = os.path.isfile(output_path)
+        with open(output_path, 'a') as f:
+            writer = csv.writer(f)
+            if not file_exists:
+                writer.writerow(['repo', 'file', 'commit', 'change_type', 'diff', 'change_count'])
+            writer.writerow(csv_row)
+    except Exception as e:
+        print(e)
 
 
 def check_n_save_changes(commit_info, file, commit, repo_path, output_path):
@@ -53,13 +58,13 @@ def check_n_save_changes(commit_info, file, commit, repo_path, output_path):
 
     if added_count == 1 and removed_count == 1:
         change_type = "Condition_Change"
-        save_changes(diff, change_type, file, commit, repo_path, output_path)
-    elif added_count == 1:
+        save_changes(commit_info, change_type, file, commit, repo_path, output_path)
+    elif added_count == 1 and removed_count == 0:
         change_type = "Add_Change"
-        save_changes(diff, change_type, file, commit, repo_path, output_path)
-    elif removed_count == 1:
+        save_changes(commit_info, change_type, file, commit, repo_path, output_path)
+    elif added_count == 0 and removed_count == 1:
         change_type = "Remove_Change"
-        save_changes(diff, change_type, file, commit, repo_path, output_path)
+        save_changes(commit_info, change_type, file, commit, repo_path, output_path)
     else:
         pass
 
@@ -72,21 +77,30 @@ def get_commit_info(file, commit_hash, repo_path):
 
     if java_files_count != 1:
         return None
-    
+
     if java_files[0] != file:
         return None
 
-    commitMessage, commitDescription = run_command(f'git log -n 1 --pretty=format:"%s<<<SEP>>>%b" {commit_hash}',
-                                                   repo_path).split("<<<SEP>>>")
+    commitMessage, commitDescription, commitNotes = run_command(
+        f'git log -n 1 --pretty=format:"%s<<<SEP>>>%b<<<SEP>>>%N" {commit_hash}',
+        repo_path).split("<<<SEP>>>")
 
     commit_info = run_command(f'git show --stat --patch --format=fuller {commit_hash}', repo_path)
-    diff_output = run_command(f"git show --unified=0 --no-color {commit_hash} {file} | grep '^[+-]' | grep -Ev '^(---|\+\+\+)'", repo_path)
+    diff_output = run_command(
+        f"git show --unified=0 --no-color {commit_hash} {file} | grep '^[+-]' | grep -Ev '^(---|\+\+\+)'", repo_path)
+
+    pattern1 = r'^[+-]\s+\*\s*.*$'
+    pattern2 = r'^[+-]\s+\/\*\*\s*.*\*\/$'
+    diff_output = '\n'.join(line for line in diff_output.splitlines() if
+                            not re.match(pattern1, line.strip()) and re.match(pattern2, line.strip()))
 
     added_lines = sum(1 for line in diff_output.splitlines() if line.startswith('+') and not line.startswith('++'))
     removed_lines = sum(1 for line in diff_output.splitlines() if line.startswith('-') and not line.startswith('--'))
 
     commit_dict = {
-        'commit_massage': commitMessage, 'commit_description': commitDescription,
+        'commit_massage': commitMessage,
+        'commit_description': commitDescription,
+        'notes': commitNotes,
         'commit_hash': re.search(r'^commit (\w+)', commit_info).group(1),
         'author': re.search(r'Author:\s*(.+)', commit_info).group(1).strip(),
         'date': re.search(r'CommitDate:\s*(.+)', commit_info).group(1).strip(),
