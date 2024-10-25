@@ -90,10 +90,13 @@ def get_commit_info(file, commit_hash, repo_path):
     diff_output = run_command(
         f"git show --unified=0 --no-color {commit_hash} {file} | grep '^[+-]' | grep -Ev '^(---|\+\+\+)'", repo_path)
 
+    # Comment Pattern
     pattern1 = r'^[+-]\s+\*\s*.*$'
     pattern2 = r'^[+-]\s+\/\*\*\s*.*\*\/$'
+    pattern3 = r'^[+-]\s+\/\/.*$'
+
     diff_output = '\n'.join(line for line in diff_output.splitlines() if
-                            not re.match(pattern1, line.strip()) and not re.match(pattern2, line.strip()))
+                            not re.match(pattern1, line.strip()) and not re.match(pattern2, line.strip()) and not re.match(pattern3, line.strip()))
 
     added_lines = sum(1 for line in diff_output.splitlines() if line.startswith('+') and not line.startswith('++'))
     removed_lines = sum(1 for line in diff_output.splitlines() if line.startswith('-') and not line.startswith('--'))
