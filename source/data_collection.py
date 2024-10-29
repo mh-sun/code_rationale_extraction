@@ -20,7 +20,7 @@ def get_java_files(repo_path):
 
 
 def get_last_commits(commit_limit, file, repo_path):
-    command = f'git log -n {commit_limit} --pretty=format:"%H" --follow -- {file}'
+    command = f'git log --pretty=format:"%H" --follow -- {file}'
     return run_command(command, repo_path).splitlines()
 
 
