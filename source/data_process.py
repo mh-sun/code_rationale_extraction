@@ -1,3 +1,4 @@
+import json
 import re
 import requests
 import pandas as pd
@@ -33,10 +34,21 @@ def add_issue_reference(input_path, output):
     return data
 
 
-def add_ref_comments(input_path, output):
+def extract_issue_details(all_issues_path, issue_link):
+    with open(all_issues_path, 'r') as file:
+        all_issues = json.load(file)
+
+    for issue in all_issues:
+        if issue.get('url') == issue_link:
+            return issue
+    return None
+
+
+def add_ref_comments(input_path, output, all_issues):
     data = pd.read_csv(input_path)
     data.fillna("", inplace=True)
 
+    # gh = input("Enter Github token: ")
     gh = "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"
     headers = {"Authorization": f"token {gh}"}
 
@@ -44,7 +56,10 @@ def add_ref_comments(input_path, output):
         titles, states, comments_count, comments_texts = [], [], [], []
 
         for issue_link in eval(issue_links):
-            issue_response = requests.get(issue_link, headers=headers)
+            # Fetch issue details
+            # issue_response = requests.get(issue_link, headers=headers)
+            issue_response = extract_issue_details(all_issues, issue_link)
+
             if issue_response.status_code == 200:
                 issue_data = issue_response.json()
                 titles.append(issue_data.get("title", "N/A"))
@@ -88,6 +103,7 @@ if __name__ == "__main__":
     datapath = 'dataset/code_rationale_list.csv'
     issues_added_path = 'dataset/code_rationale_list_v1.csv'
     issue_details_path = 'dataset/code_rationale_list_v2.csv'
+    all_issues = "dataset/all_issues.json"
 
-    add_issue_reference(datapath, issues_added_path)
-    add_ref_comments(issues_added_path, issue_details_path)
+    # add_issue_reference(datapath, issues_added_path)
+    add_ref_comments(issues_added_path, issue_details_path, all_issues)
