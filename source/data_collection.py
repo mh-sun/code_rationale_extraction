@@ -1,4 +1,5 @@
 import argparse
+import random
 from concurrent.futures import ThreadPoolExecutor
 import csv
 import subprocess
@@ -15,12 +16,12 @@ def run_command(command, repo_path):
 
 
 def get_java_files(repo_path):
-    command = 'git ls-files "*.java" | grep -v "test"'
+    command = "git ls-files '*.java' | grep -v '/test/' | grep -v '/Test'"
     return run_command(command, repo_path).splitlines()
 
 
 def get_last_commits(commit_limit, file, repo_path):
-    command = f'git log --pretty=format:"%H" --follow -- {file}'
+    command = f'git log {f"-n {commit_limit} " if commit_limit > 0 else ""}--pretty=format:"%H" --follow -- {file}'
     return run_command(command, repo_path).splitlines()
 
 
@@ -81,21 +82,15 @@ def check_(add_pattern, remove_pattern, commit_info, file, output_path, repo_pat
     elif added_count == 0 and removed_count == 1:
         change_type = "Remove_Condition"
         save_changes(commit_info, change_type, file, commit, repo_path, output_path, cond_type)
-    else:
-        change_type = "Unlabeled"
-        save_changes(commit_info, change_type, file, commit, repo_path, output_path, cond_type)
+    # else:
+    #     change_type = "Unlabeled"
+    #     save_changes(commit_info, change_type, file, commit, repo_path, output_path, cond_type)
 
 
 def get_commit_info(file, commit_hash, repo_path):
-    files_changed = run_command(f'git diff-tree --no-commit-id --name-only -r {commit_hash}', repo_path)
-
-    java_files = [file for file in files_changed.split("\n") if file.endswith('.java')]
-    java_files_count = len(java_files)
+    java_files_count = run_command(f'git diff-tree --no-commit-id --name-only -r {commit_hash}  | grep ".java" | wc -l', repo_path)
 
     if java_files_count != 1:
-        return None
-
-    if java_files[0] != file:
         return None
 
     commitMessage, commitDescription, commitNotes = run_command(
@@ -120,8 +115,8 @@ def get_commit_info(file, commit_hash, repo_path):
     removed_lines = sum(1 for line in diff_output.splitlines() if line.startswith('-') and not line.startswith('--'))
 
     commit_dict = {
-        'commit_massage': commitMessage,
-        'commit_description': commitDescription,
+        'commit_subject': commitMessage,
+        'commit_body': commitDescription,
         'notes': commitNotes,
         'commit_hash': re.search(r'^commit (\w+)', commit_info).group(1),
         'author': re.search(r'Author:\s*(.+)', commit_info).group(1).strip(),
@@ -155,7 +150,10 @@ def process_files(rationale_dataset_path, commit_limit, repo_path):
 
     java_files = get_java_files(repo_path)
 
-    with ThreadPoolExecutor(max_workers=64) as executor:
+    ######## Limit Java Files ######
+    # java_files = random.sample(java_files, 1000)
+
+    with ThreadPoolExecutor(max_workers=1) as executor:
         futures = [
             executor.submit(process_file, commit_limit, file, repo_path, rationale_dataset_path)
             for file in java_files
@@ -167,12 +165,12 @@ def process_files(rationale_dataset_path, commit_limit, repo_path):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process Java files in a repository.")
-    parser.add_argument('-o', '--OUTPUT', type=str, default="dataset/code_rationale_list.csv",
+    parser.add_argument('-o', '--output', type=str, default="dataset/code_rationale_list.csv",
                         help="output path of the rationale dataset")
-    parser.add_argument('-c', '--COMMITLENGTH', type=int, default=10, help="limit on the number of commits to process")
-    parser.add_argument('-t', '--TARGET', type=str, default='dataset/spring-framework',
+    parser.add_argument('-c', '--commit_length', type=int, default=-1, help="limit on the number of commits to process")
+    parser.add_argument('-t', '--target', type=str, default='dataset/spring-framework',
                         help="path to the target repository")
 
     args = parser.parse_args()
 
-    process_files(args.OUTPUT, args.COMMITLENGTH, args.TARGET)
+    process_files(args.output, args.commit_length, args.target)

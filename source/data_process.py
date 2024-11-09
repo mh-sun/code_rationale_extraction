@@ -8,16 +8,17 @@ def add_issue_reference(input_path, output):
     data = pd.read_csv(input_path)
     data.fillna("", inplace=True)
 
-    # Function to extract gh- numbers from a string
-    def extract_gh_numbers(commit_message):
-        return re.findall(r'gh-(\d+)', commit_message)
+    def extract_issue_ids(text):
+        gh_ids = re.findall(r'gh-(\d+)', text)
+        hash_ids = re.findall(r'#(\d+)', text)
 
-    # Function to search commit_message and description columns for gh- numbers
+        return list(set(gh_ids + hash_ids))
+
     def find_gh_numbers(row):
-        gh_numbers_col1 = extract_gh_numbers(row['commit_message'])
-        gh_numbers_col2 = extract_gh_numbers(row['description'])
+        gh_numbers_in_sub = extract_issue_ids(row['commit_subject'])
+        gh_numbers_in_body = extract_issue_ids(row['commit_body'])
 
-        issue_numbers = list(set(gh_numbers_col1 + gh_numbers_col2))
+        issue_numbers = list(set(gh_numbers_in_sub + gh_numbers_in_body))
 
         repo_url = f"https://github.com/spring-projects/spring-framework/issues/"
 
@@ -101,9 +102,9 @@ def add_ref_comments(input_path, output, all_issues):
 if __name__ == "__main__":
 
     datapath = 'dataset/code_rationale_list.csv'
-    issues_added_path = 'dataset/code_rationale_list_v1.csv'
-    issue_details_path = 'dataset/code_rationale_list_v2.csv'
+    issues_added_path = 'dataset/cr_list_issue_ids.csv'
+    issue_details_path = 'dataset/cr_list_issue_details.csv'
     all_issues = "dataset/all_issues.json"
 
-    # add_issue_reference(datapath, issues_added_path)
+    add_issue_reference(datapath, issues_added_path)
     add_ref_comments(issues_added_path, issue_details_path, all_issues)
