@@ -57,8 +57,8 @@ def add_ref_comments(input_path, output, all_issues):
 
         for issue_link in eval(issue_links):
             # Fetch issue details
-            # issue_response = requests.get(issue_link, headers=headers)
-            issue_response = extract_issue_details(all_issues, issue_link)
+            issue_response = requests.get(issue_link, headers=headers)
+            # issue_response = extract_issue_details(all_issues, issue_link)
 
             if issue_response.status_code == 200:
                 issue_data = issue_response.json()
