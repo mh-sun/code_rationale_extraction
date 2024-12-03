@@ -1,0 +1,142 @@
+Prompting-Strategy,Exp-Name,Version,Template
+Zero-shot,ZS_w_none_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):"
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):"
+Zero-shot,ZS_w_commit_issue_0,1.1.0.2,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Related Texts(If Any):
+{related_text}
+
+Generate Rationale (in maximum 50 word):"
+Few-shot,FS_w_none_1,1.2.0.0,"You are an expert Java Developer. Here are some examples of code changes and their rationales. Analyze these code diffs from code commit.:
+
+Example 1:
+Code Diff:
+{example_diff}
+
+Commit Message:
+{example_commit_message}
+
+Related Texts(If any):
+{example_related_text}
+
+Rationale:
+{example_rationale}
+
+Now, generate a rationale (in maximum 50 word) for the following code change:
+
+Code Diff:
+{diff}
+
+Generate Rationale:"
+Few-shot,FS_w_commit_1,1.2.0.1,"You are an expert Java Developer. Here are some examples of code changes and their rationales. Analyze these code diffs from code commit.:
+
+Example 1:
+Code Diff:
+{example_diff}
+
+Commit Message:
+{example_commit_message}
+
+Related Texts(If any):
+{example_related_text}
+
+Rationale:
+{example_rationale}
+
+Now, generate a rationale (in maximum 50 word) for the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale:"
+Few-shot,FS_w_commit_issue_1,1.2.0.2,"You are an expert Java Developer. Here are some examples of code changes and their rationales. Analyze these code diffs from code commit.:
+
+Example 1:
+Code Diff:
+{example_diff}
+
+Commit Message:
+{example_commit_message}
+
+Related Texts(If any):
+{example_related_text}
+
+Rationale:
+{example_rationale}
+
+Now, generate a rationale (in maximum 50 word) for the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Related Texts(If Any):
+{related_text}
+
+Generate Rationale:"
+Chain-of-thought,CoT_w_none_0,1.3.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the modification made in the diff.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):"
+Chain-of-thought,CoT_w_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Analyze the modification made in the diff.
+Step 4: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):"
+Chain-of-thought,CoT_w_commit_issue_0,1.3.0.2,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Related Texts(If any):
+{related_text}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Analyze the modification made in the diff.
+Step 4: Analyze the Related Texts is there is any.
+Step 5: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):"

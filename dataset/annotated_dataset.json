@@ -1,0 +1,466 @@
+[
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-web/src/main/java/org/springframework/http/server/reactive/ServletServerHttpRequest.java",
+        "commit": "030bc224e30699a91e33e27a6d9782803afbd0d4",
+        "diff": "-\t\t\tif (!this.inputStream.isFinished() && this.inputStream.isReady()) {\n+\t\t\tif (this.inputStream.isReady() && !this.inputStream.isFinished()) {",
+        "change_count": 2.0,
+        "commit_message": "Invert the check for ServletInputStream.isReady()\n\nWhen checking whether there is still request body the first method\nthat should be checked is ServletInputStream.isReady() and then\nServletInputStream.isFinished(). ServletInputStream.isReady() is the active\nmethod whereas the ServletInputStream.isFinished() is not.\nIt is important to call ServletInputStream.isReady() because if it returns\nfalse it will schedule a dispatch and if the request body is already read it will\nsend onAllDataRead event.\n\nIssue: SPR-16521\n",
+        "is_commit_enough": 1.0,
+        "linked_issues_man": "21064",
+        "descriptive_issue": "0.0",
+        "issue_name_change": "0.0",
+        "IR_RATIONALE_PRES": [
+            "The implementation should check first the active method isReady and then isFinished as the last is not active.\nIn the scenario above in case the request body is read, the current implementation will not invoke isReady and thus Tomcat will not schedule a dispatch, and onAllDataRead event will never be called."
+        ],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [],
+        "COM_T_RATIONALE_PRES": [],
+        "COM_B_RATIONALE_PRES": [
+            "When checking whether there is still request body the first method\nthat should be checked is ServletInputStream.isReady() and then\nServletInputStream.isFinished(). ServletInputStream.isReady() is the active\nmethod whereas the ServletInputStream.isFinished() is not.\nIt is important to call ServletInputStream.isReady() because if it returns\nfalse it will schedule a dispatch and if the request body is already read it will\nsend onAllDataRead event."
+        ],
+        "RATIONALE": [
+            "RATIONALE:\nServletInputStream.isReady() should be called before ServletInputStream.isFinished() because if request body is already read, ServletInputStream.isReady() will not be called which is needed to schedule a dispatch and send a onAllDataRead event. "
+        ]
+    },
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-websocket/src/main/java/org/springframework/web/socket/server/standard/AbstractTyrusRequestUpgradeStrategy.java",
+        "commit": "0f70ac74cd07228bcf67db925b1c01c6b17fc092",
+        "diff": "-\t\t\t\tif (constructor.getParameterCount() == 9) {\n+\t\t\t\tif (constructor.getParameterTypes().length == 9) {",
+        "change_count": 2.0,
+        "commit_message": "Polish\n\nConstructor.getParameterCount is JDK8+ only!\n",
+        "is_commit_enough": 1.0,
+        "linked_issues_man": "nan",
+        "descriptive_issue": "nan",
+        "issue_name_change": "nan",
+        "IR_RATIONALE_PRES": [],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [],
+        "COM_T_RATIONALE_PRES": [],
+        "COM_B_RATIONALE_PRES": [
+            "Constructor.getParameterCount is JDK8+ only!"
+        ],
+        "RATIONALE": [
+            "RATIONALE:\nConstructor.getParameterCount() was introduced in Java 8, while Constructor.getParameterTypes() has been available since earlier versions of Java. To ensure compatibility with all Java versions, it is safer to use getParameterTypes().length"
+        ]
+    },
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-core/src/main/java/org/springframework/cglib/proxy/MethodProxy.java",
+        "commit": "1b1682eacd9c8aabbb86f24dc9c54070f3dd18b4",
+        "diff": "-\t\tif (!c1.isInterface() && c1 != Object.class) {\n+\t\tif (!c1.isInterface() && c1 != Object.class && !Factory.class.isAssignableFrom(c2)) {",
+        "change_count": 2.0,
+        "commit_message": "Narrow early initialization of CGLIB method proxies (for AOT processing)\n\nDo not trigger early initialization on Factory classes (e.g. AOP proxies)\n\nSee gh-29107\n",
+        "is_commit_enough": 1.0,
+        "linked_issues_man": "29107",
+        "descriptive_issue": "0.0",
+        "issue_name_change": "0.0",
+        "IR_RATIONALE_PRES": [],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [],
+        "COM_T_RATIONALE_PRES": [],
+        "COM_B_RATIONALE_PRES": [
+            "Do not trigger early initialization on Factory classes (e.g. AOP proxies)"
+        ],
+        "RATIONALE": [
+            "RATIONALE:\nFactory classes shouldn't have early initialization."
+        ]
+    },
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-expression/src/main/java/org/springframework/expression/spel/ast/Indexer.java",
+        "commit": "1eed71bb1d848935d47f8b71538a165aed48981d",
+        "diff": "-\t\t\tAssert.state(compilablePropertyAccessor != null, \"No cached read accessor\");\n+\t\t\tAssert.state(compilablePropertyAccessor != null, \"No cached PropertyAccessor for reading\");",
+        "change_count": 2.0,
+        "commit_message": "Polishing\n\nnan",
+        "is_commit_enough": 1.0,
+        "linked_issues_man": "nan",
+        "descriptive_issue": "nan",
+        "issue_name_change": "nan",
+        "IR_RATIONALE_PRES": [],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [],
+        "COM_T_RATIONALE_PRES": [
+            "Polishing"
+        ],
+        "COM_B_RATIONALE_PRES": [],
+        "RATIONALE": [
+            "RATIONALE:\nPOLISH"
+        ]
+    },
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-beans/src/main/java/org/springframework/beans/factory/annotation/AutowiredAnnotationBeanPostProcessor.java",
+        "commit": "19a1477228b8ed75926a15358e3253eb7ffa492e",
+        "diff": "-\t\t\t\t\telse if (nonSyntheticConstructors == 2 && primaryConstructor != null && defaultConstructor != null) {\n+\t\t\t\t\telse if (nonSyntheticConstructors == 2 && primaryConstructor != null\n+\t\t\t\t\t\t\t&& defaultConstructor != null && !primaryConstructor.equals(defaultConstructor)) {",
+        "change_count": 3.0,
+        "commit_message": "Fix Kotlin bean w/ default + secondary ctors handling\n\nThis commit polishes SPR-16022 fix in order to handle correctly\nthe case when primary and default constructors are the same when\na secondary constructor is defined.\n\nIssue: SPR-16289\n",
+        "is_commit_enough": 1.0,
+        "linked_issues_man": "20571, 20836",
+        "descriptive_issue": "0.0",
+        "issue_name_change": "0.0",
+        "IR_RATIONALE_PRES": [],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [],
+        "COM_T_RATIONALE_PRES": [],
+        "COM_B_RATIONALE_PRES": [
+            "This commit polishes SPR-16022 fix in order to handle correctly\nthe case when primary and default constructors are the same when\na secondary constructor is defined."
+        ],
+        "RATIONALE": [
+            "RATIONALE:\nSPR-16022 treated the primary constructor and the default constructor as always different. However, they can be the same in some cases so this scenario needed to be handled."
+        ]
+    },
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-beans/src/main/java/org/springframework/beans/factory/annotation/AutowiredAnnotationBeanPostProcessor.java",
+        "commit": "2624b909060e0967e16771de7a35261decd5a4a9",
+        "diff": "+\t\t\tif (method == null) {\n+\t\t\t\treturn true;\n+\t\t\t}",
+        "change_count": 3.0,
+        "commit_message": "Avoid NPE in AutowiredAnnotationBeanPostProcessor\n\nPrior to this change, AABPP#determineRequiredStatus never checked the\nreturn value of ReflectionUtils#findMethod when searching for a\n'#required' attribute. This call returns null for annotations such as\n@Inject, @Value and @Resource, and subsequently causes a\nNullPointerException to be thrown when ReflectionUtils#invokeMethod is\ncalled. The NPE is caught immediately and #determineRequiredStatus\nreturns defaulting to true, but this this approach is inefficient. It\nis also problematic for users who have set breakpoints on NPE -- they\nend up debugging into Spring internals, which is a false positive.\n\nThis commit checks the return value of of ReflectionUtils#findMethod,\nand in the case of null, eagerly returns true.  There is no change to\nexternal behavior, simply a more efficient and debugging-friendly\nimplementation.\n\nExisting test cases already cover this change, given that it is purely\na refactoring.\n\nIssue: SPR-9316\n",
+        "is_commit_enough": 0.0,
+        "linked_issues_man": "14001, 13954",
+        "descriptive_issue": "1.0",
+        "issue_name_change": "0.0",
+        "IR_RATIONALE_PRES": [
+            "AutowiredAnnotationBeanPostProcessor.determineRequiredStatus uses ReflectionUtils.findMethod to look up a method named \"required\". If there is no such method then ReflectionUtils.findMethod returns null. However AutowiredAnnotationBeanPostProcessor.determineRequiredStatus never checks for null instead it directly passes the method to ReflectionUtils.invokeMethod which throws a NullPointerException which is then caught in a catch (Exception ex) block in AutowiredAnnotationBeanPostProcessor.determineRequiredStatus.\nAnnoations that don't have a method named \"required\" include @Inject @Value @Resource.\nThis is not so nice for several reasons:\n\nwhen you debug one of your own NullPointerExceptions and set an exception breakpoint on NullPointerException you end up in Spring code\nit uses NullPointerExceptions and catching them as part of normal control flow\nfilling in the stack trace of an exception is slow"
+        ],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [
+            "// annotations like @Inject, @Value and @Resource don't have a method410+\t\t\t\t// (attribute) named \"required\" -> default to required status"
+        ],
+        "COM_T_RATIONALE_PRES": [
+            "Avoid NPE in AutowiredAnnotationBeanPostProcessor"
+        ],
+        "COM_B_RATIONALE_PRES": [
+            "Prior to this change, AABPP#determineRequiredStatus never checked the\nreturn value of ReflectionUtils#findMethod when searching for a\n'#required' attribute. This call returns null for annotations such as\n@Inject, @value and @resource, and subsequently causes a\nNullPointerException to be thrown when ReflectionUtils#invokeMethod is\ncalled. The NPE is caught immediately and #determineRequiredStatus\nreturns defaulting to true, but this this approach is inefficient. It\nis also problematic for users who have set breakpoints on NPE -- they\nend up debugging into Spring internals, which is a false positive.\n\nThis commit checks the return value of of ReflectionUtils#findMethod,\nand in the case of null, eagerly returns true.  There is no change to\nexternal behavior, simply a more efficient and debugging-friendly\nimplementation."
+        ],
+        "RATIONALE": [
+            "RATIONALE:\nThe ReflectionUtils#findMethod method returns null for annotations like @Inject, @Value, and @Resource that do not have a method named required. In such cases, it should return the default value."
+        ]
+    },
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-core/src/main/java/org/springframework/core/annotation/AnnotationTypeMapping.java",
+        "commit": "279777b2f3a43ed96eb8151f07b76f38672cc78f",
+        "diff": "-\t\t\t\t\tif (lastValue != null &&\n-\t\t\t\t\t\t\t!ObjectUtils.nullSafeEquals(lastValue, value)) {\n+\t\t\t\t\tif (lastValue != null && !ObjectUtils.nullSafeEquals(lastValue, value)) {",
+        "change_count": 3.0,
+        "commit_message": "Polishing\n\nnan",
+        "is_commit_enough": 1.0,
+        "linked_issues_man": "nan",
+        "descriptive_issue": "nan",
+        "issue_name_change": "nan",
+        "IR_RATIONALE_PRES": [],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [],
+        "COM_T_RATIONALE_PRES": [
+            "Polishing"
+        ],
+        "COM_B_RATIONALE_PRES": [],
+        "RATIONALE": [
+            "RATIONALE:\nPOLISH"
+        ]
+    },
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-webflux/src/main/java/org/springframework/web/reactive/function/BodyExtractors.java",
+        "commit": "3b1d46b3bac74802d264cd57c4a7e685f377c91e",
+        "diff": "+\tprivate static final ResolvableType VOID_TYPE = ResolvableType.forClass(Void.class);\n-\t\tif (elementType.equals(ResolvableType.forClass(Void.class))) {\n+\t\tif (VOID_TYPE.equals(elementType)) {",
+        "change_count": 3.0,
+        "commit_message": "Polishing\n\nnan",
+        "is_commit_enough": 1.0,
+        "linked_issues_man": "nan",
+        "descriptive_issue": "nan",
+        "issue_name_change": "nan",
+        "IR_RATIONALE_PRES": [],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [],
+        "COM_T_RATIONALE_PRES": [
+            "Polishing"
+        ],
+        "COM_B_RATIONALE_PRES": [],
+        "RATIONALE": [
+            "RATIONALE:\nPOLISH"
+        ]
+    },
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-beans/src/main/java/org/springframework/beans/BeanUtils.java",
+        "commit": "2e5d0470dc0c9766d98d144d5b6bd56248112e46",
+        "diff": "-\t\tSet<String> ignoreSet = (ignoreProperties != null ? new HashSet<>(Arrays.asList(ignoreProperties)) : null);\n+\t\tSet<String> ignoredProps = (ignoreProperties != null ? new HashSet<>(Arrays.asList(ignoreProperties)) : null);\n-\t\t\tif (writeMethod != null && (ignoreSet == null || !ignoreSet.contains(targetPd.getName()))) {\n+\t\t\tif (writeMethod != null && (ignoredProps == null || !ignoredProps.contains(targetPd.getName()))) {",
+        "change_count": 4.0,
+        "commit_message": "Polishing\n\nnan",
+        "is_commit_enough": 1.0,
+        "linked_issues_man": "nan",
+        "descriptive_issue": "nan",
+        "issue_name_change": "nan",
+        "IR_RATIONALE_PRES": [],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [],
+        "COM_T_RATIONALE_PRES": [
+            "Polishing"
+        ],
+        "COM_B_RATIONALE_PRES": [],
+        "RATIONALE": [
+            "RATIONALE:\nPOLISH"
+        ]
+    },
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-aop/src/main/java/org/springframework/aop/framework/CglibAopProxy.java",
+        "commit": "947255e3774fe6248c59d2cdd6a1b06b9f6b5d9b",
+        "diff": "+import org.springframework.core.KotlinDetector;\n-\t\t\t\tif (ReflectionUtils.declaresException(getMethod(), ex.getClass())) {\n+\t\t\t\tif (ReflectionUtils.declaresException(getMethod(), ex.getClass()) ||\n+\t\t\t\t\t\tKotlinDetector.isKotlinType(getMethod().getDeclaringClass())) {",
+        "change_count": 4.0,
+        "commit_message": "Always propagate checked exceptions from Kotlin code behind CGLIB proxies\n\nCloses gh-23844\n",
+        "is_commit_enough": 0.0,
+        "linked_issues_man": "23844",
+        "descriptive_issue": "1.0",
+        "issue_name_change": "1.0",
+        "IR_RATIONALE_PRES": [
+            "Spring AOP should not apply UndeclaredThrowableException to checked exceptions from Kotlin methods",
+            "within Spring AOP - we'd even turn a checked exception thrown from a Kotlin target method into an UndeclaredThrowableException, not just a checked exception thrown from an interceptor (which is the primary purpose of that check). While this works fine with Java code that explicitly declares those exceptions on the target method (so undeclared exceptions can only really come out of the interceptor), it's really not appropriate for Kotlin code since it enforces a non-idiomatic @Throws declaration there."
+        ],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [
+            "// Propagate original exception if declared on the target method759+\t\t\t\t\t// (with callers expecting it). Always propagate it for Kotlin code760+\t\t\t\t\t// since checked exceptions do not have to be explicitly declared there."
+        ],
+        "COM_T_RATIONALE_PRES": [],
+        "COM_B_RATIONALE_PRES": [],
+        "RATIONALE": [
+            "RATIONALE:\nUndeclaredThrowableException is thrown when a checked exception from any method is received. This doesn't apply to Kotlin since Kotlin does not have checked exceptions. "
+        ]
+    },
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-jdbc/src/main/java/org/springframework/jdbc/support/rowset/ResultSetWrappingSqlRowSet.java",
+        "commit": "0728e32e7f3b93e49dfc8c7af20b489b12b3e663",
+        "diff": "-\t\t\t\t\tthis.columnLabelMap.put(rsmd.getColumnLabel(i), i);\n+\t\t\t\t\tString key = rsmd.getColumnLabel(i);\n+\t\t\t\t\tif (!this.columnLabelMap.containsKey(key)) {\n+\t\t\t\t\t\tthis.columnLabelMap.put(key, i);\n+\t\t\t\t\t}",
+        "change_count": 5.0,
+        "commit_message": "ResultSetWrappingSqlRowSet preserves first matching column per name (as defined in ResultSet's javadoc)\n\nIssue: SPR-11786\n",
+        "is_commit_enough": 1.0,
+        "linked_issues_man": "16408",
+        "descriptive_issue": "1.0",
+        "issue_name_change": "0.0",
+        "IR_RATIONALE_PRES": [
+            "QUOTE: When a getter method is called with a column name and several columns have the same name, the value of the first matching column will be returned.",
+            "findColumn(\"fooname\") should return the FIRST and not the SECOND (LAST) index of fooname.\nThis bug is introduced in Spring JDBC since the implementation ResultSetWrappingSqlRowSet uses a HashMap.\nThe code should check for existence of the key in the map and not override the value if the key exists."
+        ],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [],
+        "COM_T_RATIONALE_PRES": [
+            "ResultSetWrappingSqlRowSet preserves first matching column per name (as defined in ResultSet's javadoc)"
+        ],
+        "COM_B_RATIONALE_PRES": [],
+        "RATIONALE": [
+            "RATIONALE:\nResultSetWrappingSqlRowSet should preserve first matching column with a column name in case there are several columns that have the same names."
+        ]
+    },
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-core-test/src/main/java/org/springframework/aot/agent/InstrumentedBridgeMethods.java",
+        "commit": "289d378aebd4782f422b880702fbd098122a389c",
+        "diff": "-\t\t\t\t\t!Modifier.isPublic(constructor.getDeclaringClass().getModifiers()) || !constructor.canAccess(null)) {\n+\t\t\t\t\t!Modifier.isPublic(constructor.getDeclaringClass().getModifiers())) {\n-\t\t\tif (!Modifier.isPublic(method.getModifiers())) {\n+\t\t\tif (!Modifier.isPublic(method.getModifiers())\n+\t\t\t\t|| !Modifier.isPublic(method.getDeclaringClass().getModifiers())) {",
+        "change_count": 5.0,
+        "commit_message": "Polish\n\nThis fixes an additional case where invoked methods are public but the\ndeclaring class is package private.\n\nFixes gh-29046\n",
+        "is_commit_enough": 1.0,
+        "linked_issues_man": "29046",
+        "descriptive_issue": "0.0",
+        "issue_name_change": "0.0",
+        "IR_RATIONALE_PRES": [
+            "Reopening for cases where methods are public but declaring class is not."
+        ],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [],
+        "COM_T_RATIONALE_PRES": [],
+        "COM_B_RATIONALE_PRES": [
+            "This fixes an additional case where invoked methods are public but the\ndeclaring class is package private."
+        ],
+        "RATIONALE": [
+            "RATIONALE:\nThe code should handle the cases where methods are public, but the declaring class has restricted access"
+        ]
+    },
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/condition/PatternsRequestCondition.java",
+        "commit": "0634555424a8742bbe95333c49975437af6eacf8",
+        "diff": "+\t@Override\n+\t@Override\n-\t\tboolean endsWithSlash = pattern.endsWith(\"/\");\n-\t\t\tif (!endsWithSlash && this.pathMatcher.match(pattern + \"/\", lookupPath)) {\n+\t\t\tif (!pattern.endsWith(\"/\") && this.pathMatcher.match(pattern + \"/\", lookupPath)) {\n+\t@Override",
+        "change_count": 6.0,
+        "commit_message": "Delay check if pattern ends with slash\n\nThis is a minor fix with no actual impact.\n\nIssue: SPR-10504\n",
+        "is_commit_enough": 0.5,
+        "linked_issues_man": "14998",
+        "descriptive_issue": "1.0",
+        "issue_name_change": "0.0",
+        "IR_RATIONALE_PRES": [
+            "endsWithSlash initialization should be moved inside if statement as it is not used anywhere else in the function"
+        ],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [],
+        "COM_T_RATIONALE_PRES": [],
+        "COM_B_RATIONALE_PRES": [
+            "This is a minor fix with no actual impact."
+        ],
+        "RATIONALE": [
+            "RATIONALE:\nendsWithSlash initialization should be moved inside if statement as it is not used anywhere else in the function"
+        ]
+    },
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-web/src/main/java/org/springframework/http/client/reactive/JdkClientHttpRequest.java",
+        "commit": "010e8a303b1caf3b80e244fc5e4aebc23d854118",
+        "diff": "-                if (!cookies.isEmpty()) {\n-                        this.builder.header(HttpHeaders.COOKIE, cookies.values().stream()\n-                                        .flatMap(List::stream).map(HttpCookie::toString).collect(Collectors.joining(\";\")));\n+                if (cookies.isEmpty()) {\n+                        return;\n+                this.builder.header(HttpHeaders.COOKIE, cookies.values().stream()\n+                                .flatMap(List::stream).map(HttpCookie::toString).collect(Collectors.joining(\";\")));",
+        "change_count": 7.0,
+        "commit_message": "Polishing contribution\n\nCloses gh-32799\n",
+        "is_commit_enough": 1.0,
+        "linked_issues_man": "32799",
+        "descriptive_issue": "0.0",
+        "issue_name_change": "0.0",
+        "IR_RATIONALE_PRES": [],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [],
+        "COM_T_RATIONALE_PRES": [
+            "Polishing contribution"
+        ],
+        "COM_B_RATIONALE_PRES": [],
+        "RATIONALE": [
+            "RATIONALE:\nThe code needs to be polished."
+        ]
+    },
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-web/src/main/java/org/springframework/web/server/session/InMemoryWebSessionStore.java",
+        "commit": "19a9bc4747028e68d0fc9ce71c302488cfbfa978",
+        "diff": "-\n-\t\t\tif (InMemoryWebSessionStore.this.sessions.remove(currentId) == null) {\n-\t\t\t\treturn Mono.error(new IllegalStateException(\n-\t\t\t\t\t\t\"Failed to change session id: \" + currentId +\n-\t\t\t\t\t\t\t\t\" because the Session is no longer present in the store.\"));\n-\t\t\t}\n+\t\t\tInMemoryWebSessionStore.this.sessions.remove(currentId);",
+        "change_count": 7.0,
+        "commit_message": "Remove unnecessary assertion\n\nIssue: SPR-16201\n",
+        "is_commit_enough": 0.0,
+        "linked_issues_man": "20749",
+        "descriptive_issue": "1.0",
+        "issue_name_change": "0.0",
+        "IR_RATIONALE_PRES": [
+            "If a user invokes InMemoryWebSession.changeSessionId before the session has been created, an error is reported stating:\njava.lang.IllegalStateException: Failed to change session id: 4854375d-1713-468b-9e4c-61fe282de0bc because the Session is no longer present in the store.\n\t\tat org.springframework.web.server.session.InMemoryWebSessionStore$InMemoryWebSession.changeSessionId(InMemoryWebSessionStore.java:214)\n\t\tat org.springframework.security.web.server.csrf.WebSessionServerCsrfTokenRepository.lambda$saveToken$1(WebSessionServerCsrfTokenRepository.java:64)\n\t\tat reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:118)\n\t\t... 36 more\n\n    \n      \n    \n\n      \n    \n\n    \n  \nI think the method should support changing the id even if the session is new."
+        ],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [],
+        "COM_T_RATIONALE_PRES": [],
+        "COM_B_RATIONALE_PRES": [],
+        "RATIONALE": [
+            "RATIONALE:\nWhen the session is new InMemoryWebSessionStore.this.sessions.remove(currentId) returns null. The method should support changing the id even if the session is new."
+        ]
+    },
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassBeanDefinitionReader.java",
+        "commit": "02b539c5f50b59d9f5605c21e42d53f0c8e23ae1",
+        "diff": "+import org.springframework.core.SpringProperties;\n+\t/**\n+\tprivate static final boolean shouldIgnoreXml = SpringProperties.getFlag(\"spring.xml.ignore\");\n+\t\n+\n+\t\t\t\telse if (shouldIgnoreXml) {\n+\t\t\t\t\tthrow new UnsupportedOperationException(\"XML support disabled\");\n+\t\t\t\t}",
+        "change_count": 8.0,
+        "commit_message": "Leverage spring.ignore.xml flag to avoid XmlBeanDefinitionReader\n\nCloses gh-25338\n",
+        "is_commit_enough": 1.0,
+        "linked_issues_man": "25338",
+        "descriptive_issue": "1.0",
+        "issue_name_change": "0.0",
+        "IR_RATIONALE_PRES": [
+            "This issue is a follow up of #25151, it avoids using XmlBeanDefinitionReader in ConfigurationClassBeanDefinitionReader when spring.xml.ignore is true in order to avoid triggering XML usage in GraalVM native images."
+        ],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [
+            "* Boolean flag controlled by a {@code spring.xml.ignore} system property that instructs Spring to84+\t * ignore XML, i.e. to not initialize the XML-related infrastructure."
+        ],
+        "COM_T_RATIONALE_PRES": [
+            "Leverage spring.ignore.xml flag to avoid XmlBeanDefinitionReader"
+        ],
+        "COM_B_RATIONALE_PRES": [],
+        "RATIONALE": [
+            "RATIONALE:\nConfigurationClassBeanDefinitionReader should have a flag that indicate whether Spring is instructed to ignore XML and add avoid returning XmlBeanDefinitionReader if the flag is false."
+        ]
+    },
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-core/src/main/java/org/springframework/util/ReflectionUtils.java",
+        "commit": "231433f5406453069aa125329be042d5e32ddff0",
+        "diff": "-\t\t\tthrow new IllegalStateException(\"Unexpected reflection exception - \" + ex.getClass().getName() + \": \"\n-\t\t\t\t\t+ ex.getMessage());\n+\t\t\tthrow new IllegalStateException(\n+\t\t\t\t\t\"Unexpected reflection exception - \" + ex.getClass().getName() + \": \" + ex.getMessage());\n-\t\t\t\tif (name.equals(method.getName())\n-\t\t\t\t\t\t&& (paramTypes == null || Arrays.equals(paramTypes, method.getParameterTypes()))) {\n+\t\t\t\tif (name.equals(method.getName()) &&\n+\t\t\t\t\t\t(paramTypes == null || Arrays.equals(paramTypes, method.getParameterTypes()))) {",
+        "change_count": 8.0,
+        "commit_message": "Polishing (cherry picked from commit 6021822)\n\nnan",
+        "is_commit_enough": 1.0,
+        "linked_issues_man": "nan",
+        "descriptive_issue": "nan",
+        "issue_name_change": "nan",
+        "IR_RATIONALE_PRES": [],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [],
+        "COM_T_RATIONALE_PRES": [
+            "Polishing"
+        ],
+        "COM_B_RATIONALE_PRES": [],
+        "RATIONALE": [
+            "RATIONALE:\nPOLISH"
+        ]
+    },
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-core/src/main/java/org/springframework/util/ClassUtils.java",
+        "commit": "052bbcc53031bd48dc76d070ba862f5293618600",
+        "diff": "+\t\tClass<?>[] parameterTypes = null;\n-\t\t\tClass<?>[] ifcs = current.getInterfaces();\n-\t\t\tfor (Class<?> ifc : ifcs) {\n+\t\t\tif (parameterTypes == null) {\n+\t\t\t\tparameterTypes = method.getParameterTypes();\n+\t\t\t}\n+\t\t\tfor (Class<?> ifc : current.getInterfaces()) {\n-\t\t\t\t\treturn ifc.getMethod(method.getName(), method.getParameterTypes());\n+\t\t\t\t\treturn ifc.getMethod(method.getName(), parameterTypes);",
+        "change_count": 9.0,
+        "commit_message": "Cache parameter types array in ClassUtils.findInterfaceMethodIfPossible()\n\nnan",
+        "is_commit_enough": 0.0,
+        "linked_issues_man": "nan",
+        "descriptive_issue": "nan",
+        "issue_name_change": "nan",
+        "IR_RATIONALE_PRES": [],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [
+            "// Since Method#getParameterTypes() clones the array, we lazily retrieve1433+\t\t\t\t// and cache parameter types to avoid cloning the array multiple times."
+        ],
+        "COM_T_RATIONALE_PRES": [],
+        "COM_B_RATIONALE_PRES": [],
+        "RATIONALE": [
+            "RATIONALE:\nThe Method#getParameterTypes() method clones the array of parameter types whenever it is called. To avoid cloning the array multiple times, the parameter types are retrieved lazily."
+        ]
+    },
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-core/src/main/java/org/springframework/core/io/support/PathMatchingResourcePatternResolver.java",
+        "commit": "2270df515b040d8612c691acc0102d1a224bcd82",
+        "diff": "+\t\t\tString urlString = url.toString();\n+\t\t\tString cleanedPath = StringUtils.cleanPath(urlString);\n+\t\t\tif (!cleanedPath.equals(urlString)) {\n+\t\t\t\ttry {\n+\t\t\t\t\treturn new UrlResource(ResourceUtils.toURI(cleanedPath));\n+\t\t\t\t}\n+\t\t\t\tcatch (URISyntaxException | MalformedURLException ex) {\n+\t\t\t\t}\n+\t\t\t}",
+        "change_count": 9.0,
+        "commit_message": "Enforce cleaned URL for root resource from ClassLoader\n\nCloses gh-32828\n",
+        "is_commit_enough": 0.0,
+        "linked_issues_man": "32828",
+        "descriptive_issue": "1.0",
+        "issue_name_change": "1.0",
+        "IR_RATIONALE_PRES": [
+            "6.1 is cleaning the path when going from a URL for a root dir resource to a URL for a specific resource that matches the sub-pattern. createRelative is called on a UrlResource with the URL jar:file:/Users/awilkinson/Downloads/test-project/runtime/bin/../work/demo-plugin1-1.0.0.0-12436866063543419511.jar!/com/example/demo/plugin1/ with a relativePath of DemoController.class. This results in a UrlResource with the URL jar:file:/Users/awilkinson/Downloads/test-project/runtime/work/demo-plugin1-1.0.0.0-12436866063543419511.jar!/com/example/demo/plugin1/DemoController.class due to path cleaning that's now performed in ResourceUtils.toURL(String).",
+            "Some notes for the Framework team that may help. The TL;DR is that I think that 9342317 is the cause of the regression as it calls StringUtils.cleanPath which 6.0 does not do.",
+            "It looks like ClassLoader.getResources itself returns a uncleaned path with a ../ segment there, and our convertClassLoaderURL method turns it into a UrlResource(URL) due to a jar location - whereas it would turn it into a FileSystemResource with a clean path in case of a file location. So we should consistently use cleaned URL paths even for the jar location case there, I suppose."
+        ],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [],
+        "COM_T_RATIONALE_PRES": [],
+        "COM_B_RATIONALE_PRES": [],
+        "RATIONALE": [
+            "RATIONALE:\nThe newer version of the Spring Framework handles UrlResource differently by cleaning the path using the StringUtils.cleanPath method. The convertClassLoaderURL method returns either a FileSystemResource or an UrlResource. While it uses the cleaned path when returning a FileSystemResource, for consistency, it should use the same cleaned path when returning a UrlResource."
+        ]
+    },
+    {
+        "repo": "spring-projects/spring-framework",
+        "file": "spring-jdbc/src/main/java/org/springframework/jdbc/core/namedparam/NamedParameterUtils.java",
+        "commit": "475c4d4425b2170c4a0f19d5bd39b70e752e38a1",
+        "diff": "-\t\t\t\t\twhile (j < statement.length && '}' != statement[j]) {\n+\t\t\t\t\twhile (j < statement.length && statement[j] != '}') {\n-\t\t\t\t\t\tif (':' == statement[j] || '{' == statement[j]) {\n+\t\t\t\t\t\tif (statement[j] == ':' || statement[j] == '{') {\n-\t\t\t\t\t\ttotalParameterCount = addNamedParameter(parameterList, totalParameterCount, escapes, i, j + 1, parameter);\n+\t\t\t\t\t\ttotalParameterCount = addNamedParameter(\n+\t\t\t\t\t\t\t\tparameterList, totalParameterCount, escapes, i, j + 1, parameter);\n-\t\t\t\t\t\ttotalParameterCount = addNamedParameter(parameterList, totalParameterCount, escapes, i, j, parameter);\n+\t\t\t\t\t\ttotalParameterCount = addNamedParameter(\n+\t\t\t\t\t\t\t\tparameterList, totalParameterCount, escapes, i, j, parameter);",
+        "change_count": 10.0,
+        "commit_message": "Polishing\n\nnan",
+        "is_commit_enough": 1.0,
+        "linked_issues_man": "nan",
+        "descriptive_issue": "nan",
+        "issue_name_change": "nan",
+        "IR_RATIONALE_PRES": [],
+        "PR_RATIONALE_PRES": [],
+        "CC_RATIONALE_PRES": [],
+        "COM_T_RATIONALE_PRES": [
+            "Polishing"
+        ],
+        "COM_B_RATIONALE_PRES": [],
+        "RATIONALE": [
+            "RATIONALE:\nPOLISH"
+        ]
+    }
+]

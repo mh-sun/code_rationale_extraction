@@ -1,0 +1,533 @@
+Prompting-Strategy,Exp-Name,Version,Template,Instruction,Rationale,Generated Rationale
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-                        if (!this.inputStream.isFinished() && this.inputStream.isReady()) {
++                        if (this.inputStream.isReady() && !this.inputStream.isFinished()) {
+
+Commit Message:
+Invert the check for ServletInputStream.isReady()
+
+When checking whether there is still request body the first method
+that should be checked is ServletInputStream.isReady() and then
+ServletInputStream.isFinished(). ServletInputStream.isReady() is the active
+method whereas the ServletInputStream.isFinished() is not.
+It is important to call ServletInputStream.isReady() because if it returns
+false it will schedule a dispatch and if the request body is already read it will
+send onAllDataRead event.
+
+Issue: SPR-16521
+
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+ServletInputStream.isReady() should be called before ServletInputStream.isFinished() because if request body is already read, ServletInputStream.isReady() will not be called which is needed to schedule a dispatch and send a onAllDataRead event. ","The code change prioritizes calling `ServletInputStream.isReady()` before `ServletInputStream.isFinished()` to ensure proper request body handling. This order allows readiness checks to schedule dispatches or trigger `onAllDataRead` events if applicable, aligning with the active nature of `isReady()` and avoiding unnecessary logic execution."
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-				if (constructor.getParameterCount() == 9) {
++				if (constructor.getParameterTypes().length == 9) {
+
+Commit Message:
+Polish
+
+Constructor.getParameterCount is JDK8+ only!
+
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+Constructor.getParameterCount() was introduced in Java 8, while Constructor.getParameterTypes() has been available since earlier versions of Java. To ensure compatibility with all Java versions, it is safer to use getParameterTypes().length","The code change replaces `getParameterCount` with `getParameterTypes().length` to ensure compatibility with Java versions prior to JDK 8, as `getParameterCount` is only available in JDK 8 and later. This enhances the code's backward compatibility while maintaining the same functionality."
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-		if (!c1.isInterface() && c1 != Object.class) {
++		if (!c1.isInterface() && c1 != Object.class && !Factory.class.isAssignableFrom(c2)) {
+
+Commit Message:
+Narrow early initialization of CGLIB method proxies (for AOT processing)
+
+Do not trigger early initialization on Factory classes (e.g. AOP proxies)
+
+See gh-29107
+
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+Factory classes shouldn't have early initialization.","The code change adds a check to avoid triggering early initialization on `Factory` classes, such as AOP proxies, during CGLIB method proxy creation. This refinement supports Ahead-of-Time (AOT) processing by ensuring unnecessary initialization is avoided, addressing concerns raised in issue *gh-29107*."
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-			Assert.state(compilablePropertyAccessor != null, ""No cached read accessor"");
++			Assert.state(compilablePropertyAccessor != null, ""No cached PropertyAccessor for reading"");
+
+Commit Message:
+Polishing
+
+nan
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+POLISH","The code change refines the assertion error message for better clarity and consistency, changing ""No cached read accessor"" to ""No cached PropertyAccessor for reading."" This improves the readability and specificity of error messages, aligning with best practices for maintainable and user-friendly code."
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-					else if (nonSyntheticConstructors == 2 && primaryConstructor != null && defaultConstructor != null) {
++					else if (nonSyntheticConstructors == 2 && primaryConstructor != null
++							&& defaultConstructor != null && !primaryConstructor.equals(defaultConstructor)) {
+
+Commit Message:
+Fix Kotlin bean w/ default + secondary ctors handling
+
+This commit polishes SPR-16022 fix in order to handle correctly
+the case when primary and default constructors are the same when
+a secondary constructor is defined.
+
+Issue: SPR-16289
+
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+SPR-16022 treated the primary constructor and the default constructor as always different. However, they can be the same in some cases so this scenario needed to be handled.","The code change adds a check to ensure the primary and default constructors are not the same when handling Kotlin beans with both default and secondary constructors. This addresses edge cases from SPR-16289, ensuring correct differentiation between constructors for accurate bean initialization."
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++			if (method == null) {
++				return true;
++			}
+
+Commit Message:
+Avoid NPE in AutowiredAnnotationBeanPostProcessor
+
+Prior to this change, AABPP#determineRequiredStatus never checked the
+return value of ReflectionUtils#findMethod when searching for a
+'#required' attribute. This call returns null for annotations such as
+@Inject, @Value and @Resource, and subsequently causes a
+NullPointerException to be thrown when ReflectionUtils#invokeMethod is
+called. The NPE is caught immediately and #determineRequiredStatus
+returns defaulting to true, but this this approach is inefficient. It
+is also problematic for users who have set breakpoints on NPE -- they
+end up debugging into Spring internals, which is a false positive.
+
+This commit checks the return value of of ReflectionUtils#findMethod,
+and in the case of null, eagerly returns true.  There is no change to
+external behavior, simply a more efficient and debugging-friendly
+implementation.
+
+Existing test cases already cover this change, given that it is purely
+a refactoring.
+
+Issue: SPR-9316
+
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+The ReflectionUtils#findMethod method returns null for annotations like @Inject, @Value, and @Resource that do not have a method named required. In such cases, it should return the default value.","This change prevents NullPointerException in `AutowiredAnnotationBeanPostProcessor#determineRequiredStatus` by checking if `ReflectionUtils#findMethod` returns null. It improves efficiency and debugging experience, avoiding unnecessary NPE handling and false positives during debugging. External behavior remains unchanged, making it a safer and more developer-friendly implementation."
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-					if (lastValue != null &&
+-							!ObjectUtils.nullSafeEquals(lastValue, value)) {
++					if (lastValue != null && !ObjectUtils.nullSafeEquals(lastValue, value)) {
+
+Commit Message:
+Polishing
+
+nan
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+POLISH","This change involves minor formatting adjustment, removing an unnecessary line break within a conditional statement. It improves code readability and adheres to standard coding practices, with no impact on functionality or behavior."
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++	private static final ResolvableType VOID_TYPE = ResolvableType.forClass(Void.class);
+-		if (elementType.equals(ResolvableType.forClass(Void.class))) {
++		if (VOID_TYPE.equals(elementType)) {
+
+Commit Message:
+Polishing
+
+nan
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+POLISH","This change replaces repetitive calls to `ResolvableType.forClass(Void.class)` with a reusable constant `VOID_TYPE`. It enhances code readability, reduces redundant object creation, and improves performance by avoiding repetitive computations. The functionality remains unchanged."
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-		Set<String> ignoreSet = (ignoreProperties != null ? new HashSet<>(Arrays.asList(ignoreProperties)) : null);
++		Set<String> ignoredProps = (ignoreProperties != null ? new HashSet<>(Arrays.asList(ignoreProperties)) : null);
+-			if (writeMethod != null && (ignoreSet == null || !ignoreSet.contains(targetPd.getName()))) {
++			if (writeMethod != null && (ignoredProps == null || !ignoredProps.contains(targetPd.getName()))) {
+
+Commit Message:
+Polishing
+
+nan
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+POLISH","This change renames `ignoreSet` to `ignoredProps` for improved clarity and consistency with naming conventions. It enhances code readability by making the variable's purpose more explicit, without altering functionality or behavior."
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++import org.springframework.core.KotlinDetector;
+-				if (ReflectionUtils.declaresException(getMethod(), ex.getClass())) {
++				if (ReflectionUtils.declaresException(getMethod(), ex.getClass()) ||
++						KotlinDetector.isKotlinType(getMethod().getDeclaringClass())) {
+
+Commit Message:
+Always propagate checked exceptions from Kotlin code behind CGLIB proxies
+
+Closes gh-23844
+
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+UndeclaredThrowableException is thrown when a checked exception from any method is received. This doesn't apply to Kotlin since Kotlin does not have checked exceptions. ",This change ensures that checked exceptions from Kotlin code are propagated by adding a check for Kotlin types. It improves compatibility and correctness when handling Kotlin code behind CGLIB proxies.
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-					this.columnLabelMap.put(rsmd.getColumnLabel(i), i);
++					String key = rsmd.getColumnLabel(i);
++					if (!this.columnLabelMap.containsKey(key)) {
++						this.columnLabelMap.put(key, i);
++					}
+
+Commit Message:
+ResultSetWrappingSqlRowSet preserves first matching column per name (as defined in ResultSet's javadoc)
+
+Issue: SPR-11786
+
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+ResultSetWrappingSqlRowSet should preserve first matching column with a column name in case there are several columns that have the same names.","This change prevents overwriting the first matching column in columnLabelMap, adhering to ResultSet's documentation. It ensures consistent mapping of column labels, enhancing reliability."
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-					!Modifier.isPublic(constructor.getDeclaringClass().getModifiers()) || !constructor.canAccess(null)) {
++					!Modifier.isPublic(constructor.getDeclaringClass().getModifiers())) {
+-			if (!Modifier.isPublic(method.getModifiers())) {
++			if (!Modifier.isPublic(method.getModifiers())
++				|| !Modifier.isPublic(method.getDeclaringClass().getModifiers())) {
+
+Commit Message:
+Polish
+
+This fixes an additional case where invoked methods are public but the
+declaring class is package private.
+
+Fixes gh-29046
+
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+The code should handle the cases where methods are public, but the declaring class has restricted access","This update includes additional checks for public methods whose declaring class is package-private. It ensures accurate access control validation, avoiding unintended method invocation failures."
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++	@Override
++	@Override
+-		boolean endsWithSlash = pattern.endsWith(""/"");
+-			if (!endsWithSlash && this.pathMatcher.match(pattern + ""/"", lookupPath)) {
++			if (!pattern.endsWith(""/"") && this.pathMatcher.match(pattern + ""/"", lookupPath)) {
++	@Override
+
+Commit Message:
+Delay check if pattern ends with slash
+
+This is a minor fix with no actual impact.
+
+Issue: SPR-10504
+
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+endsWithSlash initialization should be moved inside if statement as it is not used anywhere else in the function","This change delays the slash check to streamline the logic. It simplifies code flow without altering behavior, reflecting a minor optimization."
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-                if (!cookies.isEmpty()) {
+-                        this.builder.header(HttpHeaders.COOKIE, cookies.values().stream()
+-                                        .flatMap(List::stream).map(HttpCookie::toString).collect(Collectors.joining("";"")));
++                if (cookies.isEmpty()) {
++                        return;
++                this.builder.header(HttpHeaders.COOKIE, cookies.values().stream()
++                                .flatMap(List::stream).map(HttpCookie::toString).collect(Collectors.joining("";"")));
+
+Commit Message:
+Polishing contribution
+
+Closes gh-32799
+
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+The code needs to be polished.","This update returns early if cookies are empty, avoiding unnecessary processing. It enhances code efficiency and reduces redundant execution."
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-
+-			if (InMemoryWebSessionStore.this.sessions.remove(currentId) == null) {
+-				return Mono.error(new IllegalStateException(
+-						""Failed to change session id: "" + currentId +
+-								"" because the Session is no longer present in the store.""));
+-			}
++			InMemoryWebSessionStore.this.sessions.remove(currentId);
+
+Commit Message:
+Remove unnecessary assertion
+
+Issue: SPR-16201
+
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+When the session is new InMemoryWebSessionStore.this.sessions.remove(currentId) returns null. The method should support changing the id even if the session is new.","The change removes a redundant assertion in InMemoryWebSessionStore. This streamlines code without impacting functionality, reducing potential overhead."
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++import org.springframework.core.SpringProperties;
++	/**
++	private static final boolean shouldIgnoreXml = SpringProperties.getFlag(""spring.xml.ignore"");
++	
++
++				else if (shouldIgnoreXml) {
++					throw new UnsupportedOperationException(""XML support disabled"");
++				}
+
+Commit Message:
+Leverage spring.ignore.xml flag to avoid XmlBeanDefinitionReader
+
+Closes gh-25338
+
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+ConfigurationClassBeanDefinitionReader should have a flag that indicate whether Spring is instructed to ignore XML and add avoid returning XmlBeanDefinitionReader if the flag is false.","The addition uses SpringProperties to respect the spring.ignore.xml flag, throwing an exception when XML support is disabled. It aligns behavior with configuration, enhancing flexibility."
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-			throw new IllegalStateException(""Unexpected reflection exception - "" + ex.getClass().getName() + "": ""
+-					+ ex.getMessage());
++			throw new IllegalStateException(
++					""Unexpected reflection exception - "" + ex.getClass().getName() + "": "" + ex.getMessage());
+-				if (name.equals(method.getName())
+-						&& (paramTypes == null || Arrays.equals(paramTypes, method.getParameterTypes()))) {
++				if (name.equals(method.getName()) &&
++						(paramTypes == null || Arrays.equals(paramTypes, method.getParameterTypes()))) {
+
+Commit Message:
+Polishing (cherry picked from commit 6021822)
+
+nan
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+POLISH","The refactoring improves readability by adjusting formatting in exception handling and method checks, adhering to consistent style without altering functionality."
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++		Class<?>[] parameterTypes = null;
+-			Class<?>[] ifcs = current.getInterfaces();
+-			for (Class<?> ifc : ifcs) {
++			if (parameterTypes == null) {
++				parameterTypes = method.getParameterTypes();
++			}
++			for (Class<?> ifc : current.getInterfaces()) {
+-					return ifc.getMethod(method.getName(), method.getParameterTypes());
++					return ifc.getMethod(method.getName(), parameterTypes);
+
+Commit Message:
+Cache parameter types array in ClassUtils.findInterfaceMethodIfPossible()
+
+nan
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+The Method#getParameterTypes() method clones the array of parameter types whenever it is called. To avoid cloning the array multiple times, the parameter types are retrieved lazily.","This change caches parameter types to avoid redundant calls to method.getParameterTypes(), improving efficiency in ClassUtils.findInterfaceMethodIfPossible()."
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++			String urlString = url.toString();
++			String cleanedPath = StringUtils.cleanPath(urlString);
++			if (!cleanedPath.equals(urlString)) {
++				try {
++					return new UrlResource(ResourceUtils.toURI(cleanedPath));
++				}
++				catch (URISyntaxException | MalformedURLException ex) {
++				}
++			}
+
+Commit Message:
+Enforce cleaned URL for root resource from ClassLoader
+
+Closes gh-32828
+
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+The newer version of the Spring Framework handles UrlResource differently by cleaning the path using the StringUtils.cleanPath method. The convertClassLoaderURL method returns either a FileSystemResource or an UrlResource. While it uses the cleaned path when returning a FileSystemResource, for consistency, it should use the same cleaned path when returning a UrlResource.",This update enforces cleaning of the URL path before resource resolution. It enhances robustness by ensuring valid and sanitized resource paths.
+Zero-shot,ZS_w_commit_0,1.1.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-					while (j < statement.length && '}' != statement[j]) {
++					while (j < statement.length && statement[j] != '}') {
+-						if (':' == statement[j] || '{' == statement[j]) {
++						if (statement[j] == ':' || statement[j] == '{') {
+-						totalParameterCount = addNamedParameter(parameterList, totalParameterCount, escapes, i, j + 1, parameter);
++						totalParameterCount = addNamedParameter(
++								parameterList, totalParameterCount, escapes, i, j + 1, parameter);
+-						totalParameterCount = addNamedParameter(parameterList, totalParameterCount, escapes, i, j, parameter);
++						totalParameterCount = addNamedParameter(
++								parameterList, totalParameterCount, escapes, i, j, parameter);
+
+Commit Message:
+Polishing
+
+nan
+
+Generate Rationale (in maximum 50 word):","RATIONALE:
+POLISH","This refactoring improves code readability and consistency in parameter parsing logic without altering the behavior, making the codebase cleaner and more maintainable."

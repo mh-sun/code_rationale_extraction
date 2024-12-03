@@ -1,0 +1,116 @@
+Prompting-Strategy,Exp-Name,Version,Template
+Zero-shot,ZS_w_none_0,1.1.0.0,"Generate a rationale explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale:"
+Zero-shot,ZS_w_commit_0,1.1.0.1,"Generate a rationale explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale:"
+Zero-shot,ZS_w_commit_issue_0,1.1.0.2,"Generate a rationale explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Related Texts(If Any):
+{related_text}
+
+Generate Rationale:"
+Few-shot,FS_w_none_1,1.2.0.0,"Here are some examples of code changes and their rationales:
+
+Example 1:
+Code Diff:
+{example_diff}
+
+Commit Message:
+{example_commit_message}
+
+Related Texts(If any):
+{example_related_text}
+
+Rationale:
+{example_rationale}
+
+Now, generate a rationale for the following code change:
+
+Code Diff:
+{diff}
+
+Generate Rationale:"
+Few-shot,FS_w_commit_1,1.2.0.1,"Here are some examples of code changes and their rationales:
+
+Example 1:
+Code Diff:
+{example_diff}
+
+Commit Message:
+{example_commit_message}
+
+Related Texts(If any):
+{example_related_text}
+
+Rationale:
+{example_rationale}
+
+Now, generate a rationale for the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Generate Rationale:"
+Few-shot,FS_w_commit_issue_1,1.2.0.2,"Here are some examples of code changes and their rationales:
+
+Example 1:
+Code Diff:
+{example_diff}
+
+Commit Message:
+{example_commit_message}
+
+Related Texts(If any):
+{example_related_text}
+
+Rationale:
+{example_rationale}
+
+Now, generate a rationale for the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Related Texts(If Any):
+{related_text}
+
+Generate Rationale:"
+Chain-of-thought,CoT_w_commit_issue_0,1.3.0.0,"Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Related Texts(If any):
+{related_text}
+
+Step 1: Explain the context of the code change.
+Step 2: Analyze the modification made in the diff.
+Step 3: Justify why this change is necessary or beneficial.
+
+Provide a detailed rationale:"

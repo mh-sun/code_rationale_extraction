@@ -1,0 +1,3232 @@
+[
+    {
+        "id": "2gPFArAdEe-Il5OJ7hQKow",
+        "created": "2024-12-01T19:52:52.911068+00:00",
+        "updated": "2024-12-01T19:52:52.911068+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/475c4d4425b2170c4a0f19d5bd39b70e752e38a1",
+        "text": "COM_T_RATIONALE_PRES",
+        "tags": [
+            "POLISH"
+        ],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/475c4d4425b2170c4a0f19d5bd39b70e752e38a1",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 9,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]"
+                    },
+                    {
+                        "end": 25264,
+                        "type": "TextPositionSelector",
+                        "start": 25255
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "Polishing",
+                        "prefix": "ilesjhoellercommittedApr 3, 2018",
+                        "suffix": "main\u00b7v6.2.0v5.0.5.RELEASE1 paren"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Polishing \u00b7 spring-projects/spring-framework@475c4d4"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/2gPFArAdEe-Il5OJ7hQKow",
+            "incontext": "https://hyp.is/2gPFArAdEe-Il5OJ7hQKow/github.com/spring-projects/spring-framework/commit/475c4d4425b2170c4a0f19d5bd39b70e752e38a1",
+            "json": "https://hypothes.is/api/annotations/2gPFArAdEe-Il5OJ7hQKow"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "z8-2XrAdEe-bc5vb8NSf5g",
+        "created": "2024-12-01T19:52:35.819624+00:00",
+        "updated": "2024-12-01T19:52:35.819624+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/475c4d4425b2170c4a0f19d5bd39b70e752e38a1",
+        "text": "RATIONALE:\nPOLISH",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/475c4d4425b2170c4a0f19d5bd39b70e752e38a1"
+            }
+        ],
+        "document": {
+            "title": [
+                "Polishing \u00b7 spring-projects/spring-framework@475c4d4"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/z8-2XrAdEe-bc5vb8NSf5g",
+            "incontext": "https://hyp.is/z8-2XrAdEe-bc5vb8NSf5g/github.com/spring-projects/spring-framework/commit/475c4d4425b2170c4a0f19d5bd39b70e752e38a1",
+            "json": "https://hypothes.is/api/annotations/z8-2XrAdEe-bc5vb8NSf5g"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "pGLoLrAdEe-E72-AUtLy6Q",
+        "created": "2024-12-01T19:51:22.864395+00:00",
+        "updated": "2024-12-01T19:51:22.864395+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/3b1d46b3bac74802d264cd57c4a7e685f377c91e",
+        "text": "RATIONALE:\nPOLISH",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/3b1d46b3bac74802d264cd57c4a7e685f377c91e"
+            }
+        ],
+        "document": {
+            "title": [
+                "Polishing \u00b7 spring-projects/spring-framework@3b1d46b"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/pGLoLrAdEe-E72-AUtLy6Q",
+            "incontext": "https://hyp.is/pGLoLrAdEe-E72-AUtLy6Q/github.com/spring-projects/spring-framework/commit/3b1d46b3bac74802d264cd57c4a7e685f377c91e",
+            "json": "https://hypothes.is/api/annotations/pGLoLrAdEe-E72-AUtLy6Q"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "m77s9LAdEe-cAu-KtEPgxA",
+        "created": "2024-12-01T19:51:08.443264+00:00",
+        "updated": "2024-12-01T19:51:08.443264+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/3b1d46b3bac74802d264cd57c4a7e685f377c91e",
+        "text": "COM_T_RATIONALE_PRES",
+        "tags": [
+            "POLISH"
+        ],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/3b1d46b3bac74802d264cd57c4a7e685f377c91e",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 9,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]"
+                    },
+                    {
+                        "end": 18131,
+                        "type": "TextPositionSelector",
+                        "start": 18122
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "Polishing",
+                        "prefix": "ilespoutsmacommittedJun 20, 2017",
+                        "suffix": "main\u00b7v6.2.0v5.0.0.RC31 parent 50"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Polishing \u00b7 spring-projects/spring-framework@3b1d46b"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/m77s9LAdEe-cAu-KtEPgxA",
+            "incontext": "https://hyp.is/m77s9LAdEe-cAu-KtEPgxA/github.com/spring-projects/spring-framework/commit/3b1d46b3bac74802d264cd57c4a7e685f377c91e",
+            "json": "https://hypothes.is/api/annotations/m77s9LAdEe-cAu-KtEPgxA"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "PYsfGLAdEe-lmjPEOCvxtw",
+        "created": "2024-12-01T19:48:30.443526+00:00",
+        "updated": "2024-12-01T19:48:30.443526+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/2e5d0470dc0c9766d98d144d5b6bd56248112e46",
+        "text": "RATIONALE:\nPOLISH",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/2e5d0470dc0c9766d98d144d5b6bd56248112e46"
+            }
+        ],
+        "document": {
+            "title": [
+                "Polishing \u00b7 spring-projects/spring-framework@2e5d047"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/PYsfGLAdEe-lmjPEOCvxtw",
+            "incontext": "https://hyp.is/PYsfGLAdEe-lmjPEOCvxtw/github.com/spring-projects/spring-framework/commit/2e5d0470dc0c9766d98d144d5b6bd56248112e46",
+            "json": "https://hypothes.is/api/annotations/PYsfGLAdEe-lmjPEOCvxtw"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "NrbK_LAdEe-cAYvCsHocWg",
+        "created": "2024-12-01T19:48:18.889871+00:00",
+        "updated": "2024-12-01T19:48:18.889871+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/2e5d0470dc0c9766d98d144d5b6bd56248112e46",
+        "text": "COM_T_RATIONALE_PRES",
+        "tags": [
+            "POLISH"
+        ],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/2e5d0470dc0c9766d98d144d5b6bd56248112e46",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 9,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]"
+                    },
+                    {
+                        "end": 18975,
+                        "type": "TextPositionSelector",
+                        "start": 18966
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "Polishing",
+                        "prefix": "ilessbrannencommittedMar 9, 2023",
+                        "suffix": "main\u00b7v6.2.0v6.0.71 parent d2868f"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Polishing \u00b7 spring-projects/spring-framework@2e5d047"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/NrbK_LAdEe-cAYvCsHocWg",
+            "incontext": "https://hyp.is/NrbK_LAdEe-cAYvCsHocWg/github.com/spring-projects/spring-framework/commit/2e5d0470dc0c9766d98d144d5b6bd56248112e46",
+            "json": "https://hypothes.is/api/annotations/NrbK_LAdEe-cAYvCsHocWg"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "3lkrXLAcEe-w8ONDhY6nNg",
+        "created": "2024-12-01T19:45:50.678723+00:00",
+        "updated": "2024-12-01T19:45:50.678723+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/289d378aebd4782f422b880702fbd098122a389c",
+        "text": "RATIONALE:\nThe code should handle the cases where methods are public, but the declaring class has restricted access",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/289d378aebd4782f422b880702fbd098122a389c"
+            }
+        ],
+        "document": {
+            "title": [
+                "Polish \u00b7 spring-projects/spring-framework@289d378"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/3lkrXLAcEe-w8ONDhY6nNg",
+            "incontext": "https://hyp.is/3lkrXLAcEe-w8ONDhY6nNg/github.com/spring-projects/spring-framework/commit/289d378aebd4782f422b880702fbd098122a389c",
+            "json": "https://hypothes.is/api/annotations/3lkrXLAcEe-w8ONDhY6nNg"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "pAFAArAcEe-YJQ-C0a8MRw",
+        "created": "2024-12-01T19:44:12.819058+00:00",
+        "updated": "2024-12-01T19:44:12.819058+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/issues/29046",
+        "text": "IR_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/issues/29046",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 72,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[1]"
+                    },
+                    {
+                        "end": 13103,
+                        "type": "TextPositionSelector",
+                        "start": 13031
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "Reopening for cases where methods are public but declaring class is not.",
+                        "prefix": "     \n\n  \n    \n      \n          ",
+                        "suffix": "\n      \n    \n  \n\n\n\n\n        \n\n  "
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "IllegalAccessException while instrumenting invocation of non-public method with RuntimeHintsAgent \u00b7 Issue #29046 \u00b7 spring-projects/spring-framework"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/pAFAArAcEe-YJQ-C0a8MRw",
+            "incontext": "https://hyp.is/pAFAArAcEe-YJQ-C0a8MRw/github.com/spring-projects/spring-framework/issues/29046",
+            "json": "https://hypothes.is/api/annotations/pAFAArAcEe-YJQ-C0a8MRw"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "kI9UvrAcEe-Az7eMr4XTmw",
+        "created": "2024-12-01T19:43:40.198367+00:00",
+        "updated": "2024-12-01T19:43:40.198367+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/289d378aebd4782f422b880702fbd098122a389c",
+        "text": "COM_B_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/289d378aebd4782f422b880702fbd098122a389c",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 106,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]"
+                    },
+                    {
+                        "end": 19574,
+                        "type": "TextPositionSelector",
+                        "start": 19468
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "This fixes an additional case where invoked methods are public but the\ndeclaring class is package private.",
+                        "prefix": "clozelcommittedSep 1, 2022Polish",
+                        "suffix": "\n\nFixes gh-29046main\u00b7v6.2.0v6.0."
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Polish \u00b7 spring-projects/spring-framework@289d378"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/kI9UvrAcEe-Az7eMr4XTmw",
+            "incontext": "https://hyp.is/kI9UvrAcEe-Az7eMr4XTmw/github.com/spring-projects/spring-framework/commit/289d378aebd4782f422b880702fbd098122a389c",
+            "json": "https://hypothes.is/api/annotations/kI9UvrAcEe-Az7eMr4XTmw"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "sFY2SLAaEe-z34c2v1OxXA",
+        "created": "2024-12-01T19:30:14.508407+00:00",
+        "updated": "2024-12-01T19:30:14.508407+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/279777b2f3a43ed96eb8151f07b76f38672cc78f",
+        "text": "RATIONALE:\nPOLISH",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/279777b2f3a43ed96eb8151f07b76f38672cc78f"
+            }
+        ],
+        "document": {
+            "title": [
+                "Polishing \u00b7 spring-projects/spring-framework@279777b"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/sFY2SLAaEe-z34c2v1OxXA",
+            "incontext": "https://hyp.is/sFY2SLAaEe-z34c2v1OxXA/github.com/spring-projects/spring-framework/commit/279777b2f3a43ed96eb8151f07b76f38672cc78f",
+            "json": "https://hypothes.is/api/annotations/sFY2SLAaEe-z34c2v1OxXA"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "ptzA5rAaEe-b-gNJVkHM4g",
+        "created": "2024-12-01T19:29:58.597439+00:00",
+        "updated": "2024-12-01T19:29:58.597439+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/279777b2f3a43ed96eb8151f07b76f38672cc78f",
+        "text": "COM_T_RATIONALE_PRES",
+        "tags": [
+            "POLISH"
+        ],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/279777b2f3a43ed96eb8151f07b76f38672cc78f",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 9,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]"
+                    },
+                    {
+                        "end": 18256,
+                        "type": "TextPositionSelector",
+                        "start": 18247
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "Polishing",
+                        "prefix": "ilessbrannencommittedDec 2, 2019",
+                        "suffix": "main\u00b7v6.2.0v5.2.2.RELEASE1 paren"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Polishing \u00b7 spring-projects/spring-framework@279777b"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/ptzA5rAaEe-b-gNJVkHM4g",
+            "incontext": "https://hyp.is/ptzA5rAaEe-b-gNJVkHM4g/github.com/spring-projects/spring-framework/commit/279777b2f3a43ed96eb8151f07b76f38672cc78f",
+            "json": "https://hypothes.is/api/annotations/ptzA5rAaEe-b-gNJVkHM4g"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "XHumyrAaEe-qsIcu76xQ1Q",
+        "created": "2024-12-01T19:27:53.810099+00:00",
+        "updated": "2024-12-01T19:27:53.810099+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/231433f5406453069aa125329be042d5e32ddff0",
+        "text": "RATIONALE:\nPOLISH",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/231433f5406453069aa125329be042d5e32ddff0"
+            }
+        ],
+        "document": {
+            "title": [
+                "Polishing \u00b7 spring-projects/spring-framework@231433f"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/XHumyrAaEe-qsIcu76xQ1Q",
+            "incontext": "https://hyp.is/XHumyrAaEe-qsIcu76xQ1Q/github.com/spring-projects/spring-framework/commit/231433f5406453069aa125329be042d5e32ddff0",
+            "json": "https://hypothes.is/api/annotations/XHumyrAaEe-qsIcu76xQ1Q"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "U6xBvLAaEe-MJ9uufUfpvA",
+        "created": "2024-12-01T19:27:39.047114+00:00",
+        "updated": "2024-12-01T19:27:39.047114+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/231433f5406453069aa125329be042d5e32ddff0",
+        "text": "COM_T_RATIONALE_PRES",
+        "tags": [
+            "POLISH"
+        ],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/231433f5406453069aa125329be042d5e32ddff0",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 9,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]"
+                    },
+                    {
+                        "end": 22330,
+                        "type": "TextPositionSelector",
+                        "start": 22321
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "Polishing",
+                        "prefix": "lesjhoellercommittedOct 26, 2013",
+                        "suffix": "(cherry picked from commit 60218"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Polishing \u00b7 spring-projects/spring-framework@231433f"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/U6xBvLAaEe-MJ9uufUfpvA",
+            "incontext": "https://hyp.is/U6xBvLAaEe-MJ9uufUfpvA/github.com/spring-projects/spring-framework/commit/231433f5406453069aa125329be042d5e32ddff0",
+            "json": "https://hypothes.is/api/annotations/U6xBvLAaEe-MJ9uufUfpvA"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "8mcZ4LAZEe-qrotzIJXXIA",
+        "created": "2024-12-01T19:24:55.853948+00:00",
+        "updated": "2024-12-01T19:24:55.853948+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/1eed71bb1d848935d47f8b71538a165aed48981d",
+        "text": "RATIONALE:\nPOLISH",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/1eed71bb1d848935d47f8b71538a165aed48981d"
+            }
+        ],
+        "document": {
+            "title": [
+                "Polishing \u00b7 spring-projects/spring-framework@1eed71b"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/8mcZ4LAZEe-qrotzIJXXIA",
+            "incontext": "https://hyp.is/8mcZ4LAZEe-qrotzIJXXIA/github.com/spring-projects/spring-framework/commit/1eed71bb1d848935d47f8b71538a165aed48981d",
+            "json": "https://hypothes.is/api/annotations/8mcZ4LAZEe-qrotzIJXXIA"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "2yi-eLAZEe-LT4ehHRLtLA",
+        "created": "2024-12-01T19:24:16.867628+00:00",
+        "updated": "2024-12-01T19:24:33.514114+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/1eed71bb1d848935d47f8b71538a165aed48981d",
+        "text": "COM_T_RATIONALE_PRES",
+        "tags": [
+            "POLISH"
+        ],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/1eed71bb1d848935d47f8b71538a165aed48981d",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 9,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]"
+                    },
+                    {
+                        "end": 15958,
+                        "type": "TextPositionSelector",
+                        "start": 15949
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "Polishing",
+                        "prefix": "annencommittedApr 19, 2024\u00b73 / 3",
+                        "suffix": "main\u00b7v6.2.0v6.2.0-M21 parent c80"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Polishing \u00b7 spring-projects/spring-framework@1eed71b"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/2yi-eLAZEe-LT4ehHRLtLA",
+            "incontext": "https://hyp.is/2yi-eLAZEe-LT4ehHRLtLA/github.com/spring-projects/spring-framework/commit/1eed71bb1d848935d47f8b71538a165aed48981d",
+            "json": "https://hypothes.is/api/annotations/2yi-eLAZEe-LT4ehHRLtLA"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "lPYXPq_EEe-uFA9r5YJ_MQ",
+        "created": "2024-12-01T09:13:51.856113+00:00",
+        "updated": "2024-12-01T09:13:51.856113+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/19a1477228b8ed75926a15358e3253eb7ffa492e",
+        "text": "RATIONALE:\nSPR-16022 treated the primary constructor and the default constructor as always different. However, they can be the same in some cases so this scenario needed to be handled.",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/19a1477228b8ed75926a15358e3253eb7ffa492e"
+            }
+        ],
+        "document": {
+            "title": [
+                "Fix Kotlin bean w/ default + secondary ctors handling \u00b7 spring-projects/spring-framework@19a1477"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/lPYXPq_EEe-uFA9r5YJ_MQ",
+            "incontext": "https://hyp.is/lPYXPq_EEe-uFA9r5YJ_MQ/github.com/spring-projects/spring-framework/commit/19a1477228b8ed75926a15358e3253eb7ffa492e",
+            "json": "https://hypothes.is/api/annotations/lPYXPq_EEe-uFA9r5YJ_MQ"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "3cpHEK_DEe-iz2P9UMHGwg",
+        "created": "2024-12-01T09:08:44.555364+00:00",
+        "updated": "2024-12-01T09:08:44.555364+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/19a1477228b8ed75926a15358e3253eb7ffa492e",
+        "text": "COM_B_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/19a1477228b8ed75926a15358e3253eb7ffa492e",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 164,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]"
+                    },
+                    {
+                        "end": 29458,
+                        "type": "TextPositionSelector",
+                        "start": 29294
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "This commit polishes SPR-16022 fix in order to handle correctly\nthe case when primary and default constructors are the same when\na secondary constructor is defined.",
+                        "prefix": "fault + secondary ctors handling",
+                        "suffix": "\n\nIssue: SPR-16289main\u00b7v6.2.0v5."
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Fix Kotlin bean w/ default + secondary ctors handling \u00b7 spring-projects/spring-framework@19a1477"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/3cpHEK_DEe-iz2P9UMHGwg",
+            "incontext": "https://hyp.is/3cpHEK_DEe-iz2P9UMHGwg/github.com/spring-projects/spring-framework/commit/19a1477228b8ed75926a15358e3253eb7ffa492e",
+            "json": "https://hypothes.is/api/annotations/3cpHEK_DEe-iz2P9UMHGwg"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "3JgOcK_AEe-Dsm96teep3g",
+        "created": "2024-12-01T08:47:14.039613+00:00",
+        "updated": "2024-12-01T08:51:33.069809+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/0f70ac74cd07228bcf67db925b1c01c6b17fc092",
+        "text": "RATIONALE:\nConstructor.getParameterCount() was introduced in Java 8, while Constructor.getParameterTypes() has been available since earlier versions of Java. To ensure compatibility with all Java versions, it is safer to use getParameterTypes().length",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/0f70ac74cd07228bcf67db925b1c01c6b17fc092"
+            }
+        ],
+        "document": {
+            "title": [
+                "Polish \u00b7 spring-projects/spring-framework@0f70ac7"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/3JgOcK_AEe-Dsm96teep3g",
+            "incontext": "https://hyp.is/3JgOcK_AEe-Dsm96teep3g/github.com/spring-projects/spring-framework/commit/0f70ac74cd07228bcf67db925b1c01c6b17fc092",
+            "json": "https://hypothes.is/api/annotations/3JgOcK_AEe-Dsm96teep3g"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "xMMZeq_AEe-jyY8amCgppg",
+        "created": "2024-12-01T08:46:34.031258+00:00",
+        "updated": "2024-12-01T08:46:34.031258+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/0f70ac74cd07228bcf67db925b1c01c6b17fc092",
+        "text": "COM_B_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/0f70ac74cd07228bcf67db925b1c01c6b17fc092",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 44,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]"
+                    },
+                    {
+                        "end": 16248,
+                        "type": "TextPositionSelector",
+                        "start": 16204
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "Constructor.getParameterCount is JDK8+ only!",
+                        "prefix": "lozelcommittedOct 13, 2015Polish",
+                        "suffix": "main\u00b7v6.2.0v4.2.2.RELEASE1 paren"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Polish \u00b7 spring-projects/spring-framework@0f70ac7"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/xMMZeq_AEe-jyY8amCgppg",
+            "incontext": "https://hyp.is/xMMZeq_AEe-jyY8amCgppg/github.com/spring-projects/spring-framework/commit/0f70ac74cd07228bcf67db925b1c01c6b17fc092",
+            "json": "https://hypothes.is/api/annotations/xMMZeq_AEe-jyY8amCgppg"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "kr_lAq-2Ee-YZjdkLUecjQ",
+        "created": "2024-12-01T07:33:35.199647+00:00",
+        "updated": "2024-12-01T07:34:19.721891+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/19a9bc4747028e68d0fc9ce71c302488cfbfa978",
+        "text": "RATIONALE:\nWhen the session is new InMemoryWebSessionStore.this.sessions.remove(currentId) returns null. The method should support changing the id even if the session is new.",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/19a9bc4747028e68d0fc9ce71c302488cfbfa978"
+            }
+        ],
+        "document": {
+            "title": [
+                "Remove unnecessary assertion \u00b7 spring-projects/spring-framework@19a9bc4"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/kr_lAq-2Ee-YZjdkLUecjQ",
+            "incontext": "https://hyp.is/kr_lAq-2Ee-YZjdkLUecjQ/github.com/spring-projects/spring-framework/commit/19a9bc4747028e68d0fc9ce71c302488cfbfa978",
+            "json": "https://hypothes.is/api/annotations/kr_lAq-2Ee-YZjdkLUecjQ"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "aNtyLq-2Ee-E67-8iZo7LQ",
+        "created": "2024-12-01T07:32:24.898325+00:00",
+        "updated": "2024-12-01T07:32:24.898325+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/issues/20749",
+        "text": "IR_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/issues/20749",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 77,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[3]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[2]"
+                    },
+                    {
+                        "end": 11020,
+                        "type": "TextPositionSelector",
+                        "start": 10247
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "If a user invokes InMemoryWebSession.changeSessionId before the session has been created, an error is reported stating:\njava.lang.IllegalStateException: Failed to change session id: 4854375d-1713-468b-9e4c-61fe282de0bc because the Session is no longer present in the store.\n\t\tat org.springframework.web.server.session.InMemoryWebSessionStore$InMemoryWebSession.changeSessionId(InMemoryWebSessionStore.java:214)\n\t\tat org.springframework.security.web.server.csrf.WebSessionServerCsrfTokenRepository.lambda$saveToken$1(WebSessionServerCsrfTokenRepository.java:64)\n\t\tat reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:118)\n\t\t... 36 more\n\n    \n      \n    \n\n      \n    \n\n    \n  \nI think the method should support changing the id even if the session is new.",
+                        "prefix": " opened SPR-16201 and commented\n",
+                        "suffix": "\nAs it currently stands an addit"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "InMemoryWebSession.changeSessionId reports error if the session does not exist [SPR-16201] \u00b7 Issue #20749 \u00b7 spring-projects/spring-framework"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/aNtyLq-2Ee-E67-8iZo7LQ",
+            "incontext": "https://hyp.is/aNtyLq-2Ee-E67-8iZo7LQ/github.com/spring-projects/spring-framework/issues/20749",
+            "json": "https://hypothes.is/api/annotations/aNtyLq-2Ee-E67-8iZo7LQ"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "hpo6uK-0Ee-lhteWXDI1gA",
+        "created": "2024-12-01T07:18:55.813041+00:00",
+        "updated": "2024-12-01T07:19:05.875908+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/052bbcc53031bd48dc76d070ba862f5293618600",
+        "text": "RATIONALE:\nThe Method#getParameterTypes() method clones the array of parameter types whenever it is called. To avoid cloning the array multiple times, the parameter types are retrieved lazily.",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/052bbcc53031bd48dc76d070ba862f5293618600"
+            }
+        ],
+        "document": {
+            "title": [
+                "Cache parameter types array in ClassUtils.findInterfaceMethodIfPossib\u2026 \u00b7 spring-projects/spring-framework@052bbcc"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/hpo6uK-0Ee-lhteWXDI1gA",
+            "incontext": "https://hyp.is/hpo6uK-0Ee-lhteWXDI1gA/github.com/spring-projects/spring-framework/commit/052bbcc53031bd48dc76d070ba862f5293618600",
+            "json": "https://hypothes.is/api/annotations/hpo6uK-0Ee-lhteWXDI1gA"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "Hg-bUK-0Ee-jhau07zKQ2Q",
+        "created": "2024-12-01T07:16:00.443312+00:00",
+        "updated": "2024-12-01T07:16:00.443312+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/052bbcc53031bd48dc76d070ba862f5293618600",
+        "text": "CC_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/052bbcc53031bd48dc76d070ba862f5293618600",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 71,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[12]/td[3]/code[1]/div[1]/span[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[11]/td[3]/code[1]/div[1]/span[1]"
+                    },
+                    {
+                        "end": 20629,
+                        "type": "TextPositionSelector",
+                        "start": 20477
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "// Since Method#getParameterTypes() clones the array, we lazily retrieve1433+\t\t\t\t// and cache parameter types to avoid cloning the array multiple times.",
+                        "prefix": "rameterTypes == null) {1432+\t\t\t\t",
+                        "suffix": "1434+\t\t\t\tparameterTypes = method"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Cache parameter types array in ClassUtils.findInterfaceMethodIfPossib\u2026 \u00b7 spring-projects/spring-framework@052bbcc"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/Hg-bUK-0Ee-jhau07zKQ2Q",
+            "incontext": "https://hyp.is/Hg-bUK-0Ee-jhau07zKQ2Q/github.com/spring-projects/spring-framework/commit/052bbcc53031bd48dc76d070ba862f5293618600",
+            "json": "https://hypothes.is/api/annotations/Hg-bUK-0Ee-jhau07zKQ2Q"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "fJUZ9K-yEe-sVqed7x85bw",
+        "created": "2024-12-01T07:04:20.038153+00:00",
+        "updated": "2024-12-01T07:04:20.038153+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/0728e32e7f3b93e49dfc8c7af20b489b12b3e663",
+        "text": "RATIONALE:\nResultSetWrappingSqlRowSet should preserve first matching column with a column name in case there are several columns that have the same names.",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/0728e32e7f3b93e49dfc8c7af20b489b12b3e663"
+            }
+        ],
+        "document": {
+            "title": [
+                "ResultSetWrappingSqlRowSet preserves first matching column per name (\u2026 \u00b7 spring-projects/spring-framework@0728e32"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/fJUZ9K-yEe-sVqed7x85bw",
+            "incontext": "https://hyp.is/fJUZ9K-yEe-sVqed7x85bw/github.com/spring-projects/spring-framework/commit/0728e32e7f3b93e49dfc8c7af20b489b12b3e663",
+            "json": "https://hypothes.is/api/annotations/fJUZ9K-yEe-sVqed7x85bw"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "TYYuEK-xEe-_lM9opP8Uuw",
+        "created": "2024-12-01T06:55:51.568660+00:00",
+        "updated": "2024-12-01T06:55:51.568660+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/issues/16408",
+        "text": "IR_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/issues/16408",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 223,
+                        "startOffset": 70,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[9]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[9]"
+                    },
+                    {
+                        "end": 10947,
+                        "type": "TextPositionSelector",
+                        "start": 10794
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "QUOTE: When a getter method is called with a column name and several columns have the same name, the value of the first matching column will be returned.",
+                        "prefix": "ocs/api/java/sql/ResultSet.html\n",
+                        "suffix": "\n\nAffects: 3.2.8, 4.0.4\nReferenc"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "JDBC findColumn gives wrong result in case of duplicate column labels [SPR-11786] \u00b7 Issue #16408 \u00b7 spring-projects/spring-framework"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/TYYuEK-xEe-_lM9opP8Uuw",
+            "incontext": "https://hyp.is/TYYuEK-xEe-_lM9opP8Uuw/github.com/spring-projects/spring-framework/issues/16408",
+            "json": "https://hypothes.is/api/annotations/TYYuEK-xEe-_lM9opP8Uuw"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "Smr0fK-xEe-4ev9ueOCm5Q",
+        "created": "2024-12-01T06:55:46.355096+00:00",
+        "updated": "2024-12-01T06:55:46.355096+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/issues/16408",
+        "text": "IR_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/issues/16408",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 103,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[8]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[6]"
+                    },
+                    {
+                        "end": 10723,
+                        "type": "TextPositionSelector",
+                        "start": 10424
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "findColumn(\"fooname\") should return the FIRST and not the SECOND (LAST) index of fooname.\nThis bug is introduced in Spring JDBC since the implementation ResultSetWrappingSqlRowSet uses a HashMap.\nThe code should check for existence of the key in the map and not override the value if the key exists.",
+                        "prefix": "foo2\n(result: fooname, fooname)\n",
+                        "suffix": "\nSee: http://docs.oracle.com/jav"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "JDBC findColumn gives wrong result in case of duplicate column labels [SPR-11786] \u00b7 Issue #16408 \u00b7 spring-projects/spring-framework"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/Smr0fK-xEe-4ev9ueOCm5Q",
+            "incontext": "https://hyp.is/Smr0fK-xEe-4ev9ueOCm5Q/github.com/spring-projects/spring-framework/issues/16408",
+            "json": "https://hypothes.is/api/annotations/Smr0fK-xEe-4ev9ueOCm5Q"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "uZZH0K-wEe-f5idsxxkmcw",
+        "created": "2024-12-01T06:51:43.386497+00:00",
+        "updated": "2024-12-01T06:51:43.386497+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/0728e32e7f3b93e49dfc8c7af20b489b12b3e663",
+        "text": "COM_T_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/0728e32e7f3b93e49dfc8c7af20b489b12b3e663",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 103,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]"
+                    },
+                    {
+                        "end": 18874,
+                        "type": "TextPositionSelector",
+                        "start": 18771
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "ResultSetWrappingSqlRowSet preserves first matching column per name (as defined in ResultSet's javadoc)",
+                        "prefix": "lesjhoellercommittedMay 15, 2014",
+                        "suffix": "Issue: SPR-11786main\u00b7v6.2.0v4.1."
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "ResultSetWrappingSqlRowSet preserves first matching column per name (\u2026 \u00b7 spring-projects/spring-framework@0728e32"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/uZZH0K-wEe-f5idsxxkmcw",
+            "incontext": "https://hyp.is/uZZH0K-wEe-f5idsxxkmcw/github.com/spring-projects/spring-framework/commit/0728e32e7f3b93e49dfc8c7af20b489b12b3e663",
+            "json": "https://hypothes.is/api/annotations/uZZH0K-wEe-f5idsxxkmcw"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "4ICNPq-vEe-R-Ztbm0pnng",
+        "created": "2024-12-01T06:45:39.192551+00:00",
+        "updated": "2024-12-01T06:45:39.192551+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/0634555424a8742bbe95333c49975437af6eacf8",
+        "text": "COM_B_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/0634555424a8742bbe95333c49975437af6eacf8",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 42,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]"
+                    },
+                    {
+                        "end": 24253,
+                        "type": "TextPositionSelector",
+                        "start": 24211
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "This is a minor fix with no actual impact.",
+                        "prefix": "check if pattern ends with slash",
+                        "suffix": "\n\nIssue: SPR-10504main\u00b7v6.2.0v4."
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Delay check if pattern ends with slash \u00b7 spring-projects/spring-framework@0634555"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/4ICNPq-vEe-R-Ztbm0pnng",
+            "incontext": "https://hyp.is/4ICNPq-vEe-R-Ztbm0pnng/github.com/spring-projects/spring-framework/commit/0634555424a8742bbe95333c49975437af6eacf8",
+            "json": "https://hypothes.is/api/annotations/4ICNPq-vEe-R-Ztbm0pnng"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "SaInBq-vEe-ivvt6QHDPIA",
+        "created": "2024-12-01T06:41:26.051673+00:00",
+        "updated": "2024-12-01T06:44:55.045062+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/0634555424a8742bbe95333c49975437af6eacf8",
+        "text": "RATIONALE:\nendsWithSlash initialization should be moved inside if statement as it is not used anywhere else in the function",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/0634555424a8742bbe95333c49975437af6eacf8"
+            }
+        ],
+        "document": {
+            "title": [
+                "Delay check if pattern ends with slash \u00b7 spring-projects/spring-framework@0634555"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/SaInBq-vEe-ivvt6QHDPIA",
+            "incontext": "https://hyp.is/SaInBq-vEe-ivvt6QHDPIA/github.com/spring-projects/spring-framework/commit/0634555424a8742bbe95333c49975437af6eacf8",
+            "json": "https://hypothes.is/api/annotations/SaInBq-vEe-ivvt6QHDPIA"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "kUR1gq-vEe-p299jDWw4sg",
+        "created": "2024-12-01T06:43:26.204781+00:00",
+        "updated": "2024-12-01T06:43:26.204781+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/issues/14998",
+        "text": "IR_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/issues/14998",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 112,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[3]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[3]/code[1]"
+                    },
+                    {
+                        "end": 10752,
+                        "type": "TextPositionSelector",
+                        "start": 10640
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "endsWithSlash initialization should be moved inside if statement as it is not used anywhere else in the function",
+                        "prefix": "    \n    \n\n      \n    \n\n    \n  \n",
+                        "suffix": "\n\nAffects: 3.2.2\nReferenced from"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Unnecessary check in PatternsRequestCondition.getMatchingPattern [SPR-10504] \u00b7 Issue #14998 \u00b7 spring-projects/spring-framework"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/kUR1gq-vEe-p299jDWw4sg",
+            "incontext": "https://hyp.is/kUR1gq-vEe-p299jDWw4sg/github.com/spring-projects/spring-framework/issues/14998",
+            "json": "https://hypothes.is/api/annotations/kUR1gq-vEe-p299jDWw4sg"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "U-Kwkq-pEe-kr4MVPcRbiQ",
+        "created": "2024-12-01T05:58:46.282490+00:00",
+        "updated": "2024-12-01T05:58:46.282490+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/030bc224e30699a91e33e27a6d9782803afbd0d4",
+        "text": "RATIONALE:\nServletInputStream.isReady() should be called before ServletInputStream.isFinished() because if request body is already read, ServletInputStream.isReady() will not be called which is needed to schedule a dispatch and send a onAllDataRead event. ",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/030bc224e30699a91e33e27a6d9782803afbd0d4"
+            }
+        ],
+        "document": {
+            "title": [
+                "Invert the check for ServletInputStream.isReady() \u00b7 spring-projects/spring-framework@030bc22"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/U-Kwkq-pEe-kr4MVPcRbiQ",
+            "incontext": "https://hyp.is/U-Kwkq-pEe-kr4MVPcRbiQ/github.com/spring-projects/spring-framework/commit/030bc224e30699a91e33e27a6d9782803afbd0d4",
+            "json": "https://hypothes.is/api/annotations/U-Kwkq-pEe-kr4MVPcRbiQ"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "JqOV3q-oEe-e0tdNYh8OrA",
+        "created": "2024-12-01T05:50:20.845105+00:00",
+        "updated": "2024-12-01T05:50:20.845105+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/issues/21064",
+        "text": "IR_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/issues/21064",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 198,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[8]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[5]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[8]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[4]"
+                    },
+                    {
+                        "end": 29397,
+                        "type": "TextPositionSelector",
+                        "start": 29088
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "The implementation should check first the active method isReady and then isFinished as the last is not active.\nIn the scenario above in case the request body is read, the current implementation will not invoke isReady and thus Tomcat will not schedule a dispatch, and onAllDataRead event will never be called.",
+                        "prefix": "vletServerHttpRequest.java#L266\n",
+                        "suffix": "\nHere is a PR #1722\nThe scenario"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "JSON with missing quote leads to hanging [SPR-16521] \u00b7 Issue #21064 \u00b7 spring-projects/spring-framework"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/JqOV3q-oEe-e0tdNYh8OrA",
+            "incontext": "https://hyp.is/JqOV3q-oEe-e0tdNYh8OrA/github.com/spring-projects/spring-framework/issues/21064",
+            "json": "https://hypothes.is/api/annotations/JqOV3q-oEe-e0tdNYh8OrA"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "6fMf8q-mEe-BBOf2fNfzBA",
+        "created": "2024-12-01T05:41:29.527598+00:00",
+        "updated": "2024-12-01T05:41:29.527598+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/030bc224e30699a91e33e27a6d9782803afbd0d4",
+        "text": "COM_B_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/030bc224e30699a91e33e27a6d9782803afbd0d4",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 448,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]"
+                    },
+                    {
+                        "end": 16136,
+                        "type": "TextPositionSelector",
+                        "start": 15688
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "When checking whether there is still request body the first method\nthat should be checked is ServletInputStream.isReady() and then\nServletInputStream.isFinished(). ServletInputStream.isReady() is the active\nmethod whereas the ServletInputStream.isFinished() is not.\nIt is important to call ServletInputStream.isReady() because if it returns\nfalse it will schedule a dispatch and if the request body is already read it will\nsend onAllDataRead event.",
+                        "prefix": "for ServletInputStream.isReady()",
+                        "suffix": "\n\nIssue: SPR-16521main\u00b7v6.2.0v5."
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Invert the check for ServletInputStream.isReady() \u00b7 spring-projects/spring-framework@030bc22"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/6fMf8q-mEe-BBOf2fNfzBA",
+            "incontext": "https://hyp.is/6fMf8q-mEe-BBOf2fNfzBA/github.com/spring-projects/spring-framework/commit/030bc224e30699a91e33e27a6d9782803afbd0d4",
+            "json": "https://hypothes.is/api/annotations/6fMf8q-mEe-BBOf2fNfzBA"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "Qfdd1q-mEe--hK9WrgK1Ig",
+        "created": "2024-12-01T05:36:47.694539+00:00",
+        "updated": "2024-12-01T05:36:47.694539+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/947255e3774fe6248c59d2cdd6a1b06b9f6b5d9b",
+        "text": "RATIONALE:\nUndeclaredThrowableException is thrown when a checked exception from any method is received. This doesn't apply to Kotlin since Kotlin does not have checked exceptions. ",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/947255e3774fe6248c59d2cdd6a1b06b9f6b5d9b"
+            }
+        ],
+        "document": {
+            "title": [
+                "Always propagate checked exceptions from Kotlin code behind CGLIB pro\u2026 \u00b7 spring-projects/spring-framework@947255e"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/Qfdd1q-mEe--hK9WrgK1Ig",
+            "incontext": "https://hyp.is/Qfdd1q-mEe--hK9WrgK1Ig/github.com/spring-projects/spring-framework/commit/947255e3774fe6248c59d2cdd6a1b06b9f6b5d9b",
+            "json": "https://hypothes.is/api/annotations/Qfdd1q-mEe--hK9WrgK1Ig"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "GfwXzK-mEe-n5Xvs3oN2oQ",
+        "created": "2024-12-01T05:35:40.599529+00:00",
+        "updated": "2024-12-01T05:35:40.599529+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/2624b909060e0967e16771de7a35261decd5a4a9",
+        "text": "RATIONALE:\nThe ReflectionUtils#findMethod method returns null for annotations like @Inject, @Value, and @Resource that do not have a method named required. In such cases, it should return the default value.",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/2624b909060e0967e16771de7a35261decd5a4a9"
+            }
+        ],
+        "document": {
+            "title": [
+                "Avoid NPE in AutowiredAnnotationBeanPostProcessor \u00b7 spring-projects/spring-framework@2624b90"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/GfwXzK-mEe-n5Xvs3oN2oQ",
+            "incontext": "https://hyp.is/GfwXzK-mEe-n5Xvs3oN2oQ/github.com/spring-projects/spring-framework/commit/2624b909060e0967e16771de7a35261decd5a4a9",
+            "json": "https://hypothes.is/api/annotations/GfwXzK-mEe-n5Xvs3oN2oQ"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "3-o6FK-lEe-9XGP2ceBiuQ",
+        "created": "2024-12-01T05:34:03.186787+00:00",
+        "updated": "2024-12-01T05:34:03.186787+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/2270df515b040d8612c691acc0102d1a224bcd82",
+        "text": "RATIONALE:\nThe newer version of the Spring Framework handles UrlResource differently by cleaning the path using the StringUtils.cleanPath method. The convertClassLoaderURL method returns either a FileSystemResource or an UrlResource. While it uses the cleaned path when returning a FileSystemResource, for consistency, it should use the same cleaned path when returning a UrlResource.",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/2270df515b040d8612c691acc0102d1a224bcd82"
+            }
+        ],
+        "document": {
+            "title": [
+                "Enforce cleaned URL for root resource from ClassLoader \u00b7 spring-projects/spring-framework@2270df5"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/3-o6FK-lEe-9XGP2ceBiuQ",
+            "incontext": "https://hyp.is/3-o6FK-lEe-9XGP2ceBiuQ/github.com/spring-projects/spring-framework/commit/2270df515b040d8612c691acc0102d1a224bcd82",
+            "json": "https://hypothes.is/api/annotations/3-o6FK-lEe-9XGP2ceBiuQ"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "nae3fK-kEe-vxu8pKKLjbA",
+        "created": "2024-12-01T05:25:02.564992+00:00",
+        "updated": "2024-12-01T05:30:52.299370+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/02b539c5f50b59d9f5605c21e42d53f0c8e23ae1",
+        "text": "RATIONALE:\nConfigurationClassBeanDefinitionReader should have a flag that indicate whether Spring is instructed to ignore XML and add avoid returning XmlBeanDefinitionReader if the flag is false.",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/02b539c5f50b59d9f5605c21e42d53f0c8e23ae1"
+            }
+        ],
+        "document": {
+            "title": [
+                "Leverage spring.ignore.xml flag to avoid XmlBeanDefinitionReader \u00b7 spring-projects/spring-framework@02b539c"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/nae3fK-kEe-vxu8pKKLjbA",
+            "incontext": "https://hyp.is/nae3fK-kEe-vxu8pKKLjbA/github.com/spring-projects/spring-framework/commit/02b539c5f50b59d9f5605c21e42d53f0c8e23ae1",
+            "json": "https://hypothes.is/api/annotations/nae3fK-kEe-vxu8pKKLjbA"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "96KYyK-kEe-7dfdt2Mnj3g",
+        "created": "2024-12-01T05:27:33.535914+00:00",
+        "updated": "2024-12-01T05:27:33.535914+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/02b539c5f50b59d9f5605c21e42d53f0c8e23ae1",
+        "text": "COM_T_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/02b539c5f50b59d9f5605c21e42d53f0c8e23ae1",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 64,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]"
+                    },
+                    {
+                        "end": 24806,
+                        "type": "TextPositionSelector",
+                        "start": 24742
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "Leverage spring.ignore.xml flag to avoid XmlBeanDefinitionReader",
+                        "prefix": "lessdeleuzecommittedJun 30, 2020",
+                        "suffix": "Closes gh-25338main\u00b7v6.2.0v5.3.0"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Leverage spring.ignore.xml flag to avoid XmlBeanDefinitionReader \u00b7 spring-projects/spring-framework@02b539c"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/96KYyK-kEe-7dfdt2Mnj3g",
+            "incontext": "https://hyp.is/96KYyK-kEe-7dfdt2Mnj3g/github.com/spring-projects/spring-framework/commit/02b539c5f50b59d9f5605c21e42d53f0c8e23ae1",
+            "json": "https://hypothes.is/api/annotations/96KYyK-kEe-7dfdt2Mnj3g"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "uYt91K-kEe-z7YeLeqoHZw",
+        "created": "2024-12-01T05:25:49.367059+00:00",
+        "updated": "2024-12-01T05:25:49.367059+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/02b539c5f50b59d9f5605c21e42d53f0c8e23ae1",
+        "text": "CC_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/02b539c5f50b59d9f5605c21e42d53f0c8e23ae1",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 70,
+                        "startOffset": 2,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[23]/td[3]/code[1]/div[1]/span[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[22]/td[3]/code[1]/div[1]/span[1]"
+                    },
+                    {
+                        "end": 26393,
+                        "type": "TextPositionSelector",
+                        "start": 26223
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "* Boolean flag controlled by a {@code spring.xml.ignore} system property that instructs Spring to84+\t * ignore XML, i.e. to not initialize the XML-related infrastructure.",
+                        "prefix": "adataResolver();798182+\t/**83+\t ",
+                        "suffix": "85+\t * <p>The default is \"false\""
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Leverage spring.ignore.xml flag to avoid XmlBeanDefinitionReader \u00b7 spring-projects/spring-framework@02b539c"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/uYt91K-kEe-z7YeLeqoHZw",
+            "incontext": "https://hyp.is/uYt91K-kEe-z7YeLeqoHZw/github.com/spring-projects/spring-framework/commit/02b539c5f50b59d9f5605c21e42d53f0c8e23ae1",
+            "json": "https://hypothes.is/api/annotations/uYt91K-kEe-z7YeLeqoHZw"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "Oz68NK-kEe-ldecbcPBhpQ",
+        "created": "2024-12-01T05:22:17.422044+00:00",
+        "updated": "2024-12-01T05:22:17.422044+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/issues/25338",
+        "text": "IR_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/issues/25338",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 214,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[1]"
+                    },
+                    {
+                        "end": 10350,
+                        "type": "TextPositionSelector",
+                        "start": 10136
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "This issue is a follow up of #25151, it avoids using XmlBeanDefinitionReader in ConfigurationClassBeanDefinitionReader when spring.xml.ignore is true in order to avoid triggering XML usage in GraalVM native images.",
+                        "prefix": "     \n\n  \n    \n      \n          ",
+                        "suffix": "\n      \n    \n      \n        \n   "
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Leverage spring.ignore.xml flag to avoid XmlBeanDefinitionReader \u00b7 Issue #25338 \u00b7 spring-projects/spring-framework"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/Oz68NK-kEe-ldecbcPBhpQ",
+            "incontext": "https://hyp.is/Oz68NK-kEe-ldecbcPBhpQ/github.com/spring-projects/spring-framework/issues/25338",
+            "json": "https://hypothes.is/api/annotations/Oz68NK-kEe-ldecbcPBhpQ"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "Zy2vcK-gEe-yOicUT6e5OQ",
+        "created": "2024-12-01T04:54:53.147834+00:00",
+        "updated": "2024-12-01T04:54:53.147834+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/010e8a303b1caf3b80e244fc5e4aebc23d854118",
+        "text": "RATIONALE:\nThe code needs to be polished.",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/010e8a303b1caf3b80e244fc5e4aebc23d854118"
+            }
+        ],
+        "document": {
+            "title": [
+                "Polishing contribution \u00b7 spring-projects/spring-framework@010e8a3"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/Zy2vcK-gEe-yOicUT6e5OQ",
+            "incontext": "https://hyp.is/Zy2vcK-gEe-yOicUT6e5OQ/github.com/spring-projects/spring-framework/commit/010e8a303b1caf3b80e244fc5e4aebc23d854118",
+            "json": "https://hypothes.is/api/annotations/Zy2vcK-gEe-yOicUT6e5OQ"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "5NoZlq-aEe-_X0fdfQtz8w",
+        "created": "2024-12-01T04:15:27.012401+00:00",
+        "updated": "2024-12-01T04:15:27.012401+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/010e8a303b1caf3b80e244fc5e4aebc23d854118",
+        "text": "COM_T_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/010e8a303b1caf3b80e244fc5e4aebc23d854118",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 22,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]"
+                    },
+                    {
+                        "end": 19721,
+                        "type": "TextPositionSelector",
+                        "start": 19699
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "Polishing contribution",
+                        "prefix": "nchevcommittedMay 15, 2024\u00b75 / 5",
+                        "suffix": "Closes gh-32799main\u00b7v6.2.0v6.1.7"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Polishing contribution \u00b7 spring-projects/spring-framework@010e8a3"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/5NoZlq-aEe-_X0fdfQtz8w",
+            "incontext": "https://hyp.is/5NoZlq-aEe-_X0fdfQtz8w/github.com/spring-projects/spring-framework/commit/010e8a303b1caf3b80e244fc5e4aebc23d854118",
+            "json": "https://hypothes.is/api/annotations/5NoZlq-aEe-_X0fdfQtz8w"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "Ip9MSK9FEe-eaGd7zrzwNw",
+        "created": "2024-11-30T18:01:33.954627+00:00",
+        "updated": "2024-11-30T18:01:33.954627+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/1b1682eacd9c8aabbb86f24dc9c54070f3dd18b4",
+        "text": "RATIONALE:\nFactory classes shouldn't have early initialization.",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/1b1682eacd9c8aabbb86f24dc9c54070f3dd18b4"
+            }
+        ],
+        "document": {
+            "title": [
+                "Narrow early initialization of CGLIB method proxies (for AOT processing) \u00b7 spring-projects/spring-framework@1b1682e"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/Ip9MSK9FEe-eaGd7zrzwNw",
+            "incontext": "https://hyp.is/Ip9MSK9FEe-eaGd7zrzwNw/github.com/spring-projects/spring-framework/commit/1b1682eacd9c8aabbb86f24dc9c54070f3dd18b4",
+            "json": "https://hypothes.is/api/annotations/Ip9MSK9FEe-eaGd7zrzwNw"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "gPE41q9CEe-Wg7uX9xBIlg",
+        "created": "2024-11-30T17:42:43.679095+00:00",
+        "updated": "2024-11-30T17:42:43.679095+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/1b1682eacd9c8aabbb86f24dc9c54070f3dd18b4",
+        "text": "COM_B_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/1b1682eacd9c8aabbb86f24dc9c54070f3dd18b4",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 73,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]"
+                    },
+                    {
+                        "end": 16840,
+                        "type": "TextPositionSelector",
+                        "start": 16767
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "Do not trigger early initialization on Factory classes (e.g. AOP proxies)",
+                        "prefix": "hod proxies (for AOT processing)",
+                        "suffix": "\n\nSee gh-29107main\u00b7v6.2.0v6.0.0-"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Narrow early initialization of CGLIB method proxies (for AOT processing) \u00b7 spring-projects/spring-framework@1b1682e"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/gPE41q9CEe-Wg7uX9xBIlg",
+            "incontext": "https://hyp.is/gPE41q9CEe-Wg7uX9xBIlg/github.com/spring-projects/spring-framework/commit/1b1682eacd9c8aabbb86f24dc9c54070f3dd18b4",
+            "json": "https://hypothes.is/api/annotations/gPE41q9CEe-Wg7uX9xBIlg"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "cgZd1K7sEe-Qj9emk6ItYw",
+        "created": "2024-11-30T07:26:41.968232+00:00",
+        "updated": "2024-11-30T07:26:41.968232+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/issues/13954",
+        "text": "IR_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/issues/13954",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 50,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/ul[1]/li[3]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[2]"
+                    },
+                    {
+                        "end": 11356,
+                        "type": "TextPositionSelector",
+                        "start": 10444
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "AutowiredAnnotationBeanPostProcessor.determineRequiredStatus uses ReflectionUtils.findMethod to look up a method named \"required\". If there is no such method then ReflectionUtils.findMethod returns null. However AutowiredAnnotationBeanPostProcessor.determineRequiredStatus never checks for null instead it directly passes the method to ReflectionUtils.invokeMethod which throws a NullPointerException which is then caught in a catch (Exception ex) block in AutowiredAnnotationBeanPostProcessor.determineRequiredStatus.\nAnnoations that don't have a method named \"required\" include @Inject @Value @Resource.\nThis is not so nice for several reasons:\n\nwhen you debug one of your own NullPointerExceptions and set an exception breakpoint on NullPointerException you end up in Spring code\nit uses NullPointerExceptions and catching them as part of normal control flow\nfilling in the stack trace of an exception is slow",
+                        "prefix": "l opened SPR-9316 and commented\n",
+                        "suffix": "\n\n\nAffects: 3.1.1\nIssue Links:\n\n"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "caught NullPointerException in AutowiredAnnotationBeanPostProcessor.determineRequiredStatus [SPR-9316] \u00b7 Issue #13954 \u00b7 spring-projects/spring-framework"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/cgZd1K7sEe-Qj9emk6ItYw",
+            "incontext": "https://hyp.is/cgZd1K7sEe-Qj9emk6ItYw/github.com/spring-projects/spring-framework/issues/13954",
+            "json": "https://hypothes.is/api/annotations/cgZd1K7sEe-Qj9emk6ItYw"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "K5mGkq7rEe-qcV91cHrn5w",
+        "created": "2024-11-30T07:17:34.324572+00:00",
+        "updated": "2024-11-30T07:17:34.324572+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/2624b909060e0967e16771de7a35261decd5a4a9",
+        "text": "COM_B_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/2624b909060e0967e16771de7a35261decd5a4a9",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 828,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]"
+                    },
+                    {
+                        "end": 21838,
+                        "type": "TextPositionSelector",
+                        "start": 21010
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "Prior to this change, AABPP#determineRequiredStatus never checked the\nreturn value of ReflectionUtils#findMethod when searching for a\n'#required' attribute. This call returns null for annotations such as\n@Inject, @value and @resource, and subsequently causes a\nNullPointerException to be thrown when ReflectionUtils#invokeMethod is\ncalled. The NPE is caught immediately and #determineRequiredStatus\nreturns defaulting to true, but this this approach is inefficient. It\nis also problematic for users who have set breakpoints on NPE -- they\nend up debugging into Spring internals, which is a false positive.\n\nThis commit checks the return value of of ReflectionUtils#findMethod,\nand in the case of null, eagerly returns true.  There is no change to\nexternal behavior, simply a more efficient and debugging-friendly\nimplementation.",
+                        "prefix": "wiredAnnotationBeanPostProcessor",
+                        "suffix": "\n\nExisting test cases already co"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Avoid NPE in AutowiredAnnotationBeanPostProcessor \u00b7 spring-projects/spring-framework@2624b90"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/K5mGkq7rEe-qcV91cHrn5w",
+            "incontext": "https://hyp.is/K5mGkq7rEe-qcV91cHrn5w/github.com/spring-projects/spring-framework/commit/2624b909060e0967e16771de7a35261decd5a4a9",
+            "json": "https://hypothes.is/api/annotations/K5mGkq7rEe-qcV91cHrn5w"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "06RFdq7qEe-T4dfKwInHBg",
+        "created": "2024-11-30T07:15:06.715339+00:00",
+        "updated": "2024-11-30T07:15:06.715339+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/2624b909060e0967e16771de7a35261decd5a4a9",
+        "text": "COM_T_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/2624b909060e0967e16771de7a35261decd5a4a9",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 49,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/header[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/div[1]"
+                    },
+                    {
+                        "end": 21010,
+                        "type": "TextPositionSelector",
+                        "start": 20961
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "Avoid NPE in AutowiredAnnotationBeanPostProcessor",
+                        "prefix": "d andcbeamscommittedMay 16, 2012",
+                        "suffix": "Prior to this change, AABPP#dete"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Avoid NPE in AutowiredAnnotationBeanPostProcessor \u00b7 spring-projects/spring-framework@2624b90"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/06RFdq7qEe-T4dfKwInHBg",
+            "incontext": "https://hyp.is/06RFdq7qEe-T4dfKwInHBg/github.com/spring-projects/spring-framework/commit/2624b909060e0967e16771de7a35261decd5a4a9",
+            "json": "https://hypothes.is/api/annotations/06RFdq7qEe-T4dfKwInHBg"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "aERuRq7qEe-mNf_-Ms-E3w",
+        "created": "2024-11-30T07:12:06.565564+00:00",
+        "updated": "2024-11-30T07:12:06.565564+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/2624b909060e0967e16771de7a35261decd5a4a9",
+        "text": "CC_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/2624b909060e0967e16771de7a35261decd5a4a9",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 61,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[35]/td[3]/code[1]/div[1]/span[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[34]/td[3]/code[1]/div[1]/span[1]"
+                    },
+                    {
+                        "end": 24263,
+                        "type": "TextPositionSelector",
+                        "start": 24125
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "// annotations like @Inject, @Value and @Resource don't have a method410+\t\t\t\t// (attribute) named \"required\" -> default to required status",
+                        "prefix": "\t\t\tif (method == null) {409+\t\t\t\t",
+                        "suffix": "411+\t\t\t\treturn true;412+\t\t\t}4084"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Avoid NPE in AutowiredAnnotationBeanPostProcessor \u00b7 spring-projects/spring-framework@2624b90"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/aERuRq7qEe-mNf_-Ms-E3w",
+            "incontext": "https://hyp.is/aERuRq7qEe-mNf_-Ms-E3w/github.com/spring-projects/spring-framework/commit/2624b909060e0967e16771de7a35261decd5a4a9",
+            "json": "https://hypothes.is/api/annotations/aERuRq7qEe-mNf_-Ms-E3w"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "nJZRrK7jEe-VX1fwkWZl5g",
+        "created": "2024-11-30T06:23:27.912601+00:00",
+        "updated": "2024-11-30T06:23:27.912601+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/issues/32828",
+        "text": "IR_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/issues/32828",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 649,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[10]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[7]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[10]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[7]"
+                    },
+                    {
+                        "end": 38391,
+                        "type": "TextPositionSelector",
+                        "start": 37742
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "6.1 is cleaning the path when going from a URL for a root dir resource to a URL for a specific resource that matches the sub-pattern. createRelative is called on a UrlResource with the URL jar:file:/Users/awilkinson/Downloads/test-project/runtime/bin/../work/demo-plugin1-1.0.0.0-12436866063543419511.jar!/com/example/demo/plugin1/ with a relativePath of DemoController.class. This results in a UrlResource with the URL jar:file:/Users/awilkinson/Downloads/test-project/runtime/work/demo-plugin1-1.0.0.0-12436866063543419511.jar!/com/example/demo/plugin1/DemoController.class due to path cleaning that's now performed in ResourceUtils.toURL(String).",
+                        "prefix": "    \n    \n\n      \n    \n\n    \n  \n",
+                        "suffix": "\n      \n    \n  \n\n\n\n\n        \n\n  "
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Inconsistent use of cleaned URLs in PathMatchingResourcePatternResolver \u00b7 Issue #32828 \u00b7 spring-projects/spring-framework"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/nJZRrK7jEe-VX1fwkWZl5g",
+            "incontext": "https://hyp.is/nJZRrK7jEe-VX1fwkWZl5g/github.com/spring-projects/spring-framework/issues/32828",
+            "json": "https://hypothes.is/api/annotations/nJZRrK7jEe-VX1fwkWZl5g"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "lEfpcK7jEe-W6v-Iwb8xSw",
+        "created": "2024-11-30T06:23:13.938721+00:00",
+        "updated": "2024-11-30T06:23:13.938721+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/issues/32828",
+        "text": "IR_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/issues/32828",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 175,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[10]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[10]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[1]"
+                    },
+                    {
+                        "end": 32693,
+                        "type": "TextPositionSelector",
+                        "start": 32518
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "Some notes for the Framework team that may help. The TL;DR is that I think that 9342317 is the cause of the regression as it calls StringUtils.cleanPath which 6.0 does not do.",
+                        "prefix": "     \n\n  \n    \n      \n          ",
+                        "suffix": "\nOther observations that led me "
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Inconsistent use of cleaned URLs in PathMatchingResourcePatternResolver \u00b7 Issue #32828 \u00b7 spring-projects/spring-framework"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/lEfpcK7jEe-W6v-Iwb8xSw",
+            "incontext": "https://hyp.is/lEfpcK7jEe-W6v-Iwb8xSw/github.com/spring-projects/spring-framework/issues/32828",
+            "json": "https://hypothes.is/api/annotations/lEfpcK7jEe-W6v-Iwb8xSw"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "wrZc0q7fEe-Tuv_V82SqTA",
+        "created": "2024-11-30T05:55:53.842694+00:00",
+        "updated": "2024-11-30T05:55:53.842694+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/issues/32828",
+        "text": "IR_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/issues/32828",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 384,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[12]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[12]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[1]"
+                    },
+                    {
+                        "end": 33164,
+                        "type": "TextPositionSelector",
+                        "start": 32780
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "It looks like ClassLoader.getResources itself returns a uncleaned path with a ../ segment there, and our convertClassLoaderURL method turns it into a UrlResource(URL) due to a jar location - whereas it would turn it into a FileSystemResource with a clean path in case of a file location. So we should consistently use cleaned URL paths even for the jar location case there, I suppose.",
+                        "prefix": "     \n\n  \n    \n      \n          ",
+                        "suffix": "\n      \n    \n  \n\n\n\n\n        \n\n  "
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Inconsistent use of cleaned URLs in PathMatchingResourcePatternResolver \u00b7 Issue #32828 \u00b7 spring-projects/spring-framework"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/wrZc0q7fEe-Tuv_V82SqTA",
+            "incontext": "https://hyp.is/wrZc0q7fEe-Tuv_V82SqTA/github.com/spring-projects/spring-framework/issues/32828",
+            "json": "https://hypothes.is/api/annotations/wrZc0q7fEe-Tuv_V82SqTA"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "ZcKFKK52Ee-x7OdpaKj-Nw",
+        "created": "2024-11-29T17:21:40.752957+00:00",
+        "updated": "2024-11-29T17:21:40.752957+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/issues/23844",
+        "text": "IR_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/issues/23844",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 98,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/bdi[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/bdi[1]"
+                    },
+                    {
+                        "end": 8458,
+                        "type": "TextPositionSelector",
+                        "start": 8360
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "Spring AOP should not apply UndeclaredThrowableException to checked exceptions from Kotlin methods",
+                        "prefix": "tom\n        \n      \n\n    \n      ",
+                        "suffix": "\n      #23844\n    \n    \n  \n\n  \n "
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Spring AOP should not apply UndeclaredThrowableException to checked exceptions from Kotlin methods \u00b7 Issue #23844 \u00b7 spring-projects/spring-framework"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/ZcKFKK52Ee-x7OdpaKj-Nw",
+            "incontext": "https://hyp.is/ZcKFKK52Ee-x7OdpaKj-Nw/github.com/spring-projects/spring-framework/issues/23844",
+            "json": "https://hypothes.is/api/annotations/ZcKFKK52Ee-x7OdpaKj-Nw"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "bkwnjK50Ee-1Dhv97moI4A",
+        "created": "2024-11-29T17:07:36.081520+00:00",
+        "updated": "2024-11-29T17:07:36.081520+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/issues/23844",
+        "text": "IR_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/issues/23844",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 532,
+                        "startOffset": 26,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[9]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[9]/div[1]/div[2]/div[1]/div[2]/task-lists[1]/table[1]/tbody[1]/tr[1]/td[1]/p[1]"
+                    },
+                    {
+                        "end": 24900,
+                        "type": "TextPositionSelector",
+                        "start": 24394
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "within Spring AOP - we'd even turn a checked exception thrown from a Kotlin target method into an UndeclaredThrowableException, not just a checked exception thrown from an interceptor (which is the primary purpose of that check). While this works fine with Java code that explicitly declares those exceptions on the target method (so undeclared exceptions can only really come out of the interceptor), it's really not appropriate for Kotlin code since it enforces a non-idiomatic @Throws declaration there.",
+                        "prefix": "      I've just realized that - ",
+                        "suffix": " Thanks for raising this, and I'"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Spring AOP should not apply UndeclaredThrowableException to checked exceptions from Kotlin methods \u00b7 Issue #23844 \u00b7 spring-projects/spring-framework"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/bkwnjK50Ee-1Dhv97moI4A",
+            "incontext": "https://hyp.is/bkwnjK50Ee-1Dhv97moI4A/github.com/spring-projects/spring-framework/issues/23844",
+            "json": "https://hypothes.is/api/annotations/bkwnjK50Ee-1Dhv97moI4A"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    },
+    {
+        "id": "YlLlQq5vEe-sG5fVD3IOUA",
+        "created": "2024-11-29T16:31:28.490078+00:00",
+        "updated": "2024-11-29T16:52:46.794005+00:00",
+        "user": "acct:mh_sun@hypothes.is",
+        "uri": "https://github.com/spring-projects/spring-framework/commit/947255e3774fe6248c59d2cdd6a1b06b9f6b5d9b",
+        "text": "CC_RATIONALE_PRES",
+        "tags": [],
+        "group": "jLAEz9aG",
+        "permissions": {
+            "read": [
+                "group:jLAEz9aG"
+            ],
+            "admin": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "update": [
+                "acct:mh_sun@hypothes.is"
+            ],
+            "delete": [
+                "acct:mh_sun@hypothes.is"
+            ]
+        },
+        "target": [
+            {
+                "source": "https://github.com/spring-projects/spring-framework/commit/947255e3774fe6248c59d2cdd6a1b06b9f6b5d9b",
+                "selector": [
+                    {
+                        "type": "RangeSelector",
+                        "endOffset": 72,
+                        "startOffset": 0,
+                        "endContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[18]/td[3]/code[1]/div[1]/span[1]",
+                        "startContainer": "/div[1]/div[5]/div[1]/main[1]/turbo-frame[1]/div[1]/react-app[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[16]/td[3]/code[1]/div[1]/span[1]"
+                    },
+                    {
+                        "end": 22831,
+                        "type": "TextPositionSelector",
+                        "start": 22610
+                    },
+                    {
+                        "type": "TextQuoteSelector",
+                        "exact": "// Propagate original exception if declared on the target method759+\t\t\t\t\t// (with callers expecting it). Always propagate it for Kotlin code760+\t\t\t\t\t// since checked exceptions do not have to be explicitly declared there.",
+                        "prefix": "getDeclaringClass())) {758+\t\t\t\t\t",
+                        "suffix": "756761\t\t\t\t\tthrow ex;757762\t\t\t\t}7"
+                    }
+                ]
+            }
+        ],
+        "document": {
+            "title": [
+                "Always propagate checked exceptions from Kotlin code behind CGLIB pro\u2026 \u00b7 spring-projects/spring-framework@947255e"
+            ]
+        },
+        "links": {
+            "html": "https://hypothes.is/a/YlLlQq5vEe-sG5fVD3IOUA",
+            "incontext": "https://hyp.is/YlLlQq5vEe-sG5fVD3IOUA/github.com/spring-projects/spring-framework/commit/947255e3774fe6248c59d2cdd6a1b06b9f6b5d9b",
+            "json": "https://hypothes.is/api/annotations/YlLlQq5vEe-sG5fVD3IOUA"
+        },
+        "user_info": {
+            "display_name": null
+        },
+        "flagged": false,
+        "moderation": {
+            "flagCount": 0
+        },
+        "hidden": false
+    }
+]
