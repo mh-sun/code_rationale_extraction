@@ -35,10 +35,13 @@ def save_changes(commit_info, change_type, file, commit, repo_path, output_path,
         diff = commit_info['diff']
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
+        repo = run_command("git remote get-url origin", repo_path)
+        repo = repo.split('/')[-2] + "/" + repo.split('/')[-1].strip('.git')
+
         csv_row = [
-            os.path.basename(repo_path), file, commit, change_type, str(diff),
+            repo, file, commit, change_type, str(diff),
             commit_info['added_line'] + commit_info['removed_line'], cond_type,
-            commit_info['commit_massage'], commit_info['commit_description'], commit_info['notes']
+            commit_info['commit_subject'], commit_info['commit_body'], commit_info['notes']
         ]
 
         file_exists = os.path.isfile(output_path)
@@ -47,7 +50,7 @@ def save_changes(commit_info, change_type, file, commit, repo_path, output_path,
             if not file_exists:
                 writer.writerow(
                     ['repo', 'file', 'commit', 'change_type', 'diff', 'change_count', 'condition_type',
-                     'commit_message', 'description',
+                     'commit_subject', 'commit_body',
                      'note'])
             writer.writerow(csv_row)
     except Exception as e:
@@ -90,7 +93,7 @@ def check_(add_pattern, remove_pattern, commit_info, file, output_path, repo_pat
 def get_commit_info(file, commit_hash, repo_path):
     java_files_count = run_command(f'git diff-tree --no-commit-id --name-only -r {commit_hash}  | grep ".java" | wc -l', repo_path)
 
-    if java_files_count != 1:
+    if int(java_files_count) != 1:
         return None
 
     commitMessage, commitDescription, commitNotes = run_command(
@@ -134,10 +137,8 @@ def process_file(commit_limit, file, repo_path, output_path):
         commits = get_last_commits(commit_limit, file, repo_path)
         for commit in commits:
             commit_info = get_commit_info(file, commit, repo_path)
-
             if commit_info is None:
                 continue
-
             check_n_save_changes(commit_info, file, commit, repo_path, output_path)
     except Exception as e:
         print(e)
@@ -152,8 +153,9 @@ def process_files(rationale_dataset_path, commit_limit, repo_path):
 
     ######## Limit Java Files ######
     # java_files = random.sample(java_files, 1000)
+    # java_files = [java_files[210]]
 
-    with ThreadPoolExecutor(max_workers=1) as executor:
+    with ThreadPoolExecutor(max_workers=max(os.cpu_count()-4, 1)) as executor:
         futures = [
             executor.submit(process_file, commit_limit, file, repo_path, rationale_dataset_path)
             for file in java_files
