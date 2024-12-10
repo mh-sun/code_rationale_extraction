@@ -1,3 +1,8 @@
+from const import *
+
+import os
+import subprocess
+
 import argparse
 import random
 from concurrent.futures import ThreadPoolExecutor
@@ -20,15 +25,9 @@ def get_java_files(repo_path):
     return run_command(command, repo_path).splitlines()
 
 
-def get_last_commits(commit_limit, file, repo_path):
+def get_last_commits(file, repo_path, commit_limit=-1):
     command = f'git log {f"-n {commit_limit} " if commit_limit > 0 else ""}--pretty=format:"%H" --follow -- {file}'
     return run_command(command, repo_path).splitlines()
-
-
-def get_diff(file, commit, repo_path):
-    command = f'git show {commit} -- {file}'
-    return run_command(command, repo_path)
-
 
 def save_changes(commit_info, change_type, file, commit, repo_path, output_path, cond_type):
     try:
@@ -58,13 +57,13 @@ def save_changes(commit_info, change_type, file, commit, repo_path, output_path,
 
 
 def check_n_save_changes(commit_info, file, commit, repo_path, output_path):
-    add_pattern = r'^\+.*\s+(if|else)\s+.*'
-    remove_pattern = r'^-.*\s+(if|else)\s+.*'
+    add_pattern = r'^\+\s+(if|else)\s+.*'
+    remove_pattern = r'^-\s+(if|else)\s+.*'
 
     check_(add_pattern, remove_pattern, commit_info, file, output_path, repo_path, "condition")
 
-    add_pattern = r'^\+.*\s+(for|while)\s+.*'
-    remove_pattern = r'^-.*\s+(for|while)\s+.*'
+    add_pattern = r'^\+\s+(for|while)\s+.*'
+    remove_pattern = r'^-\s+(for|while)\s+.*'
 
     check_(add_pattern, remove_pattern, commit_info, file, output_path, repo_path, "iteration")
 
@@ -76,19 +75,15 @@ def check_(add_pattern, remove_pattern, commit_info, file, output_path, repo_pat
     removed_conditions = re.findall(remove_pattern, diff, re.MULTILINE)
     added_count = len(added_conditions)
     removed_count = len(removed_conditions)
-    if added_count == 1 and removed_count == 1:
+    if added_count != 0 and added_count == removed_count:
         change_type = "Condition_Change"
         save_changes(commit_info, change_type, file, commit, repo_path, output_path, cond_type)
-    elif added_count == 1 and removed_count == 0:
+    elif (added_count - removed_count) == 1:
         change_type = "Add_Condition"
         save_changes(commit_info, change_type, file, commit, repo_path, output_path, cond_type)
-    elif added_count == 0 and removed_count == 1:
+    elif (removed_count - added_count) == 1:
         change_type = "Remove_Condition"
         save_changes(commit_info, change_type, file, commit, repo_path, output_path, cond_type)
-    # else:
-    #     change_type = "Unlabeled"
-    #     save_changes(commit_info, change_type, file, commit, repo_path, output_path, cond_type)
-
 
 def get_commit_info(file, commit_hash, repo_path):
     java_files_count = run_command(f'git diff-tree --no-commit-id --name-only -r {commit_hash}  | grep ".java" | wc -l', repo_path)
@@ -109,13 +104,13 @@ def get_commit_info(file, commit_hash, repo_path):
     pattern2 = r'^[+-]\s+\/\*\*\s*.*\*\/$'
     pattern3 = r'^[+-]\s+\/\/.*$'
 
-    diff_output = '\n'.join(line for line in diff_output.splitlines() if
-                            not re.match(pattern1, line.strip()) and not re.match(pattern2,
-                                                                                  line.strip()) and not re.match(
-                                pattern3, line.strip()))
-
-    added_lines = sum(1 for line in diff_output.splitlines() if line.startswith('+') and not line.startswith('++'))
-    removed_lines = sum(1 for line in diff_output.splitlines() if line.startswith('-') and not line.startswith('--'))
+    diff_output_wo_comment = '\n'.join(line for line in diff_output.splitlines() if
+                            not re.match(pattern1, line.strip()) and 
+                            not re.match(pattern2, line.strip()) and 
+                            not re.match(pattern3, line.strip()))
+    
+    added_lines = sum(1 for line in diff_output_wo_comment.splitlines() if line.startswith('+') and not line.startswith('++'))
+    removed_lines = sum(1 for line in diff_output_wo_comment.splitlines() if line.startswith('-') and not line.startswith('--'))
 
     commit_dict = {
         'commit_subject': commitMessage,
@@ -131,10 +126,9 @@ def get_commit_info(file, commit_hash, repo_path):
 
     return commit_dict
 
-
-def process_file(commit_limit, file, repo_path, output_path):
+def process_file(file, repo_path, output_path):
     try:
-        commits = get_last_commits(commit_limit, file, repo_path)
+        commits = get_last_commits(file, repo_path)
         for commit in commits:
             commit_info = get_commit_info(file, commit, repo_path)
             if commit_info is None:
@@ -144,35 +138,68 @@ def process_file(commit_limit, file, repo_path, output_path):
         print(e)
 
 
-def process_files(rationale_dataset_path, commit_limit, repo_path):
-    print(f"Rationale Dataset Path: {rationale_dataset_path}")
-    print(f"Commit Limit: {commit_limit}")
+def process_files(dataset_path, repo_path):
+    print(f"Commit Dataset Path: {dataset_path}")
     print(f"Repository Path: {repo_path}")
+
+    if os.path.exists(dataset_path):
+        os.remove(dataset_path)
 
     java_files = get_java_files(repo_path)
 
-    ######## Limit Java Files ######
-    # java_files = random.sample(java_files, 1000)
-    # java_files = [java_files[210]]
-
     with ThreadPoolExecutor(max_workers=max(os.cpu_count()-4, 1)) as executor:
         futures = [
-            executor.submit(process_file, commit_limit, file, repo_path, rationale_dataset_path)
+            executor.submit(process_file, file, repo_path, dataset_path)
             for file in java_files
         ]
 
         for future in tqdm(futures):
             future.result()
 
+def clone_and_checkout(repo_url, local_path, commit_hash):
+    try:
+        local_parent = os.path.dirname(local_path)
+        os.makedirs(local_parent, exist_ok=True)
+        print(f"\n\nCloning repository from {repo_url} to {local_parent}.\n\n")
+        subprocess.run(["git", "clone", repo_url], check=True, cwd=local_parent)
+
+        print(f"\n\nChecking out commit {commit_hash}.\n\n")
+        subprocess.run(["git", "checkout", commit_hash], check=True, cwd=local_path)
+
+        print("Repository cloned and checked out successfully.")
+    except subprocess.CalledProcessError as e:
+        print(f"An error occurred while executing Git commands: {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+def filter_commits(data_path):
+    df = pd.read_csv(data_path)
+
+    merged_df = (
+    df.groupby("commit")
+        .agg({
+            "repo": "first",  # Keep the first repo
+            "file": "first",  # Keep the first file
+            "change_type": lambda x: ", ".join(sorted(set(x))),  # Merge unique change_types
+            "diff": "first",  # Keep the first diff
+            "change_count": "first",  # Keep the first change_count
+            "condition_type": lambda x: ", ".join(sorted(set(x))),  # Merge unique condition_types
+            "commit_subject": "first",  # Keep the first subject
+            "commit_body": "first",  # Keep the first body
+            "note": "first",  # Keep the first note
+        })
+        .reset_index()
+    )
+
+    # Step 2: Filter rows where change_count <= 10
+    filtered_df = merged_df[merged_df["change_count"] <= 10]
+
+    # Save the filtered DataFrame to the specified path
+    filtered_df.to_csv(data_path, index=False)
+
+    print(f"\n\nTotal Commit Count: {len(filtered_df)}")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Process Java files in a repository.")
-    parser.add_argument('-o', '--output', type=str, default="dataset/code_rationale_list.csv",
-                        help="output path of the rationale dataset")
-    parser.add_argument('-c', '--commit_length', type=int, default=-1, help="limit on the number of commits to process")
-    parser.add_argument('-t', '--target', type=str, default='dataset/spring-framework',
-                        help="path to the target repository")
-
-    args = parser.parse_args()
-
-    process_files(args.output, args.commit_length, args.target)
+    # clone_and_checkout(TARGET_PROJ, TARGET_PROJ_LOCAL, TARGET_PROJ_LAST_COMMIT)
+    process_files(COMMIT_DETAILS, TARGET_PROJ_LOCAL)
+    filter_commits(COMMIT_DETAILS)

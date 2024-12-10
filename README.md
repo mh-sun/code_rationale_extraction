@@ -33,7 +33,7 @@ Developers spend approximately 60% of their time comprehending code, often focus
 ## sources
 This folder contains the source code for the data preparation, tuning, and evaluation of the models for all experiments. This folder contains the following files:
 
-1. ```source/a_clone_target_proj.py```: This script clone the target projects to local machine.
+1. ```source/a_data_preparation.py```: This script clone the target projects to local machine & extract filtered commits with explicit change types.
 <!-- 2. ```b_preprocess_data.py```: This script preprocess the comment data to be used in MLMs experiments. 
 3. ```c_generate_embeddings.py```: This script generate LM embeddings (Llama, GPT, BERT) to be used in MLMs experiments.
 4. ```d_mlm_experiments.py```: This script run all MLMs and save the results to ```results/ml``` folder.
