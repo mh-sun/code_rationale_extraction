@@ -1,5 +1,7 @@
 .idea
 *.pyc
 
-dataset/spring-framework
+all_issues.json
+
+dataset/repos
 venv

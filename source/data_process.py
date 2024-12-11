@@ -2,42 +2,88 @@ import json
 import re
 import requests
 import pandas as pd
+import os
+
 from tqdm import tqdm
+from const import *
 
-
-def add_issue_reference(input_path, output):
+def add_issue_reference(input_path, output, all_issues_path):
     data = pd.read_csv(input_path)
     data.fillna("", inplace=True)
 
-    # data = data.sample(10, random_state=42)
+    with open(all_issues_path, 'r') as file:
+        all_issues = json.load(file)
+        spr_ids_dict = {}
+
+        for issue in all_issues:
+            pattern = r"\[SPR-(\d+)\]"
+            match = re.search(pattern, issue['title'])
+            if match:
+                digits = match.group(1)
+                spr_ids_dict[digits] = issue['number']
+
+        print(f"\n\nFound {len(spr_ids_dict)} SPR IDs\n\n")
+            
 
     def extract_issue_ids(text):
         gh_ids = re.findall(r'gh-(\d+)', text)
         hash_ids = re.findall(r'#(\d+)', text)
+        spr_ids = re.findall(r'SPR-(\d+)', text)
 
-        return list(set(gh_ids + hash_ids))
+        return gh_ids, hash_ids, spr_ids
 
-    def find_gh_numbers(row):
-        gh_numbers_in_sub = extract_issue_ids(row['commit_subject'])
-        gh_numbers_in_body = extract_issue_ids(row['commit_body'])
+    def find_gh_numbers(row, spr_ids_dict):
+        gh_ids, hash_ids, spr_ids = extract_issue_ids(row['commit_subject'] + "\n\n" + row['commit_body'])
 
-        issue_numbers = list(set(gh_numbers_in_sub + gh_numbers_in_body))
+        print(f"GH Issue Count: {len(gh_ids)}, Hash Issue Count: {len(hash_ids)}, SPR Issue Count: {len(spr_ids)}")
 
-        repo_url = f"https://api.github.com/repos/{row['repo']}/issues/"
+        spr_ids = [str(spr_ids_dict[id]) for id in spr_ids]
 
-        issue_links = [f"{repo_url}{issue_number}" for issue_number in issue_numbers]
+        issue_ids = list(set(gh_ids+hash_ids+spr_ids))
 
-        return issue_links
+        issue_ids = ', '.join(issue_ids)
 
-    data['linked_issues'] = data.apply(find_gh_numbers, axis=1)
+        return issue_ids
 
-    data['linked_issues_count'] = data['linked_issues'].apply(len)
+    data['linked_issues'] = data.apply(lambda row: find_gh_numbers(row, spr_ids_dict), axis=1)
+
+    data['linked_issues_count'] = data['linked_issues'].apply(lambda row: len(row.split(',')) if not not row else 0)
 
     data.to_csv(output, index=False)
-    # print(f"Issue Ids added to Issue List and saved to: {output}")
 
     return data
 
+def fetch_github_issues(owner='spring-projects', repo='spring-framework'):
+    url = f"https://api.github.com/repos/{owner}/{repo}/issues"
+    headers = {"Authorization": f"token {os.environ['GITHUB_API_KEY']}"}
+    issues = []
+    params = {"state": "all", "per_page": 100}
+    page = 1
+
+    while True:
+        params["page"] = page
+        print(f"Fetching page {page}...")
+        response = requests.get(url, headers=headers, params=params)
+        
+        if response.status_code != 200:
+            print(f"Failed to fetch issues: {response.status_code} - {response.text}")
+            break
+        
+        page_data = response.json()
+        if not page_data:  
+            break
+        
+        issues.extend(page_data)
+        page += 1
+
+    return issues
+
+def save_all_issues(output_file):
+    print(f"Fetching Issue\n\n")
+    issues = fetch_github_issues()
+    with open(output_file, "w", encoding="utf-8") as f:
+        json.dump(issues, f, indent=4)
+    print(f"Issues saved to {output_file}")
 
 def extract_issue_details(all_issues_path, issue_link):
     with open(all_issues_path, 'r') as file:
@@ -53,9 +99,7 @@ def add_ref_comments(input_path, output, all_issues):
     data = pd.read_csv(input_path)
     data.fillna("", inplace=True)
 
-    # gh = input("Enter Github token: ")
-    gh = "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"
-    # gh = "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"
+
     headers = {"Authorization": f"token {gh}"}
 
     def fetch_issue_details(issue_links):
@@ -124,10 +168,6 @@ def add_ref_comments(input_path, output, all_issues):
 
 if __name__ == "__main__":
 
-    datapath = 'dataset/code_rationale_list.csv'
-    issues_added_path = 'dataset/cr_list_issue_ids.csv'
-    issue_details_path = 'dataset/cr_list_issue_details.csv'
-    all_issues = "dataset/all_issues.json"
-
-    add_issue_reference(datapath, issues_added_path)
-    add_ref_comments(issues_added_path, issue_details_path, all_issues)
+    # save_all_issues(ALL_ISSUES)
+    add_issue_reference(COMMIT_DETAILS, COMMIT_W_ISSUE_ID, ALL_ISSUES)
+    # add_ref_comments(COMMIT_W_ISSUE_ID, COMMIT_W_ISSUE_DESC, ALL_ISSUES)
