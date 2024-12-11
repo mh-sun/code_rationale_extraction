@@ -22,7 +22,7 @@ def add_issue_reference(input_path, output, all_issues_path):
                 digits = match.group(1)
                 spr_ids_dict[digits] = issue['number']
 
-        print(f"\n\nFound {len(spr_ids_dict)} SPR IDs\n\n")
+        print(f"\n\nFound {len(spr_ids_dict)} SPR IDs in total {len(all_issues)} Issues\n\n")
             
 
     def extract_issue_ids(text):
@@ -95,18 +95,29 @@ def extract_issue_details(all_issues_path, issue_link):
     return None
 
 
-def add_ref_comments(input_path, output, all_issues):
+def add_ref_comments(input_path, output):
     data = pd.read_csv(input_path)
     data.fillna("", inplace=True)
 
-
-    headers = {"Authorization": f"token {gh}"}
+    headers = {"Authorization": f"token {os.environ['GITHUB_API_KEY']}"}
 
     def fetch_issue_details(issue_links):
         titles, bodies, states, comments_count, all_comments_texts = [], [], [], [], []
 
-        for issue_link in eval(issue_links):
-            # Fetch issue details
+        issue_links = [i.strip() for i in issue_links.split(',')]
+
+        if len(issue_links) == 1 and '' in issue_links:
+            return {
+                    'issue_titles': "N/A",
+                    'issue_bodies': "N/A",
+                    'issue_states': "N/A",
+                    'issue_comments_count': "N/A",
+                    'issue_comments': "N/A"
+                }
+
+        for issue_link in issue_links:
+            issue_link = f"https://api.github.com/repos/spring-projects/spring-framework/issues/{issue_link}"
+
             issue_response = requests.get(issue_link, headers=headers)
 
             if issue_response.status_code == 200:
@@ -117,7 +128,6 @@ def add_ref_comments(input_path, output, all_issues):
                     states.append(issue_data.get("state", "N/A"))
                     comments_count.append(issue_data.get("comments", "N/A"))
 
-                    # Fetch comments
                     comments_link = issue_data.get("comments_url", "")
                     comments_response = requests.get(comments_link, headers=headers)
 
@@ -129,12 +139,12 @@ def add_ref_comments(input_path, output, all_issues):
                         except requests.JSONDecodeError:
                             raise ValueError(f"Invalid JSON in comments response for {comments_link}")
                     else:
-                        print(f"Failed to fetch comments from {comments_link}, status code: {comments_response.status_code}")
+                        print(f"Failed to fetch << comments >> from {comments_link}, status code: {comments_response.status_code}")
                         all_comments_texts = ["N/A"]
                 except requests.JSONDecodeError:
                     raise ValueError(f"Invalid JSON in issue response for {issue_link}")
             else:
-                print(f"Failed to fetch issue from {issue_link}, status code: {issue_response.status_code}")
+                print(f"Failed to fetch << issue >> from {issue_link}, status code: {issue_response.status_code}")
                 return {
                     'issue_titles': "N/A",
                     'issue_bodies': "N/A",
@@ -169,5 +179,5 @@ def add_ref_comments(input_path, output, all_issues):
 if __name__ == "__main__":
 
     # save_all_issues(ALL_ISSUES)
-    add_issue_reference(COMMIT_DETAILS, COMMIT_W_ISSUE_ID, ALL_ISSUES)
-    # add_ref_comments(COMMIT_W_ISSUE_ID, COMMIT_W_ISSUE_DESC, ALL_ISSUES)
+    # add_issue_reference(COMMIT_DETAILS, COMMIT_W_ISSUE_ID, ALL_ISSUES)
+    add_ref_comments(COMMIT_W_ISSUE_ID, COMMIT_W_ISSUE_DESC)

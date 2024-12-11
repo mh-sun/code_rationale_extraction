@@ -522,7 +522,7 @@ the case when primary and default constructors are the same when
 a secondary constructor is defined.
 
 Issue: SPR-16289
-",,"20836, 20571",2
+",,"20571, 20836",2
 19a9bc4747028e68d0fc9ce71c302488cfbfa978,spring-projects/spring-framework,spring-web/src/main/java/org/springframework/web/server/session/InMemoryWebSessionStore.java,Remove_Condition,"-
 -			if (InMemoryWebSessionStore.this.sessions.remove(currentId) == null) {
 -				return Mono.error(new IllegalStateException(
@@ -569,7 +569,7 @@ This commit adds another cache check within the write lock: this avoids
 creating duplicate entries in the cache and `null` return values.
 
 Fixes gh-23211
-",,"22340, 23211",2
+",,"23211, 22340",2
 1c01f575c2d3407e5c3c18a58d19ee00f5420249,spring-projects/spring-framework,spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassParser.java,Add_Condition,"-				members.add(asSourceClass(memberClassName));
 +				try {
 +					members.add(asSourceClass(memberClassName));
@@ -1633,7 +1633,7 @@ See gh-29107
 +		for (String line : contents.split(EOL)) {
 -		for (String line : StringUtils.tokenizeToStringArray(contents, EOL)) {
 +		for (String line : contents.split(EOL)) {",6,iteration,Remove dependency on StringUtils in SortedProperties,"See gh-23018, gh-22383
-",,"23018, 22383",2
+",,"22383, 23018",2
 5405c07d26db564cb680c713dce5abb859635147,spring-projects/spring-framework,spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassPostProcessor.java,Add_Condition,"+		if (!this.setMetadataReaderFactoryCalled) {
 +			this.metadataReaderFactory = new CachingMetadataReaderFactory(resourceLoader);
 +		}",3,condition,Configuration class processing uses MetadataReaderFactory for current ResourceLoader,"Issue: SPR-14684
@@ -1951,7 +1951,7 @@ Issue: SPR-12527
 namespaces which in Spring do not use ""https"" as the scheme.
 
 See gh-22617 gh-22622 gh-22635
-",,"22622, 22617, 22635",3
+",,"22635, 22617, 22622",3
 6887802526dbef2857c4c0106153c0650ec5e4aa,spring-projects/spring-framework,spring-core/src/main/java/org/springframework/cglib/core/ReflectUtils.java,Condition_Change,"-				MethodHandles.Lookup lookup =
 -						(MethodHandles.Lookup) privateLookupInMethod.invoke(null, contextClass, MethodHandles.lookup());
 +				MethodHandles.Lookup lookup = (MethodHandles.Lookup)
@@ -3070,7 +3070,7 @@ Closes gh-33336
 
 See gh-30597
 Closes gh-30729
-",,"30729, 30597, 27572",3
+",,"30597, 30729, 27572",3
 9dfa46f6902b7b134847ae20bc88b4a3968a99bb,spring-projects/spring-framework,spring-core/src/main/java/org/springframework/core/io/support/PathMatchingResourcePatternResolver.java,Remove_Condition,"-			// If the URI is for a ""resource"" in the GraalVM native image file system, we have to
 -			// ensure that the root directory does not end in a slash while simultaneously ensuring
 -			// that the root directory is not an empty string (since Path#resolve throws an
@@ -4465,7 +4465,7 @@ See spring-projects-experimental/spring-graalvm-native#248 for
 more details.
 
 Closes gh-26236
-",,"248, 26236",2
+",,"26236, 248",2
 e9413b93c6d24a250cc3d67c94f9cd87aef2836a,spring-projects/spring-framework,spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/BeanFactoryAdvisorRetrievalHelper.java,Condition_Change,"-						if (rootCause instanceof BeanCurrentlyInCreationException) {
 -							BeanCreationException bce = (BeanCreationException) rootCause;
 +						if (rootCause instanceof BeanCurrentlyInCreationException bce) {",3,condition,"Apply ""instanceof pattern matching"" in BeanFactoryAdvisorRetrievalHelper",,,,0
