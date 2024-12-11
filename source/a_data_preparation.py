@@ -200,6 +200,6 @@ def filter_commits(data_path):
     print(f"\n\nTotal Commit Count: {len(filtered_df)}")
 
 if __name__ == "__main__":
-    # clone_and_checkout(TARGET_PROJ, TARGET_PROJ_LOCAL, TARGET_PROJ_LAST_COMMIT)
+    clone_and_checkout(TARGET_PROJ, TARGET_PROJ_LOCAL, TARGET_PROJ_LAST_COMMIT)
     process_files(COMMIT_DETAILS, TARGET_PROJ_LOCAL)
     filter_commits(COMMIT_DETAILS)

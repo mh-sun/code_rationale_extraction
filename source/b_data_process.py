@@ -3,6 +3,9 @@ import re
 import requests
 import pandas as pd
 import os
+import time
+import google.generativeai as genai
+genai.configure(api_key=os.environ['GEMINI_API_KEY'])
 
 from tqdm import tqdm
 from const import *
@@ -175,9 +178,68 @@ def add_ref_comments(input_path, output):
 
     return data
 
+def filter_issue_desc(path):
+    df = pd.read_csv(path)
+
+    def filter_diff(diff_text):
+        lines = diff_text.split('\n')
+        filtered_lines = [
+            line for line in lines if not re.match(r'^[\+\-]\s*\*\s*Copyright', line, re.IGNORECASE)
+        ]
+        # Join the filtered lines back
+        return '\n'.join(filtered_lines)
+
+    df['diff'] = df['diff'].apply(filter_diff)
+
+    df.to_csv(path, index=False)
+
+def getGeminiCCSummary(row, model):
+    try:
+        response = model.generate_content(
+            f"summarize this code change made in {row['file']}:\n{row['diff']}", 
+            generation_config=genai.types.GenerationConfig(
+                candidate_count=1,
+                max_output_tokens=100,
+                temperature=0.2,
+                top_k=3,
+            )
+        )
+
+        # Wait 4.5 second till next request
+        time.sleep(4.1)
+        
+        return {
+            "text": response.text, 
+            "avg_logprobs": response.candidates[0].avg_logprobs,
+            "usage_metadata": response.usage_metadata
+        }
+    except Exception as e:
+        print(f"Error processing row {row['file']}: {e}")
+        return {"text": None, "avg_logprobs": None, "usage_metadata": None}
+
+def add_diff_summary(input_path, output_path):
+    df = pd.read_csv(input_path)
+    df = df.drop_duplicates(subset='diff', keep='first')
+    
+    model = genai.GenerativeModel(
+        "models/gemini-1.5-flash-8b", 
+        system_instruction=(
+            "You are an advanced code summarization assistant specialized in Java. Your task is to analyze and summarize changes in code diffs, with a focus on modifications to conditional logic (e.g., if, else if, switch) and iteration constructs (e.g., for, while)."
+        )
+    )
+    
+    tqdm.pandas(desc="Generating Code Change Summaries")
+    df['gemini_cc_summary__k_3__temp_2'] = df.progress_apply(
+        lambda row: getGeminiCCSummary(row, model=model), axis=1
+    )
+    
+    df.to_csv(output_path, index=False)
+
+
 
 if __name__ == "__main__":
-
     # save_all_issues(ALL_ISSUES)
     # add_issue_reference(COMMIT_DETAILS, COMMIT_W_ISSUE_ID, ALL_ISSUES)
-    add_ref_comments(COMMIT_W_ISSUE_ID, COMMIT_W_ISSUE_DESC)
+    # add_ref_comments(COMMIT_W_ISSUE_ID, COMMIT_W_ISSUE_DESC)
+    # filter_issue_desc(COMMIT_W_ISSUE_DESC)
+    add_diff_summary(COMMIT_W_ISSUE_DESC, COMMIT_W_CC_SUMMARY)
