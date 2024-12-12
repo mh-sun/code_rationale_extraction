@@ -1,0 +1,317 @@
+Prompting-Strategy,Exp-Name,Version,Template,Input,Rationale,generated_rationale,BERTScore_precision,BERTScore_recall,BERTScore_f1
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-		if (!cookies.isEmpty()) {
+-			this.builder.header(HttpHeaders.COOKIE, cookies.values().stream()
+-					.flatMap(List::stream).map(HttpCookie::toString).collect(Collectors.joining("";"")));
++		if (cookies.isEmpty()) {
++			return;
++		this.builder.header(HttpHeaders.COOKIE, cookies.values().stream()
++				.flatMap(List::stream).map(HttpCookie::toString).collect(Collectors.joining("";"")));
+
+Generate Rationale (in maximum 50 word):",The code needs to be polished.,"The code change adds a return statement when the cookies list is empty, preventing unnecessary processing. This optimization improves performance by avoiding unnecessary stream operations and method calls when there are no cookies to process.",0.3981868326663971,0.516979455947876,0.44987326860427856
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++import org.springframework.core.SpringProperties;
++ * @author Sebastien Deleuze
++	/**
++	 * Boolean flag controlled by a {@code spring.xml.ignore} system property that instructs Spring to
++	 * ignore XML, i.e. to not initialize the XML-related infrastructure.
++	 * <p>The default is ""false"".
++	 */
++	private static final boolean shouldIgnoreXml = SpringProperties.getFlag(""spring.xml.ignore"");
++	
++
++				else if (shouldIgnoreXml) {
++					throw new UnsupportedOperationException(""XML support disabled"");
++				}
+
+Generate Rationale (in maximum 50 word):",ConfigurationClassBeanDefinitionReader should have a flag that indicate whether Spring is instructed to ignore XML and add avoid returning XmlBeanDefinitionReader if the flag is false.,"The code change introduces a boolean flag `shouldIgnoreXml` that is controlled by a system property `spring.xml.ignore`. This flag allows the developer to disable XML support by setting the property to `true`. The rationale is to provide a way to toggle XML support at runtime, enabling flexibility and customization for different environments or use cases.",0.4999387264251709,0.5310691595077515,0.5150339603424072
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-			if (!this.inputStream.isFinished() && this.inputStream.isReady()) {
++			if (this.inputStream.isReady() && !this.inputStream.isFinished()) {
+
+Generate Rationale (in maximum 50 word):","ServletInputStream.isReady() should be called before ServletInputStream.isFinished() because if request body is already read, ServletInputStream.isReady() will not be called which is needed to schedule a dispatch and send a onAllDataRead event. ","The change is a logical correction to ensure that the code checks for readiness before checking for completion. The original code would return false if the stream is not ready, even if it's not finished. The revised code ensures that the stream is checked for readiness first, then for completion.",0.5183848738670349,0.4257614016532898,0.4675298035144806
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++		Class<?>[] parameterTypes = null;
+-			Class<?>[] ifcs = current.getInterfaces();
+-			for (Class<?> ifc : ifcs) {
++			if (parameterTypes == null) {
++				// Since Method#getParameterTypes() clones the array, we lazily retrieve
++				// and cache parameter types to avoid cloning the array multiple times.
++				parameterTypes = method.getParameterTypes();
++			}
++			for (Class<?> ifc : current.getInterfaces()) {
+-					return ifc.getMethod(method.getName(), method.getParameterTypes());
++					return ifc.getMethod(method.getName(), parameterTypes);
+
+Generate Rationale (in maximum 50 word):","The Method#getParameterTypes() method clones the array of parameter types whenever it is called. To avoid cloning the array multiple times, the parameter types are retrieved lazily.","The code change optimizes the retrieval of method parameter types by caching them in a variable `parameterTypes` and reusing it instead of calling `method.getParameterTypes()` multiple times. This avoids unnecessary cloning of the array, improving performance.",0.6385718584060669,0.7232216000556946,0.6782657504081726
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++	@Override
++	@Override
+-		boolean endsWithSlash = pattern.endsWith(""/"");
+-			if (!endsWithSlash && this.pathMatcher.match(pattern + ""/"", lookupPath)) {
++			if (!pattern.endsWith(""/"") && this.pathMatcher.match(pattern + ""/"", lookupPath)) {
++	@Override
+
+Generate Rationale (in maximum 50 word):",endsWithSlash initialization should be moved inside if statement as it is not used anywhere else in the function,"The code change removes the `boolean endsWithSlash` variable and directly checks if the `pattern` ends with a slash in the `if` condition. This simplifies the code and eliminates the need for an extra variable, making it more concise and efficient.",0.4809553623199463,0.5791477560997009,0.5255039930343628
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-					this.columnLabelMap.put(rsmd.getColumnLabel(i), i);
++					String key = rsmd.getColumnLabel(i);
++					// Make sure to preserve first matching column for any given name,
++					// as defined in ResultSet's type-level javadoc (lines 81 to 83).
++					if (!this.columnLabelMap.containsKey(key)) {
++						this.columnLabelMap.put(key, i);
++					}
+
+Generate Rationale (in maximum 50 word):",ResultSetWrappingSqlRowSet should preserve first matching column with a column name in case there are several columns that have the same names.,"The code change ensures that the `columnLabelMap` only stores the first occurrence of a column with a given name, as per the ResultSet's type-level javadoc. This prevents duplicate entries in the map, making the code more robust and accurate in handling column labels.",0.5298925638198853,0.6240876913070679,0.5731456875801086
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-				if (constructor.getParameterCount() == 9) {
++				if (constructor.getParameterTypes().length == 9) {
+
+Generate Rationale (in maximum 50 word):","Constructor.getParameterCount() was introduced in Java 8, while Constructor.getParameterTypes() has been available since earlier versions of Java. To ensure compatibility with all Java versions, it is safer to use getParameterTypes().length","The change from `getParameterCount()` to `getParameterTypes().length` is to accurately count the number of parameters in a constructor, as `getParameterCount()` is deprecated and may not work correctly for some constructors. This ensures the code remains compatible and robust.",0.6193463802337646,0.6749227046966553,0.6459413170814514
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-					else if (nonSyntheticConstructors == 2 && primaryConstructor != null && defaultConstructor != null) {
++					else if (nonSyntheticConstructors == 2 && primaryConstructor != null
++							&& defaultConstructor != null && !primaryConstructor.equals(defaultConstructor)) {
+
+Generate Rationale (in maximum 50 word):","SPR-16022 treated the primary constructor and the default constructor as always different. However, they can be the same in some cases so this scenario needed to be handled.","The code change adds a new condition to the `else if` statement to check if the `primaryConstructor` is not equal to the `defaultConstructor`. This ensures that when there are two non-synthetic constructors, the code correctly handles the case where the primary constructor is not the same as the default constructor.",0.5486480593681335,0.5974129438400269,0.5719930529594421
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-
+-			if (InMemoryWebSessionStore.this.sessions.remove(currentId) == null) {
+-				return Mono.error(new IllegalStateException(
+-						""Failed to change session id: "" + currentId +
+-								"" because the Session is no longer present in the store.""));
+-			}
++			InMemoryWebSessionStore.this.sessions.remove(currentId);
+
+Generate Rationale (in maximum 50 word):",When the session is new InMemoryWebSessionStore.this.sessions.remove(currentId) returns null. The method should support changing the id even if the session is new.,"The code change simplifies the removal of a session from the InMemoryWebSessionStore by removing the unnecessary null check. The `remove` method returns `null` if the session is not found, and throwing an exception in this case is not necessary as it's a normal behavior.",0.6160949468612671,0.6855611205101013,0.6489744186401367
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-		if (!c1.isInterface() && c1 != Object.class) {
+-			// Try early initialization for overridden methods on subclasses
++		if (!c1.isInterface() && c1 != Object.class && !Factory.class.isAssignableFrom(c2)) {
++			// Try early initialization for overridden methods on specifically purposed subclasses
+
+Generate Rationale (in maximum 50 word):",Factory classes shouldn't have early initialization.,"The code change introduces a new condition to the early initialization check, ensuring that the subclass `c2` is not an instance of `Factory.class`. This refinement allows for more targeted early initialization, only attempting to initialize overridden methods on subclasses that are specifically designed for that purpose, rather than all subclasses.",0.4346344769001007,0.6139863729476929,0.5089726448059082
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++			String urlString = url.toString();
++			String cleanedPath = StringUtils.cleanPath(urlString);
++			if (!cleanedPath.equals(urlString)) {
++				// Prefer cleaned URL, aligned with UrlResource#createRelative(String)
++				try {
++					return new UrlResource(ResourceUtils.toURI(cleanedPath));
++				}
++				catch (URISyntaxException | MalformedURLException ex) {
++					// Fallback to regular URL construction below...
++				}
++			}
+
+Generate Rationale (in maximum 50 word):","The newer version of the Spring Framework handles UrlResource differently by cleaning the path using the StringUtils.cleanPath method. The convertClassLoaderURL method returns either a FileSystemResource or an UrlResource. While it uses the cleaned path when returning a FileSystemResource, for consistency, it should use the same cleaned path when returning a UrlResource.","The code change ensures that the URL is cleaned by removing any unnecessary characters, aligning with the `UrlResource#createRelative(String)` method. This is done to prevent potential issues with URL parsing and to ensure a more robust and consistent URL construction process.",0.5691591501235962,0.5984899997711182,0.5834561586380005
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-			throw new IllegalStateException(""Unexpected reflection exception - "" + ex.getClass().getName() + "": ""
+-					+ ex.getMessage());
++			throw new IllegalStateException(
++					""Unexpected reflection exception - "" + ex.getClass().getName() + "": "" + ex.getMessage());
+-				if (name.equals(method.getName())
+-						&& (paramTypes == null || Arrays.equals(paramTypes, method.getParameterTypes()))) {
++				if (name.equals(method.getName()) &&
++						(paramTypes == null || Arrays.equals(paramTypes, method.getParameterTypes()))) {
+
+Generate Rationale (in maximum 50 word):",POLISH,"The code changes aim to improve code readability and maintainability. The first change removes unnecessary whitespace, making the code more concise. The second change replaces the chained comparison with a line break, improving readability by separating logical conditions. These changes do not alter the code's functionality, only its presentation.",0.1888304501771927,0.240075945854187,0.21139182150363922
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++			if (method == null) {
++				// annotations like @Inject, @Value and @Resource don't have a method
++				// (attribute) named ""required"" -> default to required status
++				return true;
++			}
+-			// required by default
++			// an exception was thrown during reflective invocation of the required
++			// attribute -> default to required status
+
+Generate Rationale (in maximum 50 word):","The ReflectionUtils#findMethod method returns null for annotations like @Inject, @Value, and @Resource that do not have a method named required. In such cases, it should return the default value.","The code change introduces a check for `method` being null, which is a common scenario for annotations like `@Inject`, `@Value`, and `@Resource`. If `method` is null, the code defaults to a required status, as these annotations do not have a ""required"" attribute. This change ensures consistent behavior and avoids potential null pointer exceptions.",0.5963122844696045,0.687340259552002,0.6385987401008606
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-	 * @return the mirrorSets the attribute mirror sets.
++	 * @return the attribute mirror sets
+-					if (lastValue != null &&
+-							!ObjectUtils.nullSafeEquals(lastValue, value)) {
++					if (lastValue != null && !ObjectUtils.nullSafeEquals(lastValue, value)) {
+
+Generate Rationale (in maximum 50 word):",POLISH,"The code change removes the comment ""the mirrorSets the attribute mirror sets"" from the Javadoc, and the comment ""the attribute mirror sets"" is added. This change is likely to improve code readability by providing a clear description of the attribute being returned, without redundant information.",0.19101932644844055,0.23044060170650482,0.20888632535934448
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-					!Modifier.isPublic(constructor.getDeclaringClass().getModifiers()) || !constructor.canAccess(null)) {
++					!Modifier.isPublic(constructor.getDeclaringClass().getModifiers())) {
+-			if (!Modifier.isPublic(method.getModifiers())) {
++			if (!Modifier.isPublic(method.getModifiers())
++				|| !Modifier.isPublic(method.getDeclaringClass().getModifiers())) {
+
+Generate Rationale (in maximum 50 word):","The code should handle the cases where methods are public, but the declaring class has restricted access","The code change adds a check for the declaring class's modifiers in addition to the method's modifiers. This ensures that the method is not public and its declaring class is not public, preventing access to non-public methods and classes.",0.5972700715065002,0.6547848582267761,0.6247064471244812
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-		Set<String> ignoreSet = (ignoreProperties != null ? new HashSet<>(Arrays.asList(ignoreProperties)) : null);
++		Set<String> ignoredProps = (ignoreProperties != null ? new HashSet<>(Arrays.asList(ignoreProperties)) : null);
+-			if (writeMethod != null && (ignoreSet == null || !ignoreSet.contains(targetPd.getName()))) {
++			if (writeMethod != null && (ignoredProps == null || !ignoredProps.contains(targetPd.getName()))) {
+
+Generate Rationale (in maximum 50 word):",POLISH,"The code change replaces `ignoreSet` with `ignoredProps` to maintain consistency in variable naming. The `ignoreSet` variable is renamed to `ignoredProps` to better reflect its purpose, making the code more readable and maintainable.",0.17389658093452454,0.2067050337791443,0.18888674676418304
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++	private static final ResolvableType VOID_TYPE = ResolvableType.forClass(Void.class);
+-		if (elementType.equals(ResolvableType.forClass(Void.class))) {
++		if (VOID_TYPE.equals(elementType)) {
+
+Generate Rationale (in maximum 50 word):",POLISH,"The code change replaces a hardcoded `ResolvableType` object with a static final field `VOID_TYPE`. This improves code readability and maintainability by reducing duplication and making it easier to change the type if needed. The `equals` method is also simplified, as it now compares the `elementType` to a constant value.",0.18402919173240662,0.23592473566532135,0.20677047967910767
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-					while (j < statement.length && '}' != statement[j]) {
++					while (j < statement.length && statement[j] != '}') {
+-						if (':' == statement[j] || '{' == statement[j]) {
++						if (statement[j] == ':' || statement[j] == '{') {
+-						totalParameterCount = addNamedParameter(parameterList, totalParameterCount, escapes, i, j + 1, parameter);
++						totalParameterCount = addNamedParameter(
++								parameterList, totalParameterCount, escapes, i, j + 1, parameter);
+-						totalParameterCount = addNamedParameter(parameterList, totalParameterCount, escapes, i, j, parameter);
++						totalParameterCount = addNamedParameter(
++								parameterList, totalParameterCount, escapes, i, j, parameter);
+
+Generate Rationale (in maximum 50 word):",POLISH,The code change simplifies the condition in the while loop and removes unnecessary explicit type casting in the if statement. It also removes redundant code by moving the identical code block above to below the while loop. This change improves code readability and maintainability.,0.19147631525993347,0.2587999701499939,0.2201051563024521
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++import org.springframework.core.KotlinDetector;
+-				if (ReflectionUtils.declaresException(getMethod(), ex.getClass())) {
++				if (ReflectionUtils.declaresException(getMethod(), ex.getClass()) ||
++						KotlinDetector.isKotlinType(getMethod().getDeclaringClass())) {
++					// Propagate original exception if declared on the target method
++					// (with callers expecting it). Always propagate it for Kotlin code
++					// since checked exceptions do not have to be explicitly declared there.
++					// Checked exception thrown in the interceptor but not declared on the
++					// target method signature -> apply an UndeclaredThrowableException,
++					// aligned with standard JDK dynamic proxy behavior.
+
+Generate Rationale (in maximum 50 word):",UndeclaredThrowableException is thrown when a checked exception from any method is received. This doesn't apply to Kotlin since Kotlin does not have checked exceptions. ,"The code change adds a check for Kotlin types using `KotlinDetector` to handle checked exceptions in Kotlin code. This is because in Kotlin, checked exceptions do not need to be explicitly declared, and the change ensures that the original exception is propagated correctly in such cases, aligning with standard JDK dynamic proxy behavior.",0.5720981359481812,0.641165018081665,0.6046656966209412

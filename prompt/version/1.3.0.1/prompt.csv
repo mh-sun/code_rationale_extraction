@@ -1,0 +1,671 @@
+Prompting-Strategy,Exp-Name,Version,Template,Input,Rationale
+Chain-of-thought,CoT_w_diff_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+-		if (!cookies.isEmpty()) {
+-			this.builder.header(HttpHeaders.COOKIE, cookies.values().stream()
+-					.flatMap(List::stream).map(HttpCookie::toString).collect(Collectors.joining("";"")));
++		if (cookies.isEmpty()) {
++			return;
++		this.builder.header(HttpHeaders.COOKIE, cookies.values().stream()
++				.flatMap(List::stream).map(HttpCookie::toString).collect(Collectors.joining("";"")));
+
+Commit Message:
+Polishing contribution
+
+Closes gh-32799
+
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):",The code needs to be polished.
+Chain-of-thought,CoT_w_diff_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
++import org.springframework.core.SpringProperties;
++ * @author Sebastien Deleuze
++	/**
++	 * Boolean flag controlled by a {@code spring.xml.ignore} system property that instructs Spring to
++	 * ignore XML, i.e. to not initialize the XML-related infrastructure.
++	 * <p>The default is ""false"".
++	 */
++	private static final boolean shouldIgnoreXml = SpringProperties.getFlag(""spring.xml.ignore"");
++	
++
++				else if (shouldIgnoreXml) {
++					throw new UnsupportedOperationException(""XML support disabled"");
++				}
+
+Commit Message:
+Leverage spring.ignore.xml flag to avoid XmlBeanDefinitionReader
+
+Closes gh-25338
+
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):",ConfigurationClassBeanDefinitionReader should have a flag that indicate whether Spring is instructed to ignore XML and add avoid returning XmlBeanDefinitionReader if the flag is false.
+Chain-of-thought,CoT_w_diff_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+-			if (!this.inputStream.isFinished() && this.inputStream.isReady()) {
++			if (this.inputStream.isReady() && !this.inputStream.isFinished()) {
+
+Commit Message:
+Invert the check for ServletInputStream.isReady()
+
+When checking whether there is still request body the first method
+that should be checked is ServletInputStream.isReady() and then
+ServletInputStream.isFinished(). ServletInputStream.isReady() is the active
+method whereas the ServletInputStream.isFinished() is not.
+It is important to call ServletInputStream.isReady() because if it returns
+false it will schedule a dispatch and if the request body is already read it will
+send onAllDataRead event.
+
+Issue: SPR-16521
+
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","ServletInputStream.isReady() should be called before ServletInputStream.isFinished() because if request body is already read, ServletInputStream.isReady() will not be called which is needed to schedule a dispatch and send a onAllDataRead event. "
+Chain-of-thought,CoT_w_diff_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
++		Class<?>[] parameterTypes = null;
+-			Class<?>[] ifcs = current.getInterfaces();
+-			for (Class<?> ifc : ifcs) {
++			if (parameterTypes == null) {
++				// Since Method#getParameterTypes() clones the array, we lazily retrieve
++				// and cache parameter types to avoid cloning the array multiple times.
++				parameterTypes = method.getParameterTypes();
++			}
++			for (Class<?> ifc : current.getInterfaces()) {
+-					return ifc.getMethod(method.getName(), method.getParameterTypes());
++					return ifc.getMethod(method.getName(), parameterTypes);
+
+Commit Message:
+Cache parameter types array in ClassUtils.findInterfaceMethodIfPossible()
+
+nan
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","The Method#getParameterTypes() method clones the array of parameter types whenever it is called. To avoid cloning the array multiple times, the parameter types are retrieved lazily."
+Chain-of-thought,CoT_w_diff_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
++	@Override
++	@Override
+-		boolean endsWithSlash = pattern.endsWith(""/"");
+-			if (!endsWithSlash && this.pathMatcher.match(pattern + ""/"", lookupPath)) {
++			if (!pattern.endsWith(""/"") && this.pathMatcher.match(pattern + ""/"", lookupPath)) {
++	@Override
+
+Commit Message:
+Delay check if pattern ends with slash
+
+This is a minor fix with no actual impact.
+
+Issue: SPR-10504
+
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):",endsWithSlash initialization should be moved inside if statement as it is not used anywhere else in the function
+Chain-of-thought,CoT_w_diff_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+-					this.columnLabelMap.put(rsmd.getColumnLabel(i), i);
++					String key = rsmd.getColumnLabel(i);
++					// Make sure to preserve first matching column for any given name,
++					// as defined in ResultSet's type-level javadoc (lines 81 to 83).
++					if (!this.columnLabelMap.containsKey(key)) {
++						this.columnLabelMap.put(key, i);
++					}
+
+Commit Message:
+ResultSetWrappingSqlRowSet preserves first matching column per name (as defined in ResultSet's javadoc)
+
+Issue: SPR-11786
+
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):",ResultSetWrappingSqlRowSet should preserve first matching column with a column name in case there are several columns that have the same names.
+Chain-of-thought,CoT_w_diff_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+-				if (constructor.getParameterCount() == 9) {
++				if (constructor.getParameterTypes().length == 9) {
+
+Commit Message:
+Polish
+
+Constructor.getParameterCount is JDK8+ only!
+
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","Constructor.getParameterCount() was introduced in Java 8, while Constructor.getParameterTypes() has been available since earlier versions of Java. To ensure compatibility with all Java versions, it is safer to use getParameterTypes().length"
+Chain-of-thought,CoT_w_diff_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+-					else if (nonSyntheticConstructors == 2 && primaryConstructor != null && defaultConstructor != null) {
++					else if (nonSyntheticConstructors == 2 && primaryConstructor != null
++							&& defaultConstructor != null && !primaryConstructor.equals(defaultConstructor)) {
+
+Commit Message:
+Fix Kotlin bean w/ default + secondary ctors handling
+
+This commit polishes SPR-16022 fix in order to handle correctly
+the case when primary and default constructors are the same when
+a secondary constructor is defined.
+
+Issue: SPR-16289
+
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","SPR-16022 treated the primary constructor and the default constructor as always different. However, they can be the same in some cases so this scenario needed to be handled."
+Chain-of-thought,CoT_w_diff_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+-
+-			if (InMemoryWebSessionStore.this.sessions.remove(currentId) == null) {
+-				return Mono.error(new IllegalStateException(
+-						""Failed to change session id: "" + currentId +
+-								"" because the Session is no longer present in the store.""));
+-			}
++			InMemoryWebSessionStore.this.sessions.remove(currentId);
+
+Commit Message:
+Remove unnecessary assertion
+
+Issue: SPR-16201
+
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):",When the session is new InMemoryWebSessionStore.this.sessions.remove(currentId) returns null. The method should support changing the id even if the session is new.
+Chain-of-thought,CoT_w_diff_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+-		if (!c1.isInterface() && c1 != Object.class) {
+-			// Try early initialization for overridden methods on subclasses
++		if (!c1.isInterface() && c1 != Object.class && !Factory.class.isAssignableFrom(c2)) {
++			// Try early initialization for overridden methods on specifically purposed subclasses
+
+Commit Message:
+Narrow early initialization of CGLIB method proxies (for AOT processing)
+
+Do not trigger early initialization on Factory classes (e.g. AOP proxies)
+
+See gh-29107
+
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):",Factory classes shouldn't have early initialization.
+Chain-of-thought,CoT_w_diff_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
++			String urlString = url.toString();
++			String cleanedPath = StringUtils.cleanPath(urlString);
++			if (!cleanedPath.equals(urlString)) {
++				// Prefer cleaned URL, aligned with UrlResource#createRelative(String)
++				try {
++					return new UrlResource(ResourceUtils.toURI(cleanedPath));
++				}
++				catch (URISyntaxException | MalformedURLException ex) {
++					// Fallback to regular URL construction below...
++				}
++			}
+
+Commit Message:
+Enforce cleaned URL for root resource from ClassLoader
+
+Closes gh-32828
+
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","The newer version of the Spring Framework handles UrlResource differently by cleaning the path using the StringUtils.cleanPath method. The convertClassLoaderURL method returns either a FileSystemResource or an UrlResource. While it uses the cleaned path when returning a FileSystemResource, for consistency, it should use the same cleaned path when returning a UrlResource."
+Chain-of-thought,CoT_w_diff_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+-			throw new IllegalStateException(""Unexpected reflection exception - "" + ex.getClass().getName() + "": ""
+-					+ ex.getMessage());
++			throw new IllegalStateException(
++					""Unexpected reflection exception - "" + ex.getClass().getName() + "": "" + ex.getMessage());
+-				if (name.equals(method.getName())
+-						&& (paramTypes == null || Arrays.equals(paramTypes, method.getParameterTypes()))) {
++				if (name.equals(method.getName()) &&
++						(paramTypes == null || Arrays.equals(paramTypes, method.getParameterTypes()))) {
+
+Commit Message:
+Polishing (cherry picked from commit 6021822)
+
+nan
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):",POLISH
+Chain-of-thought,CoT_w_diff_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
++			if (method == null) {
++				// annotations like @Inject, @Value and @Resource don't have a method
++				// (attribute) named ""required"" -> default to required status
++				return true;
++			}
+-			// required by default
++			// an exception was thrown during reflective invocation of the required
++			// attribute -> default to required status
+
+Commit Message:
+Avoid NPE in AutowiredAnnotationBeanPostProcessor
+
+Prior to this change, AABPP#determineRequiredStatus never checked the
+return value of ReflectionUtils#findMethod when searching for a
+'#required' attribute. This call returns null for annotations such as
+@Inject, @Value and @Resource, and subsequently causes a
+NullPointerException to be thrown when ReflectionUtils#invokeMethod is
+called. The NPE is caught immediately and #determineRequiredStatus
+returns defaulting to true, but this this approach is inefficient. It
+is also problematic for users who have set breakpoints on NPE -- they
+end up debugging into Spring internals, which is a false positive.
+
+This commit checks the return value of of ReflectionUtils#findMethod,
+and in the case of null, eagerly returns true.  There is no change to
+external behavior, simply a more efficient and debugging-friendly
+implementation.
+
+Existing test cases already cover this change, given that it is purely
+a refactoring.
+
+Issue: SPR-9316
+
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","The ReflectionUtils#findMethod method returns null for annotations like @Inject, @Value, and @Resource that do not have a method named required. In such cases, it should return the default value."
+Chain-of-thought,CoT_w_diff_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+-	 * @return the mirrorSets the attribute mirror sets.
++	 * @return the attribute mirror sets
+-					if (lastValue != null &&
+-							!ObjectUtils.nullSafeEquals(lastValue, value)) {
++					if (lastValue != null && !ObjectUtils.nullSafeEquals(lastValue, value)) {
+
+Commit Message:
+Polishing
+
+nan
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):",POLISH
+Chain-of-thought,CoT_w_diff_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+-					!Modifier.isPublic(constructor.getDeclaringClass().getModifiers()) || !constructor.canAccess(null)) {
++					!Modifier.isPublic(constructor.getDeclaringClass().getModifiers())) {
+-			if (!Modifier.isPublic(method.getModifiers())) {
++			if (!Modifier.isPublic(method.getModifiers())
++				|| !Modifier.isPublic(method.getDeclaringClass().getModifiers())) {
+
+Commit Message:
+Polish
+
+This fixes an additional case where invoked methods are public but the
+declaring class is package private.
+
+Fixes gh-29046
+
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","The code should handle the cases where methods are public, but the declaring class has restricted access"
+Chain-of-thought,CoT_w_diff_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+-		Set<String> ignoreSet = (ignoreProperties != null ? new HashSet<>(Arrays.asList(ignoreProperties)) : null);
++		Set<String> ignoredProps = (ignoreProperties != null ? new HashSet<>(Arrays.asList(ignoreProperties)) : null);
+-			if (writeMethod != null && (ignoreSet == null || !ignoreSet.contains(targetPd.getName()))) {
++			if (writeMethod != null && (ignoredProps == null || !ignoredProps.contains(targetPd.getName()))) {
+
+Commit Message:
+Polishing
+
+nan
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):",POLISH
+Chain-of-thought,CoT_w_diff_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
++	private static final ResolvableType VOID_TYPE = ResolvableType.forClass(Void.class);
+-		if (elementType.equals(ResolvableType.forClass(Void.class))) {
++		if (VOID_TYPE.equals(elementType)) {
+
+Commit Message:
+Polishing
+
+nan
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):",POLISH
+Chain-of-thought,CoT_w_diff_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+-					while (j < statement.length && '}' != statement[j]) {
++					while (j < statement.length && statement[j] != '}') {
+-						if (':' == statement[j] || '{' == statement[j]) {
++						if (statement[j] == ':' || statement[j] == '{') {
+-						totalParameterCount = addNamedParameter(parameterList, totalParameterCount, escapes, i, j + 1, parameter);
++						totalParameterCount = addNamedParameter(
++								parameterList, totalParameterCount, escapes, i, j + 1, parameter);
+-						totalParameterCount = addNamedParameter(parameterList, totalParameterCount, escapes, i, j, parameter);
++						totalParameterCount = addNamedParameter(
++								parameterList, totalParameterCount, escapes, i, j, parameter);
+
+Commit Message:
+Polishing
+
+nan
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):",POLISH
+Chain-of-thought,CoT_w_diff_commit_0,1.3.0.1,"You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
+{diff}
+
+Commit Message:
+{commit_message}
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Explain step by step the reasoning behind the following code change:
+
+Code Diff:
++import org.springframework.core.KotlinDetector;
+-				if (ReflectionUtils.declaresException(getMethod(), ex.getClass())) {
++				if (ReflectionUtils.declaresException(getMethod(), ex.getClass()) ||
++						KotlinDetector.isKotlinType(getMethod().getDeclaringClass())) {
++					// Propagate original exception if declared on the target method
++					// (with callers expecting it). Always propagate it for Kotlin code
++					// since checked exceptions do not have to be explicitly declared there.
++					// Checked exception thrown in the interceptor but not declared on the
++					// target method signature -> apply an UndeclaredThrowableException,
++					// aligned with standard JDK dynamic proxy behavior.
+
+Commit Message:
+Always propagate checked exceptions from Kotlin code behind CGLIB proxies
+
+Closes gh-23844
+
+
+Step 1: Explain what has changed in Code Diff.
+Step 2: Analyze the Commit Message.
+Step 3: Explain why the code change has been done.
+
+Provide a detailed rationale (in maximum 50 word):",UndeclaredThrowableException is thrown when a checked exception from any method is received. This doesn't apply to Kotlin since Kotlin does not have checked exceptions. 

@@ -1,0 +1,317 @@
+Prompting-Strategy,Exp-Name,Version,Template,Input,Rationale
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-		if (!cookies.isEmpty()) {
+-			this.builder.header(HttpHeaders.COOKIE, cookies.values().stream()
+-					.flatMap(List::stream).map(HttpCookie::toString).collect(Collectors.joining("";"")));
++		if (cookies.isEmpty()) {
++			return;
++		this.builder.header(HttpHeaders.COOKIE, cookies.values().stream()
++				.flatMap(List::stream).map(HttpCookie::toString).collect(Collectors.joining("";"")));
+
+Generate Rationale (in maximum 50 word):",The code needs to be polished.
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++import org.springframework.core.SpringProperties;
++ * @author Sebastien Deleuze
++	/**
++	 * Boolean flag controlled by a {@code spring.xml.ignore} system property that instructs Spring to
++	 * ignore XML, i.e. to not initialize the XML-related infrastructure.
++	 * <p>The default is ""false"".
++	 */
++	private static final boolean shouldIgnoreXml = SpringProperties.getFlag(""spring.xml.ignore"");
++	
++
++				else if (shouldIgnoreXml) {
++					throw new UnsupportedOperationException(""XML support disabled"");
++				}
+
+Generate Rationale (in maximum 50 word):",ConfigurationClassBeanDefinitionReader should have a flag that indicate whether Spring is instructed to ignore XML and add avoid returning XmlBeanDefinitionReader if the flag is false.
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-			if (!this.inputStream.isFinished() && this.inputStream.isReady()) {
++			if (this.inputStream.isReady() && !this.inputStream.isFinished()) {
+
+Generate Rationale (in maximum 50 word):","ServletInputStream.isReady() should be called before ServletInputStream.isFinished() because if request body is already read, ServletInputStream.isReady() will not be called which is needed to schedule a dispatch and send a onAllDataRead event. "
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++		Class<?>[] parameterTypes = null;
+-			Class<?>[] ifcs = current.getInterfaces();
+-			for (Class<?> ifc : ifcs) {
++			if (parameterTypes == null) {
++				// Since Method#getParameterTypes() clones the array, we lazily retrieve
++				// and cache parameter types to avoid cloning the array multiple times.
++				parameterTypes = method.getParameterTypes();
++			}
++			for (Class<?> ifc : current.getInterfaces()) {
+-					return ifc.getMethod(method.getName(), method.getParameterTypes());
++					return ifc.getMethod(method.getName(), parameterTypes);
+
+Generate Rationale (in maximum 50 word):","The Method#getParameterTypes() method clones the array of parameter types whenever it is called. To avoid cloning the array multiple times, the parameter types are retrieved lazily."
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++	@Override
++	@Override
+-		boolean endsWithSlash = pattern.endsWith(""/"");
+-			if (!endsWithSlash && this.pathMatcher.match(pattern + ""/"", lookupPath)) {
++			if (!pattern.endsWith(""/"") && this.pathMatcher.match(pattern + ""/"", lookupPath)) {
++	@Override
+
+Generate Rationale (in maximum 50 word):",endsWithSlash initialization should be moved inside if statement as it is not used anywhere else in the function
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-					this.columnLabelMap.put(rsmd.getColumnLabel(i), i);
++					String key = rsmd.getColumnLabel(i);
++					// Make sure to preserve first matching column for any given name,
++					// as defined in ResultSet's type-level javadoc (lines 81 to 83).
++					if (!this.columnLabelMap.containsKey(key)) {
++						this.columnLabelMap.put(key, i);
++					}
+
+Generate Rationale (in maximum 50 word):",ResultSetWrappingSqlRowSet should preserve first matching column with a column name in case there are several columns that have the same names.
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-				if (constructor.getParameterCount() == 9) {
++				if (constructor.getParameterTypes().length == 9) {
+
+Generate Rationale (in maximum 50 word):","Constructor.getParameterCount() was introduced in Java 8, while Constructor.getParameterTypes() has been available since earlier versions of Java. To ensure compatibility with all Java versions, it is safer to use getParameterTypes().length"
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-					else if (nonSyntheticConstructors == 2 && primaryConstructor != null && defaultConstructor != null) {
++					else if (nonSyntheticConstructors == 2 && primaryConstructor != null
++							&& defaultConstructor != null && !primaryConstructor.equals(defaultConstructor)) {
+
+Generate Rationale (in maximum 50 word):","SPR-16022 treated the primary constructor and the default constructor as always different. However, they can be the same in some cases so this scenario needed to be handled."
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-
+-			if (InMemoryWebSessionStore.this.sessions.remove(currentId) == null) {
+-				return Mono.error(new IllegalStateException(
+-						""Failed to change session id: "" + currentId +
+-								"" because the Session is no longer present in the store.""));
+-			}
++			InMemoryWebSessionStore.this.sessions.remove(currentId);
+
+Generate Rationale (in maximum 50 word):",When the session is new InMemoryWebSessionStore.this.sessions.remove(currentId) returns null. The method should support changing the id even if the session is new.
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-		if (!c1.isInterface() && c1 != Object.class) {
+-			// Try early initialization for overridden methods on subclasses
++		if (!c1.isInterface() && c1 != Object.class && !Factory.class.isAssignableFrom(c2)) {
++			// Try early initialization for overridden methods on specifically purposed subclasses
+
+Generate Rationale (in maximum 50 word):",Factory classes shouldn't have early initialization.
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++			String urlString = url.toString();
++			String cleanedPath = StringUtils.cleanPath(urlString);
++			if (!cleanedPath.equals(urlString)) {
++				// Prefer cleaned URL, aligned with UrlResource#createRelative(String)
++				try {
++					return new UrlResource(ResourceUtils.toURI(cleanedPath));
++				}
++				catch (URISyntaxException | MalformedURLException ex) {
++					// Fallback to regular URL construction below...
++				}
++			}
+
+Generate Rationale (in maximum 50 word):","The newer version of the Spring Framework handles UrlResource differently by cleaning the path using the StringUtils.cleanPath method. The convertClassLoaderURL method returns either a FileSystemResource or an UrlResource. While it uses the cleaned path when returning a FileSystemResource, for consistency, it should use the same cleaned path when returning a UrlResource."
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-			throw new IllegalStateException(""Unexpected reflection exception - "" + ex.getClass().getName() + "": ""
+-					+ ex.getMessage());
++			throw new IllegalStateException(
++					""Unexpected reflection exception - "" + ex.getClass().getName() + "": "" + ex.getMessage());
+-				if (name.equals(method.getName())
+-						&& (paramTypes == null || Arrays.equals(paramTypes, method.getParameterTypes()))) {
++				if (name.equals(method.getName()) &&
++						(paramTypes == null || Arrays.equals(paramTypes, method.getParameterTypes()))) {
+
+Generate Rationale (in maximum 50 word):",POLISH
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++			if (method == null) {
++				// annotations like @Inject, @Value and @Resource don't have a method
++				// (attribute) named ""required"" -> default to required status
++				return true;
++			}
+-			// required by default
++			// an exception was thrown during reflective invocation of the required
++			// attribute -> default to required status
+
+Generate Rationale (in maximum 50 word):","The ReflectionUtils#findMethod method returns null for annotations like @Inject, @Value, and @Resource that do not have a method named required. In such cases, it should return the default value."
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-	 * @return the mirrorSets the attribute mirror sets.
++	 * @return the attribute mirror sets
+-					if (lastValue != null &&
+-							!ObjectUtils.nullSafeEquals(lastValue, value)) {
++					if (lastValue != null && !ObjectUtils.nullSafeEquals(lastValue, value)) {
+
+Generate Rationale (in maximum 50 word):",POLISH
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-					!Modifier.isPublic(constructor.getDeclaringClass().getModifiers()) || !constructor.canAccess(null)) {
++					!Modifier.isPublic(constructor.getDeclaringClass().getModifiers())) {
+-			if (!Modifier.isPublic(method.getModifiers())) {
++			if (!Modifier.isPublic(method.getModifiers())
++				|| !Modifier.isPublic(method.getDeclaringClass().getModifiers())) {
+
+Generate Rationale (in maximum 50 word):","The code should handle the cases where methods are public, but the declaring class has restricted access"
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-		Set<String> ignoreSet = (ignoreProperties != null ? new HashSet<>(Arrays.asList(ignoreProperties)) : null);
++		Set<String> ignoredProps = (ignoreProperties != null ? new HashSet<>(Arrays.asList(ignoreProperties)) : null);
+-			if (writeMethod != null && (ignoreSet == null || !ignoreSet.contains(targetPd.getName()))) {
++			if (writeMethod != null && (ignoredProps == null || !ignoredProps.contains(targetPd.getName()))) {
+
+Generate Rationale (in maximum 50 word):",POLISH
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++	private static final ResolvableType VOID_TYPE = ResolvableType.forClass(Void.class);
+-		if (elementType.equals(ResolvableType.forClass(Void.class))) {
++		if (VOID_TYPE.equals(elementType)) {
+
+Generate Rationale (in maximum 50 word):",POLISH
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+-					while (j < statement.length && '}' != statement[j]) {
++					while (j < statement.length && statement[j] != '}') {
+-						if (':' == statement[j] || '{' == statement[j]) {
++						if (statement[j] == ':' || statement[j] == '{') {
+-						totalParameterCount = addNamedParameter(parameterList, totalParameterCount, escapes, i, j + 1, parameter);
++						totalParameterCount = addNamedParameter(
++								parameterList, totalParameterCount, escapes, i, j + 1, parameter);
+-						totalParameterCount = addNamedParameter(parameterList, totalParameterCount, escapes, i, j, parameter);
++						totalParameterCount = addNamedParameter(
++								parameterList, totalParameterCount, escapes, i, j, parameter);
+
+Generate Rationale (in maximum 50 word):",POLISH
+Zero-shot,ZS_w_diff_0,1.1.0.0,"You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
+{diff}
+
+Generate Rationale (in maximum 50 word):","You are an expert Java Developer. Analyze these code diffs from code commit. Generate a rationale (in maximum 50 word) explaining the reasoning behind the following code change.
+
+Code Diff:
++import org.springframework.core.KotlinDetector;
+-				if (ReflectionUtils.declaresException(getMethod(), ex.getClass())) {
++				if (ReflectionUtils.declaresException(getMethod(), ex.getClass()) ||
++						KotlinDetector.isKotlinType(getMethod().getDeclaringClass())) {
++					// Propagate original exception if declared on the target method
++					// (with callers expecting it). Always propagate it for Kotlin code
++					// since checked exceptions do not have to be explicitly declared there.
++					// Checked exception thrown in the interceptor but not declared on the
++					// target method signature -> apply an UndeclaredThrowableException,
++					// aligned with standard JDK dynamic proxy behavior.
+
+Generate Rationale (in maximum 50 word):",UndeclaredThrowableException is thrown when a checked exception from any method is received. This doesn't apply to Kotlin since Kotlin does not have checked exceptions. 
