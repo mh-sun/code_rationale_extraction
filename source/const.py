@@ -16,3 +16,13 @@ RETRIEVED_DATA_EVAL_ACC = "results/retrieved_data_eval_acc.csv"
 
 ALL_ISSUES = "dataset/all_issues.json"
 
+FEW_SHOT_N = 1
+PROMPT_VERSIONS = ["1.1.0.0", "1.1.0.1", "1.1.0.2", "1.2.0.0", "1.2.0.1", "1.2.0.2", "1.3.0.0", "1.3.0.1", "1.3.0.2"]
+PROMPT_DIR = "prompt/"
+PROMPT_VERSION_DIR = "prompt/version"
+PROMPT_TEMPLATE_PATH = "prompt/prompt_templates.csv"
+MODEL_DIR = "/scratch/projects/mehedi/models"
+PROMPT_RESULT_DIR = "results/prompt"
+RATIONALE_CONSTRUCT = {
+    "model_name" : "meta-llama/Meta-Llama-3-8B-Instruct"
+}

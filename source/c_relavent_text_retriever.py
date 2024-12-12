@@ -229,6 +229,7 @@ def evaluate_retrieved_text(input_path, annotated_data_path, output_path):
     commits_in_generated = set([c['commit_hash'] for c in commits])
 
     commits_hashes = commits_in_annotation.intersection(commits_in_generated)
+    print(commits_hashes)
 
     results = []
     for k in range(1,11):
@@ -260,5 +261,5 @@ def evaluate_retrieved_text(input_path, annotated_data_path, output_path):
     grouped.to_csv(RETRIEVED_DATA_EVAL_ACC, index=False)
 
 if __name__=="__main__":
-    # retrieve_relevant_text(COMMIT_W_CC_SUMMARY_JSON, COMMIT_W_REL_TEXT_JSON)
+    retrieve_relevant_text(COMMIT_W_CC_SUMMARY_JSON, COMMIT_W_REL_TEXT_JSON)
     evaluate_retrieved_text(COMMIT_W_REL_TEXT_JSON, MANUAL_ANNOTATED_DATA, RETRIEVED_DATA_EVAL)
