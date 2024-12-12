@@ -8,6 +8,11 @@ COMMIT_W_ISSUE_DESC = 'dataset/commit_list_issue_details.csv'
 COMMIT_W_CC_SUMMARY = 'dataset/commit_list_issue_cc_summ.csv'
 COMMIT_W_CC_SUMMARY_JSON = 'dataset/commit_list_issue_cc_summ.json'
 COMMIT_W_REL_TEXT_JSON = 'dataset/commit_list_related_text.json'
+COMMIT_LIST_MANNUAL_ANALYSIS = 'dataset/commit_list_manual_analysis.csv'
+
+MANUAL_ANNOTATED_DATA = "dataset/annotated_dataset.json"
+RETRIEVED_DATA_EVAL = "results/retrieved_data_eval.csv"
+RETRIEVED_DATA_EVAL_ACC = "results/retrieved_data_eval_acc.csv"
 
 ALL_ISSUES = "dataset/all_issues.json"
 

@@ -240,8 +240,12 @@ def convert_to_json(input_path, output_path):
     df = pd.read_csv(input_path)
 
     result = []
+    
+    exclusion_commits = ['68837ebb57b111bcaa2f98f1d570268cfa23df0f']
 
     for i,row in df.iterrows():
+        if row['commit'] in exclusion_commits:
+            continue
 
         linked_issue = []
 
@@ -308,10 +312,38 @@ def convert_to_json(input_path, output_path):
     with open(output_path, 'w') as json_file:
         json.dump(result, json_file, indent=4)
 
+def save_separated_issue(issue_details_path, issues_for_manual_analysis):
+    try:
+        issues_df = pd.read_csv(issue_details_path)
+    except Exception as e:
+        print(f"Error reading the file: {e}")
+        return
+
+    print("Preview of issue details:")
+    print(issues_df.head())
+
+    filtered_issues = issues_df[
+        (issues_df['change_count'] <= 10)
+    ]
+
+    print(f"Filtered Issue List Count: {len(filtered_issues)}")
+
+    filtered_issues = filtered_issues.sort_values(by='change_count', ascending=False)
+    filtered_issues = filtered_issues.sample(218, random_state=42)
+
+    print(f"Filtered Issue List Count: {len(filtered_issues)}")
+
+    try:
+        filtered_issues.to_csv(issues_for_manual_analysis, index=False)
+        print(f"Filtered issues saved to {issues_for_manual_analysis}")
+    except Exception as e:
+        print(f"Error saving the file: {e}")
+
 if __name__ == "__main__":
     # save_all_issues(ALL_ISSUES)
     # add_issue_reference(COMMIT_DETAILS, COMMIT_W_ISSUE_ID, ALL_ISSUES)
     # add_ref_comments(COMMIT_W_ISSUE_ID, COMMIT_W_ISSUE_DESC)
     # filter_issue_desc(COMMIT_W_ISSUE_DESC)
     # add_diff_summary(COMMIT_W_ISSUE_DESC, COMMIT_W_CC_SUMMARY)
+    save_separated_issue(COMMIT_W_CC_SUMMARY, COMMIT_LIST_MANNUAL_ANALYSIS)
     convert_to_json(COMMIT_W_CC_SUMMARY, COMMIT_W_CC_SUMMARY_JSON)
