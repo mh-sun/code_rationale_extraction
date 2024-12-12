@@ -1,3 +1,4 @@
+import ast
 import json
 import re
 import requests
@@ -235,11 +236,82 @@ def add_diff_summary(input_path, output_path):
     
     df.to_csv(output_path, index=False)
 
+def convert_to_json(input_path, output_path):
+    df = pd.read_csv(input_path)
 
+    result = []
+
+    for i,row in df.iterrows():
+
+        linked_issue = []
+
+        if type(row['issue_titles']) != type(0.0):
+            linked_issue_ids = [i.strip() for i in row['linked_issues'].split(',')]
+            linked_issue_count = row['linked_issues_count']
+            linked_issue_titles = eval(row['issue_titles'])
+            linked_issue_bodies = eval(row['issue_bodies'])
+            linked_issue_states = eval(row['issue_states'])
+            linked_issue_comments = eval(row['issue_comments'])
+
+            
+            for i in range(linked_issue_count):
+                linked_issue.append({
+                    "issue_id": linked_issue_ids[i],
+                    "issue_title": linked_issue_titles[i],
+                    "issue_body": linked_issue_bodies[i],
+                    "issue_state": linked_issue_states[i],
+                    "issue_comment": linked_issue_comments,
+                })
+
+        data_str = row['gemini_cc_summary__k_3__temp_2']
+        
+        texts = data_str.split(':')
+        if len(texts) == 7:
+            text = texts[1].strip('"').strip("'").strip(", 'avg_logprobs'").strip(', "avg_logprobs"')
+            avg_logprobs = float(texts[2].strip('"').strip("'").strip(" ").strip(", 'usage_metadata'").strip(', "usage_metadata"'))
+        else:
+            start = 1
+            end = len(texts) - 5
+
+            text = ":".join(texts[start:end])
+            text = text.strip('"').strip("'").strip(", 'avg_logprobs'").strip(', "avg_logprobs"')
+            avg_logprobs = float(texts[end].strip('"').strip("'").strip(" ").strip(", 'usage_metadata'").strip(', "usage_metadata"'))
+
+        texts = text.split('.')
+
+        if texts[len(texts)-1] != '':
+            text = '.'.join(texts[:-1])
+
+        summary = {
+            "model": "gemini",
+            "config": {
+                "k": 3, "temp": 0.2
+            },
+            "text": text,
+            "avg_logprobs": avg_logprobs,
+        }
+
+        result.append({
+            "commit_hash": row['commit'],
+            "repository_name": row['repo'],
+            "file_name": row['file'],
+            "change_type": [i.strip() for i in row['change_type'].split(',')],
+            "diff": row['diff'],
+            "change_count": row['change_count'],
+            "condition_type": [i.strip() for i in row['condition_type'].split(',')],
+            "commit_subject": row['commit_subject'],
+            "commit_body": row['commit_body'],
+            "linked_issues": linked_issue,
+            "cc_summary": summary
+        })
+
+    with open(output_path, 'w') as json_file:
+        json.dump(result, json_file, indent=4)
 
 if __name__ == "__main__":
     # save_all_issues(ALL_ISSUES)
     # add_issue_reference(COMMIT_DETAILS, COMMIT_W_ISSUE_ID, ALL_ISSUES)
     # add_ref_comments(COMMIT_W_ISSUE_ID, COMMIT_W_ISSUE_DESC)
     # filter_issue_desc(COMMIT_W_ISSUE_DESC)
-    add_diff_summary(COMMIT_W_ISSUE_DESC, COMMIT_W_CC_SUMMARY)
+    # add_diff_summary(COMMIT_W_ISSUE_DESC, COMMIT_W_CC_SUMMARY)
+    convert_to_json(COMMIT_W_CC_SUMMARY, COMMIT_W_CC_SUMMARY_JSON)

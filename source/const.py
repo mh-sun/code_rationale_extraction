@@ -6,6 +6,8 @@ COMMIT_DETAILS = "dataset/commit_list.csv"
 COMMIT_W_ISSUE_ID = 'dataset/commit_list_issue_ids.csv'
 COMMIT_W_ISSUE_DESC = 'dataset/commit_list_issue_details.csv'
 COMMIT_W_CC_SUMMARY = 'dataset/commit_list_issue_cc_summ.csv'
+COMMIT_W_CC_SUMMARY_JSON = 'dataset/commit_list_issue_cc_summ.json'
+COMMIT_W_REL_TEXT_JSON = 'dataset/commit_list_related_text.json'
 
 ALL_ISSUES = "dataset/all_issues.json"
 
