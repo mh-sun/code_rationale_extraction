@@ -16,10 +16,10 @@ Developers spend approximately 60\% of their time understanding the source code.
 # Directory Structure
 
 ## dataset
- This folder contains all the intermediate files and folders used in the paper. The folder contains following subfolders:
-<!--1. ```dataset/annotation_data```: This folder contains the annotation data, i.e., all the comments for all the 356 issues with the annotated code assigned by human annotators.
+ This folder contains all the intermediate files and folder (Spring Framework Repo) used in the paper. The folder contains following important files:
+. ```dataset/annotated_dataset.json```: This file consist of necessary 
 2. ```dataset/issue_data```: This folder contains the issue title, summary, and meta-data information for the 356 issues.
-3. ```solution_identification_data```: This folder contains the solution identification data, i.e., the issue comments labeled as either solution or non-solution and dataset split (prompt set, train set, and test set). -->
+3. ```solution_identification_data```: This folder contains the solution identification data, i.e., the issue comments labeled as either solution or non-solution and dataset split (prompt set, train set, and test set).
 
 ## prompting
 <!-- This folder contains 10 prompts templates used for the prompting experiments. It also contains the generated prompts and responses for all the 10 prompts with all the 10 folds test dataset for three runs. -->
