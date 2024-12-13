@@ -194,7 +194,26 @@ def evaluate_generated_rationale(prompt_dir, versions):
         data.to_csv(output_path, index=False)
 
         print(f"\nData saved to {output_path}\n")
-        
+
+def merge_response_evaluations(prompt_dir, versions):
+    f1_scores = pd.DataFrame([])
+    recalls = pd.DataFrame([])
+    precisions = pd.DataFrame([])
+    
+    for version in versions:
+        print(f"Inside Version: {version}")
+        prompt_path = os.path.join(prompt_dir, version, 'response_eval.csv')
+
+        data = pd.read_csv(prompt_path)
+
+        f1_scores[data['Exp-Name'].iloc[0]] = data['BERTScore_f1']
+        recalls[data['Exp-Name'].iloc[0]] = data['BERTScore_recall']
+        precisions[data['Exp-Name'].iloc[0]] = data['BERTScore_precision']
+    
+
+    f1_scores.to_csv('results/f1_scores.csv', index=False)
+    recalls.to_csv('results/recalls.csv', index=False)
+    precisions.to_csv('results/precisions.csv', index=False)
 
 if __name__ == "__main__":
     commit_hashes = ['010e8a303b1caf3b80e244fc5e4aebc23d854118', '0f70ac74cd07228bcf67db925b1c01c6b17fc092', '279777b2f3a43ed96eb8151f07b76f38672cc78f', '0728e32e7f3b93e49dfc8c7af20b489b12b3e663', '475c4d4425b2170c4a0f19d5bd39b70e752e38a1', '2624b909060e0967e16771de7a35261decd5a4a9', '2270df515b040d8612c691acc0102d1a224bcd82', '289d378aebd4782f422b880702fbd098122a389c', '19a1477228b8ed75926a15358e3253eb7ffa492e', '3b1d46b3bac74802d264cd57c4a7e685f377c91e', '231433f5406453069aa125329be042d5e32ddff0', '19a9bc4747028e68d0fc9ce71c302488cfbfa978', '02b539c5f50b59d9f5605c21e42d53f0c8e23ae1', '2e5d0470dc0c9766d98d144d5b6bd56248112e46', '030bc224e30699a91e33e27a6d9782803afbd0d4', '0634555424a8742bbe95333c49975437af6eacf8', '052bbcc53031bd48dc76d070ba862f5293618600', '1b1682eacd9c8aabbb86f24dc9c54070f3dd18b4', '947255e3774fe6248c59d2cdd6a1b06b9f6b5d9b']
@@ -202,3 +221,4 @@ if __name__ == "__main__":
     prompt_construct(PROMPT_DIR, PROMPT_TEMPLATE_PATH, PROMPT_RESULT_DIR, COMMIT_W_REL_TEXT_JSON, MANUAL_ANNOTATED_DATA, commit_hashes)
     rationale_generate(PROMPT_VERSION_DIR, PROMPT_VERSIONS)
     evaluate_generated_rationale(PROMPT_VERSION_DIR, PROMPT_VERSIONS)
+    merge_response_evaluations(PROMPT_VERSION_DIR, PROMPT_VERSIONS)
