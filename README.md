@@ -1,7 +1,7 @@
 # Explaining the Whys In Source Code
 
 ## Abstract
-Developers spend approximately 60\% of their time understanding the source code. They have to spend this much time because while recording code change, they mainly focus on "what" has changed rather than "why" it changed. While tools like Git\footnote{https://git-scm.com/} facilitate recording "what" has changed very easily, they fail to provide support capturing the rationale behind code changes. This research investigates the potential of automated techniques and large language models (LLMs) to systematically extract and manage the answer to those "whys" which we call \textit{rationale} from software artifacts such as commit messages, issue logs, discussions, etc. This paper explores the capabilities of prompts and multi-model architectures and assesses the extent to which rationale can be effectively extracted from documentation linked to source code. The evaluation shows this project scored 63\%, 67\% \& 52\% in precision, recall \& f1 score respectively while extracting rationales texts from different sources.
+Developers spend approximately 60\% of their time understanding the source code. Developers spend this much time because, when recording code changes, the emphasis is often on what has changed rather than why the change was made. While tools like Git\footnote{https://git-scm.com/} facilitate recording ``what" has changed very easily, they fail to provide support capturing the rationale behind code changes. This research investigates the potential of automated techniques and large language models (LLMs) to systematically extract and manage the answer to those ``whys" questions which we call \textit{rationale} from software artifacts such as commit messages, issue logs, discussions, etc. This paper explores the capabilities of prompts and multi-model architectures and assesses the extent to which rationale can be effectively extracted from documentation linked to source code. The evaluation shows this project scored 63\%, and 67\% in precision, and recall scores respectively while extracting rationales texts from different sources. Additionally, Chain-of-Thought Prompting outperformed Zero-Shot and One-Shot prompts in constructing rationales.
 
 # Installation Process
 
@@ -16,8 +16,8 @@ Developers spend approximately 60\% of their time understanding the source code.
 # Directory Structure
 
 ## dataset
-<!-- This folder contains all the dataset used in the paper. The folder contains following subfolders:
-1. ```dataset/annotation_data```: This folder contains the annotation data, i.e., all the comments for all the 356 issues with the annotated code assigned by human annotators.
+ This folder contains all the intermediate files and folders used in the paper. The folder contains following subfolders:
+<!--1. ```dataset/annotation_data```: This folder contains the annotation data, i.e., all the comments for all the 356 issues with the annotated code assigned by human annotators.
 2. ```dataset/issue_data```: This folder contains the issue title, summary, and meta-data information for the 356 issues.
 3. ```solution_identification_data```: This folder contains the solution identification data, i.e., the issue comments labeled as either solution or non-solution and dataset split (prompt set, train set, and test set). -->
 
