@@ -142,6 +142,7 @@ def rationale_generate(prompt_dir, versions:list[str]):
             response = outputs[0][input_ids.shape[-1]:]
             final = tokenizer.decode(response, skip_special_tokens=True)
 
+            rat = final
             if version.startswith("1.3"):
                 mode = int(version.split('.')[-1])
                 rat = re.sub(r".*Step.*?\n", "", final)
