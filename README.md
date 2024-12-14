@@ -11,6 +11,8 @@ Developers spend approximately 60\% of their time understanding the source code.
 - GEMINI API Token: To get the Gemini model to produce code change summary
 - Hugging Face API Token: To run the prompt engineering experiments for Llama
 
+#### ```NB```: Without these token the code will run with existing datasets.
+
 ## Environment Setup
 
 ### Install python required package
@@ -46,10 +48,10 @@ This folder contains the source code for the data preparation, tuning, and evalu
 # Run Models:
 
 Provide User Permission to The run.sh File.
-1. chmod +x run.sh
+- chmod +x run.sh
 
 Run run.sh 
-2. ./run.sh
+- ./run.sh
 
 ## Machine Information
 To run the experiments I have used both CPU and GPU. Below I mentioned the machine information I have used to train and evaluate my models.
